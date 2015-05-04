@@ -1,1 +1,1 @@
-www.crystax.net/cn, translation to simplified Chinese.
+https://www.crystax.net/cn, translation to simplified Chinese.
