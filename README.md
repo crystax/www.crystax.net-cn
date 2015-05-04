@@ -1,0 +1,1 @@
+www.crystax.net/cn, translation to simplified Chinese.
