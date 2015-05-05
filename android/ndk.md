@@ -1,18 +1,22 @@
 #CrystaX NDK 10  
 
 ##说明  
-CrystaX NDK是Google's Android NDK的一个替代方案,提供了一些很棒的新功能和大量的bugfix和改进.  
-它的主要目的是让Android开发者更高效地运用标准化代码进行native开发. 通过使用那些支持多平台(IOS,OS X,Windows,Linux等等)的标准代码库,它显著减少了开发时间,不需要再为Android平台做特殊修改(甚至于为Android特殊定制实现那些在其他平台早已实现的功能).  
-Android libc(Bionic)功能有限,版本之间还不尽相同,开发者需要做很多运行时版本检测和兼容性适配的额外工作.  
-CrystaX NDK提供的libcrystax屏蔽了Android版本兼容性差异,甚至重写了很多libc函数,使得应用程序在所有Android设备上表现一致.  
-CrystaX NDK的另一个目的是为Android Native开发提供一些很棒的新功能.例如: Objective-C和其他编程语言的支持.  
-这个项目最初是2009年Dmitry Moskalchuk的个人项目,只是为了添加一些Google Android NDK缺失的C++特性(exceptions,RTTI,C++标准库),后来越加越多,不断优化一步步步变成了Android native开发的最佳进化.很多开源和商业化项目使用CrystaX NDK进行Android开发和移植.  
-现在CrystaX NDK提供了大量新功能,使得Android native开发更容易,详见以下关键特性.  
+**CrystaX NDK**是Google's Android NDK的一个替代方案. 相比谷歌的NDK, **CrystaX NDK**在支持相同功能的同时, 提供了一些很棒的新功能和大量的缺陷修复和改进.  
   
-###1. Full support of wide characters  
-宽字符是C&C++标准库的一部分,例如C标准库的wcsnlen, wcsncasecmp, wcsncmp和[其他](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/wchar.h.html),C++标准库的wchar_t, std::base_string, std::basic_ostream, std::basic_regex等等.  
-Android libc (Bionic)对这些支持不足.  
-CrystaX NDK提供标准化宽字符支持,包括multibyte-to-wide和wide-to-multibyte转换. 轻松使用wide characters, strings, streams, and regular expressions.  
+**CrystaX NDK**的主要目的是让Android开发者更高效地运用标准化代码进行native开发. 通过使用那些支持多平台(IOS,OS X,Windows,Linux等等)的标准代码库,**CrystaX NDK**显著节省了开发时间,不需要再为Android平台做特殊修改(甚至于为Android特殊定制实现那些在其他平台早已实现的功能).  
+
+由于Android libc(Bionic)功能有限,版本之间还不尽相同,开发者需要做很多运行时版本检测和兼容性适配的额外工作. **CrystaX NDK**提供的libcrystax屏蔽了Android版本兼容性差异,甚至重写了很多libc函数,使得应用程序在所有Android设备上表现一致.  
+  
+**CrystaX NDK**的另一个目的是为Android Native开发提供一些很棒的新功能.例如: Objective-C和其他编程语言的支持.  
+  
+这个项目最初是2009年Dmitry Moskalchuk的个人项目,只是为了添加一些Google Android NDK缺失的C++特性(exceptions,RTTI,C++标准库),后来越加越多, 不断优化, **CrystaX NDK**逐步变成了Android native开发的最佳进化.很多开源和商业化项目使用**CrystaX NDK**进行Android开发和移植.  
+  
+现在**CrystaX NDK**提供了大量新功能,使得Android native开发更容易,详见以下关键特性.  
+  
+###1. 完整支持宽字符  
+宽字符是C和C++标准库的一部分,例如C标准库的**wcsnlen, wcsncasecmp, wcsncmp**和[其他](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/wchar.h.html), C++标准库的**wchar_t**, **std::base_string, std::basic_ostream, std::basic_regex**等等.Android libc (Bionic)对这些支持不足.  
+  
+**CrystaX NDK**提供标准化的宽字符支持,包括multibyte-to-wide和反之亦然的转换. 你可以轻松移植已有代码, 或者撰写新代码, 尽情使用宽字符, 字符串, 流以及正则表达式, 不再受限于Android系统.  
 例子  
 ```
 #include <iostream>
@@ -50,10 +54,10 @@ int main()
 }
 ```
 
-###2. Full support of C locales  
-Android libc (Bionic) 不支持locales, 唯一使用方法是通过JNI调用Java实现.很明显效率低下.  
-CrystaX NDK内置支持locales,只需简单调用标准的setlocale，所有后续C标准函数调用都使用设置的locale做输入输出.  
-CrystaX NDK还支持"extended locales" (part of [IEEE Std 1003.1, 2013 Edition](http://pubs.opengroup.org/onlinepubs/9699919799/)), 提供很多标准C接口的locale-enabled函数,例如printf_l, strftime_l, strfmon_l等等.  
+###2. 完整支持C区域设置locales  
+Android libc (Bionic) 不支持locales, 所以在native代码中使用本地化输入输出的唯一方法是通过JNI调用Java本地化实现. 显然这种方法增加了显著的运行时开销, 但这是你使用谷歌Android NDK的唯一选择.  
+  
+**CrystaX NDK**内置支持locales, 只需简单调用标准的**setlocale**, 所有后续C标准函数调用都使用设置的locale做输入输出. **CrystaX NDK**还支持"locales扩展" (部分[IEEE Std 1003.1, 2013 Edition](http://pubs.opengroup.org/onlinepubs/9699919799/)), 提供很多标准C接口的locale有效的函数,例如**printf_l, strftime_l, strfmon_l**等等.  
 例子  
 
 ```
@@ -106,20 +110,23 @@ int main()
     return 0;
 }
 ```
-###3. Full math support, including complex and type-generic math functions  
+###3. 完整数学支持, 包括复杂类型的泛型函数  
 ISO C标准定义头文件<tgmath.h>和<complex.h>. 在Google's Android NDK中, <complex.h>始于r10, 仅支持Android 5.0 (android-21), type-generic math functions没有完整实现.  
-而CrystaX NDK, 没什么好说的,都完整实现了. just enjoy!  
+而**CrystaX NDK**, 没什么好说的,都完整实现了. 尽情使用!  
 
-###4. The most recent toolchains  
-CrystaX NDK包含最新版GCC和Clang编译器. 支持新特性,例如C++11/C++14.  
+###4. 最新工具链  
+**CrystaX NDK**包含最新版GCC和Clang编译器. 支持新特性,例如C++11/C++14.  
 
-###5. C++11/C++14 support  
-由于CrystaX NDK包含最新版GCC和Clang编译器, 所以它支持所有C++11/C++14特性. [C++11 Support in GCC](https://gcc.gnu.org/projects/cxx0x.html), [C++14 Support in GCC](https://gcc.gnu.org/projects/cxx1y.html)和[C++ Support in Clang](http://clang.llvm.org/cxx_status.html).  
+###5. C++11/C++14支持  
+由于**CrystaX NDK**包含最新版GCC和Clang编译器, 所以它支持所有C++11/C++14特性. [C++11 Support in GCC](https://gcc.gnu.org/projects/cxx0x.html), [C++14 Support in GCC](https://gcc.gnu.org/projects/cxx1y.html)和[C++ Support in Clang](http://clang.llvm.org/cxx_status.html).  
 
-###6. Full C++ standard library  
-CrystaX NDK提供完整可用的C++11标准库, 包括std::thread 和 std::mutex, functions/classes from std::chrono, and functions std::stol, std::stoul etc. 这些在Google's Android NDK中都缺失.或者严格地说,存在但仅限于实验版的LLMV libc++实现.  
-CrystaX NDK完整支持C++标准库, 无论你使用GNU libstdc++或LLVM libc++.  
-另外, LLVM libc++ 在CrystaX NDK中也是第一优先级, 地位等同于GNU libstdc++, 所以你可以自由选择其中之一,默认使用GNU libstdc++.  
+###6. 完整的C++标准库  
+**CrystaX NDK**提供完整可用的C++11标准库, 包括**std::thread** 和 **std::mutex**, **std::chrono**的类和方法, 以及方法**std::stol, std::stoul** etc. 这些在Google's Android NDK中都缺失.或者严格地说,存在但仅限于实验版的LLMV libc++实现.  
+  
+**CrystaX NDK**完整支持C++标准库, 无论你使用GNU libstdc++或LLVM libc++.  
+  
+另外, LLVM libc++ 在**CrystaX NDK**中也是第一优先级, 地位等同于GNU libstdc++, 所以你可以自由选择其中之一,默认使用GNU libstdc++.  
+  
 例子  
 ```
 #include <iostream>
@@ -163,22 +170,22 @@ int main()
     return 0;
 }
 ```
-###7. Boost C++ libraries out of the box  
-提供了预编译好的Boost C++库文件. 轻松使用Boost,不用再自己折腾了.  
-更重要的是, Boost C++库跟CrystaX NDK更配!  
+###7. 内置Boost C++库  
+提供了预编译好的Boost C++库文件. 轻松使用Boost,不用再自己折腾了.更重要的是, Boost C++库跟**CrystaX NDK**更配! 因为基于更加标准化支持的**CrystaX NDK**(是的, 这是libcrystax, **Crystax NDK**的核心).  
+  
 例子 [如何在Android工程中使用Boost C++库](https://www.crystax.net/en/blog/2)  
 
-###8. Objective-C and Objective-C++ support  
-Google's NDK只支持C C++. CrystaX NDK还支持Objective-C和Objective-C++. 目前只支持核心语言部分; 正在实现Cocoa-like库和Objective-C v2 runtime. 使用Objective-C, 只需添加源码文件到Android.mk, LOCAL_SRC_FILES添加 .m (Objective-C) 和 .mm (Objective-C++).  
+###8. 支持Objective-C and Objective-C++  
+Google's NDK只支持C C++. **CrystaX NDK**还支持Objective-C和Objective-C++. 目前只支持核心语言部分; 正在实现Cocoa库和Objective-C v2 runtime. 使用Objective-C, 只需添加源码文件到Android.mk, LOCAL_SRC_FILES添加 .m (Objective-C) 和 .mm (Objective-C++).  
 
-###9. Tons of fixes and improvements of standard C library implementation  
-众所周知Android libc (Bionic)的标准C函数实现有大量bug, 例如strtod.有些改了,有些还没改. 即使改了,也只对后续新版本有效.开发人员只能自己搞定已发布版本的适配.  
-CrystaX NDK在libcrystax中重写了这些有bug的函数,而且平台版本无关,对开发人员透明.  
+###9. 标准C库的大量缺陷修复和功能改进  
+众所周知Android libc (Bionic)的标准C函数实现有大量bug, 例如**strtod**, 只对最简单格式的字符串输入有效, 不支持其他标准C需要的. 有些bug修复了,有些还没. 即使修复了,也只对后续新版本有效.开发人员只能自己实现针对已发布版本的适配.  
+**CrystaX NDK**在libcrystax中重写了这些有bug的函数,而且平台版本无关,对开发人员透明.  
 
-###10. To be continued...  
+###10. 未完待续...  
 如果你还需要其他特性,请[联系我们](https://www.crystax.net/en/contact). 欢迎反馈[问题和缺陷](https://tracker.crystax.net/projects/ndk), 当然,也非常欢迎贡献!  
 
-##众筹
+##筹款活动
 
 展望CrystaX NDK的未来. 我们想把它做成一个综合性的Android native开发工具箱, 提供一个坚实可靠的基础,使得任何POSIX兼容的软件无需修改就可运行在Android上. 为了实现这一目标,我们需要社区的支持帮助.  
 我们在[BountySource](https://www.bountysource.com/teams/crystaxndk/fundraiser)发起了一项众筹活动, 为了项目的未来发展, 为了对所有Android开发人员始终保持免费, 请求每一个关注Android native developm未来发展的人员的帮助. 欢迎任何形式的支持, 资金, 给我们发送patch, 帮助传播.  
@@ -186,14 +193,49 @@ CrystaX NDK在libcrystax中重写了这些有bug的函数,而且平台版本无关,对开发人员透明.
 
 ##授权
 
-CrystaX NDK包含若干open-source licenses. 详见The copyright disclaimers in each respective file.  
-CrystaX NDK发布包中也包括编译器,链接器,文档等的预编译二进制文件. 工具链的源码在GitHub (你可以使用编译脚本自动下载它).  
+**CrystaX NDK**包含若干open-source licenses. 详见每个模块的版权声明.  
+请注意**CrystaX NDK**发布包中也包括编译器,链接器,文档等的预编译二进制文件. 工具链的源码在[GitHub](https://github.com/crystax/) (你可以使用[编译脚本](https://www.crystax.net/download/ndk-crystax-r10-build.sh)自动下载它).  
 预编译的GCC和其他二进制文件(GDB, binutils 等等)基于the GNU General Public License (GPL) 或 the GNU Lesser General Public License (LGPL). 详见COPYING and COPYING.LIB 位于 $NDK/toolchains/<toolchain>/prebuilt/<system>.  
-预编译的LLVM/Clang工具链基于the LLVM "BSD" license.  
+预编译的LLVM/Clang工具链基于[LLVM "BSD" license](http://llvm.org/docs/DeveloperPolicy.html#license).  
 基本上, 授权规则等同于Google's Android NDK - 例如, 允许商业&非商业用途. 唯一区别是CrystaX部分, 基于BSD 2-clause license.  
+```
+CrystaX NDK contains code from libc library of FreeBSD project which by-turn contains
+code from other projects. Also, several another open-source projects used, such as GNU gcc,
+GNU binutils, LLVM clang, LLVM libc++ etc. To see specific authors and/or licenses, look
+into appropriate source file. Here is license for those parts which are not derived from
+any other projects but written by CrystaX .NET.
+
+Copyright (c) 2011-2015 CrystaX .NET.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are
+permitted provided that the following conditions are met:
+
+   1. Redistributions of source code must retain the above copyright notice, this list of
+      conditions and the following disclaimer.
+
+   2. Redistributions in binary form must reproduce the above copyright notice, this list
+      of conditions and the following disclaimer in the documentation and/or other materials
+      provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY CrystaX .NET ''AS IS'' AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL CrystaX .NET OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+The views and conclusions contained in the software and documentation are those of the
+authors and should not be interpreted as representing official policies, either expressed
+or implied, of CrystaX .NET.
+
+```
 ##下载  
 
-| File | Size | SHA1 |
+| 文件 | 大小 | SHA1校验值 |
 | :--- | :--- | :--- |
 | [crystax-ndk-10.1.0-windows-x86.exe](https://www.crystax.net/download/crystax-ndk-10.1.0-windows-x86.exe) | 800.793 MB | 1474fc065311f5cfd40531cba71fcc878ca591d7 |
 | [crystax-ndk-10.1.0-windows-x86_64.exe](https://www.crystax.net/download/crystax-ndk-10.1.0-windows-x86_64.exe) |858.172 MB | f73a16892dc8f007872c5457a650e9b50969ebe1|
@@ -212,9 +254,9 @@ CrystaX NDK发布包中也包括编译器,链接器,文档等的预编译二进制文件. 工具链的源码在G
 
 **配置编译环境**  
 遵循AOSP的标准 (除了Java部分):  
-For [Linux](http://source.android.com/source/initializing.html#setting-up-a-linux-build-environment)主机.  
-For [OS X](http://source.android.com/source/initializing.html#setting-up-a-mac-os-x-build-environment)主机.  
-警告!!! 编译Windows版本的CrystaX NDK,只支持Linux主机(使用交叉编译). 在Windows主机上编译未经测试和支持.  
+针对 [Linux](http://source.android.com/source/initializing.html#setting-up-a-linux-build-environment)主机.  
+针对 [OS X](http://source.android.com/source/initializing.html#setting-up-a-mac-os-x-build-environment)主机.  
+**警告!!! 编译Windows版本的CrystaX NDK,只支持Linux主机(使用交叉编译). 在Windows主机上编译未经测试和支持**.  
 
 **编译NDK**  
 
@@ -223,5 +265,5 @@ For [OS X](http://source.android.com/source/initializing.html#setting-up-a-mac-o
 ```
 \curl -sSL https://www.crystax.net/download/ndk-crystax-r10-build.sh | /bin/bash
 ```
-会运行很久 - 几个小时. 脚本执行完成后, 会输出生成的路径.  
+会运行很久 - 长达数小时. 脚本执行完成后, 会输出生成的NDK发布包的路径.  
 完成了! 使用它代替Google's NDK吧!
