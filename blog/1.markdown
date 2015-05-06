@@ -1,11 +1,11 @@
-�õ�Ӧ�ñض�Ҫ�кõ��û�����. ��������ζ��Ӧ�ó���Ӧ��֧���û�����֪������. ���ǽ����������ֺͶ�����ԶԶ������ - ��ͬ�����Ļ�֮�仹�кܶ�������ͬԪ��, �������ڸ�ʽ, ����, ��ʽ������ȵ�. ��Щ�������Ϣ����[locales](http://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE)���綨.  
+好的应用必定要有好的用户体验. 首先这意味着应用程序应该支持用户所熟知的语言. 但是仅仅翻译文字和段落是远远不够的 - 不同语言文化之间还有很多其他不同元素, 包括日期格式, 货币, 格式化规则等等. 这些具体的信息都以[locales](http://zh.wikipedia.org/wiki/%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE)来界定.  
   
-ISO C��ISO C++��׼������locale��ص�������������淶, ����ͨ��ֻҪ���ձ�׼��ȷ���ػ����Ӧ�þ͹���. ���ҵ���, ���ַ�����������Android C/C++. Android libc (Bionic)��֧��locales, ������native������ʹ�ñ��ػ����������Ψһ������ͨ��JNI����Java���ػ�ʵ��. ��Ȼ���ַ�������������������ʱ����, ��������ʹ�ùȸ�Android NDK��Ψһѡ��.  
+ISO C和ISO C++标准定义了locale相关的输入输出操作规范, 所以通常只要按照标准正确本地化你的应用就够了. 不幸的是, 这种方法不适用于Android C/C++. Android libc (Bionic)不支持locales, 所以在native代码中使用本地化输入输出的唯一方法是通过JNI调用Java本地化实现. 显然这种方法增加了显著的运行时开销, 但这是你使用谷歌Android NDK的唯一选择.  
   
-��**CrystaX NDK**��, ���Ǵ�������һ�����ź�����©, ����������ʵ�ֵ�ISO C��ISO C++��׼��locales. ����ζ��ͨ��ʹ��**CrystaX NDK**, ��Ϳ�����Android��ʹ�ñ�׼�ķ������б��ػ�.  
-�����ǿ����������������������.  
+在**CrystaX NDK**中, 我们处理了这一令人遗憾的遗漏, 添加了完整实现的ISO C和ISO C++标准的locales. 这意味着通过使用**CrystaX NDK**, 你就可以在Android上使用标准的方法进行本地化.  
+让我们看几个例子这是如何做到的.  
   
-����������һ��ȫ����Ӧ�ó���, ʹ��OpenGL������Ļ�ϵ�һ��, ����Ҫ����Ļ�ϻ�����ǰ�����ں�ʱ��. ��Ȼ, ���ں�ʱ��Ӧ�����û����������ý��и�ʽ��. Ҫ������һ��, ����ֻ��Ҫ��Ӧ�ó���ʼ�����ñ�׼��**setlocale()**����, Ȼ�����е��ñ�׼**strftime()**�����õ������ݶ������ñ������ں�ʱ���������:  
+假设我们有一个全屏的应用程序, 使用OpenGL绘制屏幕上的一切, 它需要在屏幕上画出当前的日期和时间. 显然, 日期和时间应根据用户的区域设置进行格式化. 要做到这一点, 我们只需要在应用程序开始处调用标准的**setlocale()**函数, 然后所有调用标准**strftime()**函数得到的内容都将采用本地日期和时间的设置项:  
   
 ```
 #include <locale.h>
@@ -32,8 +32,8 @@ fulldatetime(buf, sizeof(buf), tm); /*=> S?n 28 Sep 02:04:04 2014 */
 /* Or any other standard locale such as de_DE.UTF-8, ru_RU.UTF-8 etc */
 ```
 
-ʹ�÷�ʽ��������, �򵥰�? ���������Щ����������ƽ̨Ҳ������! ���仰˵, �����ڿ�ʼ, ������ҪΪAndroid��������ʵ��; ֻҪ�����Ϸ�ʽд����, �Ϳ��Ա������е�����ƽ̨ - Android, iOS, OS X, Windows, �ȵ�.  
-Ȼ����ЩӦ�ó�����Ҫͬʱ֧����ͬ���ݵĶ��ֲ�ͬ����չʾ. ����**setlocale()**����������²���һ���ð취, ��Ϊ**setlocale()**��ȫ������, Ӱ������Ӧ�ó���. ���˵���, **CrystaX NDK**�ṩ����ν��"locales��չ", ������ͨ������ָ��locale���:  
+使用方式就是这样, 简单吧? 更妙的是这些代码在其他平台也能运行! 换句话说, 从现在开始, 不再需要为Android特殊区分实现; 只要按以上方式写代码, 就可以编译运行到所有平台 - Android, iOS, OS X, Windows, 等等.  
+然后有些应用程序需要同时支持相同内容的多种不同语言展示. 调用**setlocale()**在这种情况下不是一个好办法, 因为**setlocale()**是全局设置, 影响整个应用程序. 幸运的是, **CrystaX NDK**提供了所谓的"locales扩展", 允许你通过参数指定locale结果:  
 ```
 #include <locale.h>
 #include <time.h>
@@ -49,10 +49,10 @@ ru_ru_l = newlocale(LC_TIME_MASK, "ru_RU.UTF-8", (locale_t)0);
 
 /* Now, at any place */
 fulldatetime(buf, sizeof(buf), tm, en_us_l); /*=> Sun Sep 28 02:04:04 2014 */
-fulldatetime(buf, sizeof(buf), tm, ru_ru_l); /*=> �ӧ��ܧ�֧�֧ߧ��, 28 ��֧ߧ��ҧ�� 2014 ��. 02:04:04 */
+fulldatetime(buf, sizeof(buf), tm, ru_ru_l); /*=> воскресенье, 28 сентября 2014 г. 02:04:04 */
 ```
 
-��ͬ�������ڻ���ֵ�ĸ�ʽ��. ����, �����ֻ���Ϸʹ��Ӧ���ڹ���͵��ػ��ҵ�ָ���۸�. ��Щ�۸�Ӧ��Ҳ��ȷ��ʾ:  
+这同样适用于货币值的格式化. 例如, 许多手机游戏使用应用内购买和当地货币的指定价格. 这些价格应该也正确显示:  
 ```
 #include <locale.h>
 #include <monetary.h>
@@ -68,7 +68,7 @@ ru_ru_l = newlocale(LC_TIME_MASK | LC_MONETARY_MASK, "ru_RU.UTF-8", (locale_t)0)
 
 /* Now, at any place */
 price(buf, sizeof(buf), 4.99,  en_us_l); /*=> $4.99 */
-price(buf, sizeof(buf), 299.0, ru_ru_l); /*=> 299.00 ����. */
+price(buf, sizeof(buf), 299.0, ru_ru_l); /*=> 299.00 руб. */
 ```
 
-����ȥ����Ȥ��? ���ھ�������[CrystaX NDK](https://www.crystax.net/cn/android/ndk)��!  
+看上去很有趣吧? 现在就来体验[CrystaX NDK](https://www.crystax.net/cn/android/ndk)吧!  
