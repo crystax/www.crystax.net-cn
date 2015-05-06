@@ -1,0 +1,67 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+cn:
+  about: "About"
+  archive: "All versions"
+  blog: "Blog"
+  close: "Close"
+  contact: "Contact"
+  description: "说明"
+  download: "下载"
+  enter_email: "Please enter your e-mail address"
+  enter_message: "Please enter your message"
+  enter_name: "Please enter your name"
+  file: "文件"
+  fundraising: "筹款活动"
+  home: "Home"
+  instructions: "如何编译"
+  languages: "Languages"
+  license: "授权"
+  links: "Links"
+  ndk_r10: "CrystaX NDK 10"
+  ndk_r2: "CrystaX NDK r2"
+  ndk_r3: "CrystaX NDK r3"
+  ndk_r4: "CrystaX NDK r4"
+  ndk_r5: "CrystaX NDK r5"
+  ndk_r6: "CrystaX NDK r6"
+  ndk_r7: "CrystaX NDK r7"
+  ndk_r8: "CrystaX NDK r8"
+  news: "新闻"
+  readmore: "阅读全文"
+  service: "Services"
+  sha1: "SHA1校验值"
+  size: "大小"
+  tracker: "Bug tracker"
+  wrong_email: "Entered e-mail address is not valid!"
+  # Left menu
+  tothetop: "To the top"
+  # Blog navigation links
+  toindex: "To the index"
+  next: "Next"
+  prev: "Previous"
+  # Services
+  consulting: "咨询"
+  sponsoring: "赞助"
+  time:
+    formats:
+      default: "%d.%m.%Y %H:%M:%S %Z"
+      blog: "%d.%m.%Y %H:%M"
