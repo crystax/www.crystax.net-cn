@@ -3,7 +3,7 @@
 ##说明  
 **CrystaX NDK**是Google's Android NDK的一个替代方案. 相比谷歌的NDK, **CrystaX NDK**在支持相同功能的同时, 提供了一些很棒的新功能和大量的缺陷修复和改进.  
   
-**CrystaX NDK**的主要目的是让Android开发者更高效地运用标准化代码进行native开发. 通过使用那些支持多平台(IOS,OS X,Windows,Linux等等)的标准代码库,**CrystaX NDK**显著节省了开发时间,不需要再为Android平台做特殊修改(甚至于为Android特殊定制实现那些在其他平台早已实现的功能).  
+**CrystaX NDK**的主要目的是让Android开发者更高效地运用标准化代码进行native开发. 通过使用那些支持多平台 (IOS, OS X, Windows, Linux 等等) 的标准代码库, **CrystaX NDK**显著节省了开发时间,不需要再为Android平台做特殊修改(甚至于为Android特殊定制实现那些在其他平台早已实现的功能).  
 
 由于Android libc(Bionic)功能有限,版本之间还不尽相同,开发者需要做很多运行时版本检测和兼容性适配的额外工作. **CrystaX NDK**提供的libcrystax屏蔽了Android版本兼容性差异,甚至重写了很多libc函数,使得应用程序在所有Android设备上表现一致.  
   
@@ -54,7 +54,7 @@ int main()
 }
 ```
 
-###2. 完整支持C区域设置locales  
+###2. 完整支持C locales  
 Android libc (Bionic) 不支持locales, 所以在native代码中使用本地化输入输出的唯一方法是通过JNI调用Java本地化实现. 显然这种方法增加了显著的运行时开销, 但这是你使用谷歌Android NDK的唯一选择.  
   
 **CrystaX NDK**内置支持locales, 只需简单调用标准的**setlocale**, 所有后续C标准函数调用都使用设置的locale做输入输出. **CrystaX NDK**还支持"locales扩展" (部分[IEEE Std 1003.1, 2013 Edition](http://pubs.opengroup.org/onlinepubs/9699919799/)), 提供很多标准C接口的locale有效的函数,例如**printf_l, strftime_l, strfmon_l**等等.  
@@ -110,12 +110,12 @@ int main()
     return 0;
 }
 ```
-###3. 完整数学支持, 包括复杂类型的泛型函数  
-ISO C标准定义头文件<tgmath.h>和<complex.h>. 在Google's Android NDK中, <complex.h>始于r10, 仅支持Android 5.0 (android-21), type-generic math functions没有完整实现.  
+###3. 完整数学支持, 包括复数和泛型函数库  
+ISO C标准定义头文件<tgmath.h>和<complex.h>. 在Google's Android NDK中, <complex.h>始于r10, 仅支持Android 5.0 (android-21), 同时泛型数学函数库完全没有实现.  
 而**CrystaX NDK**, 没什么好说的,都完整实现了. 尽情使用!  
 
 ###4. 最新工具链  
-**CrystaX NDK**包含最新版GCC和Clang编译器. 支持新特性,例如C++11/C++14.  
+**CrystaX NDK**包含最新版GCC和Clang编译器. 允许开发人员使用最新语言特性, 例如C++11/C++14. 所有编译器都经过不同程度的优化, 可以针对目标硬件平台生成高效执行代码.  
 
 ###5. C++11/C++14支持  
 由于**CrystaX NDK**包含最新版GCC和Clang编译器, 所以它支持所有C++11/C++14特性. [C++11 Support in GCC](https://gcc.gnu.org/projects/cxx0x.html), [C++14 Support in GCC](https://gcc.gnu.org/projects/cxx1y.html)和[C++ Support in Clang](http://clang.llvm.org/cxx_status.html).  
@@ -179,8 +179,8 @@ int main()
 Google's NDK只支持C C++. **CrystaX NDK**还支持Objective-C和Objective-C++. 目前只支持核心语言部分; 正在实现Cocoa库和Objective-C v2 runtime. 使用Objective-C, 只需添加源码文件到Android.mk, LOCAL_SRC_FILES添加 .m (Objective-C) 和 .mm (Objective-C++).  
 
 ###9. 标准C库的大量缺陷修复和功能改进  
-众所周知Android libc (Bionic)的标准C函数实现有大量bug, 例如**strtod**, 只对最简单格式的字符串输入有效, 不支持其他标准C需要的. 有些bug修复了,有些还没. 即使修复了,也只对后续新版本有效.开发人员只能自己实现针对已发布版本的适配.  
-**CrystaX NDK**在libcrystax中重写了这些有bug的函数,而且平台版本无关,对开发人员透明.  
+众所周知Android libc (Bionic)的标准C函数实现有大量bug, 例如**strtod**, 只对最简单格式的字符串输入有效, 不支持其他标准C定义的规范. 有些缺陷已修复, 有些还未修复. 即使已修复, 也只对后续新版本有效. 开发人员只能自己实现针对已发布版本的适配.  
+**CrystaX NDK**在libcrystax中重写了这些有缺陷的函数,而且平台版本无关,对开发人员透明.  
 
 ###10. 未完待续...  
 如果你还需要其他特性,请[联系我们](https://www.crystax.net/en/contact). 欢迎反馈[问题和缺陷](https://tracker.crystax.net/projects/ndk), 当然,也非常欢迎贡献!  
@@ -193,7 +193,7 @@ Google's NDK只支持C C++. **CrystaX NDK**还支持Objective-C和Objective-C++.
 
 ##授权
 
-**CrystaX NDK**包含若干open-source licenses. 详见每个模块的版权声明.  
+**CrystaX NDK**包含若干open-source licenses. 详见每个模块的版权声明文件.  
 请注意**CrystaX NDK**发布包中也包括编译器,链接器,文档等的预编译二进制文件. 工具链的源码在[GitHub](https://github.com/crystax/) (你可以使用[编译脚本](https://www.crystax.net/download/ndk-crystax-r10-build.sh)自动下载它).  
 预编译的GCC和其他二进制文件(GDB, binutils 等等)基于the GNU General Public License (GPL) 或 the GNU Lesser General Public License (LGPL). 详见COPYING and COPYING.LIB 位于 $NDK/toolchains/<toolchain>/prebuilt/<system>.  
 预编译的LLVM/Clang工具链基于[LLVM "BSD" license](http://llvm.org/docs/DeveloperPolicy.html#license).  
@@ -260,7 +260,7 @@ or implied, of CrystaX .NET.
 
 **编译NDK**  
 
-下载运行[build script](https://www.crystax.net/download/ndk-crystax-r10-build.sh).  
+下载运行[构建脚本](https://www.crystax.net/download/ndk-crystax-r10-build.sh).  
 例子:  
 ```
 \curl -sSL https://www.crystax.net/download/ndk-crystax-r10-build.sh | /bin/bash
