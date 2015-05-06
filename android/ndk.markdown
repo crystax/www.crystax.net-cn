@@ -1,23 +1,23 @@
 #CrystaX NDK 10  
 
-##ËµÃ÷  
-**CrystaX NDK**ÊÇGoogle's Android NDKµÄÒ»¸öÌæ´ú·½°¸. Ïà±È¹È¸èµÄNDK, **CrystaX NDK**ÔÚÖ§³ÖÏàÍ¬¹¦ÄÜµÄÍ¬Ê±, Ìá¹©ÁËÒ»Ğ©ºÜ°ôµÄĞÂ¹¦ÄÜºÍ´óÁ¿µÄÈ±ÏİĞŞ¸´ºÍ¸Ä½ø.  
+##è¯´æ˜  
+**CrystaX NDK**æ˜¯Google's Android NDKçš„ä¸€ä¸ªæ›¿ä»£æ–¹æ¡ˆ. ç›¸æ¯”è°·æ­Œçš„NDK, **CrystaX NDK**åœ¨æ”¯æŒç›¸åŒåŠŸèƒ½çš„åŒæ—¶, æä¾›äº†ä¸€äº›å¾ˆæ£’çš„æ–°åŠŸèƒ½å’Œå¤§é‡çš„ç¼ºé™·ä¿®å¤å’Œæ”¹è¿›.  
   
-**CrystaX NDK**µÄÖ÷ÒªÄ¿µÄÊÇÈÃAndroid¿ª·¢Õß¸ü¸ßĞ§µØÔËÓÃ±ê×¼»¯´úÂë½øĞĞnative¿ª·¢. Í¨¹ıÊ¹ÓÃÄÇĞ©Ö§³Ö¶àÆ½Ì¨(IOS,OS X,Windows,LinuxµÈµÈ)µÄ±ê×¼´úÂë¿â,**CrystaX NDK**ÏÔÖø½ÚÊ¡ÁË¿ª·¢Ê±¼ä,²»ĞèÒªÔÙÎªAndroidÆ½Ì¨×öÌØÊâĞŞ¸Ä(ÉõÖÁÓÚÎªAndroidÌØÊâ¶¨ÖÆÊµÏÖÄÇĞ©ÔÚÆäËûÆ½Ì¨ÔçÒÑÊµÏÖµÄ¹¦ÄÜ).  
+**CrystaX NDK**çš„ä¸»è¦ç›®çš„æ˜¯è®©Androidå¼€å‘è€…æ›´é«˜æ•ˆåœ°è¿ç”¨æ ‡å‡†åŒ–ä»£ç è¿›è¡Œnativeå¼€å‘. é€šè¿‡ä½¿ç”¨é‚£äº›æ”¯æŒå¤šå¹³å°(IOS,OS X,Windows,Linuxç­‰ç­‰)çš„æ ‡å‡†ä»£ç åº“,**CrystaX NDK**æ˜¾è‘—èŠ‚çœäº†å¼€å‘æ—¶é—´,ä¸éœ€è¦å†ä¸ºAndroidå¹³å°åšç‰¹æ®Šä¿®æ”¹(ç”šè‡³äºä¸ºAndroidç‰¹æ®Šå®šåˆ¶å®ç°é‚£äº›åœ¨å…¶ä»–å¹³å°æ—©å·²å®ç°çš„åŠŸèƒ½).  
 
-ÓÉÓÚAndroid libc(Bionic)¹¦ÄÜÓĞÏŞ,°æ±¾Ö®¼ä»¹²»¾¡ÏàÍ¬,¿ª·¢ÕßĞèÒª×öºÜ¶àÔËĞĞÊ±°æ±¾¼ì²âºÍ¼æÈİĞÔÊÊÅäµÄ¶îÍâ¹¤×÷. **CrystaX NDK**Ìá¹©µÄlibcrystaxÆÁ±ÎÁËAndroid°æ±¾¼æÈİĞÔ²îÒì,ÉõÖÁÖØĞ´ÁËºÜ¶àlibcº¯Êı,Ê¹µÃÓ¦ÓÃ³ÌĞòÔÚËùÓĞAndroidÉè±¸ÉÏ±íÏÖÒ»ÖÂ.  
+ç”±äºAndroid libc(Bionic)åŠŸèƒ½æœ‰é™,ç‰ˆæœ¬ä¹‹é—´è¿˜ä¸å°½ç›¸åŒ,å¼€å‘è€…éœ€è¦åšå¾ˆå¤šè¿è¡Œæ—¶ç‰ˆæœ¬æ£€æµ‹å’Œå…¼å®¹æ€§é€‚é…çš„é¢å¤–å·¥ä½œ. **CrystaX NDK**æä¾›çš„libcrystaxå±è”½äº†Androidç‰ˆæœ¬å…¼å®¹æ€§å·®å¼‚,ç”šè‡³é‡å†™äº†å¾ˆå¤šlibcå‡½æ•°,ä½¿å¾—åº”ç”¨ç¨‹åºåœ¨æ‰€æœ‰Androidè®¾å¤‡ä¸Šè¡¨ç°ä¸€è‡´.  
   
-**CrystaX NDK**µÄÁíÒ»¸öÄ¿µÄÊÇÎªAndroid Native¿ª·¢Ìá¹©Ò»Ğ©ºÜ°ôµÄĞÂ¹¦ÄÜ.ÀıÈç: Objective-CºÍÆäËû±à³ÌÓïÑÔµÄÖ§³Ö.  
+**CrystaX NDK**çš„å¦ä¸€ä¸ªç›®çš„æ˜¯ä¸ºAndroid Nativeå¼€å‘æä¾›ä¸€äº›å¾ˆæ£’çš„æ–°åŠŸèƒ½.ä¾‹å¦‚: Objective-Cå’Œå…¶ä»–ç¼–ç¨‹è¯­è¨€çš„æ”¯æŒ.  
   
-Õâ¸öÏîÄ¿×î³õÊÇ2009ÄêDmitry MoskalchukµÄ¸öÈËÏîÄ¿,Ö»ÊÇÎªÁËÌí¼ÓÒ»Ğ©Google Android NDKÈ±Ê§µÄC++ÌØĞÔ(exceptions,RTTI,C++±ê×¼¿â),ºóÀ´Ô½¼ÓÔ½¶à, ²»¶ÏÓÅ»¯, **CrystaX NDK**Öğ²½±ä³ÉÁËAndroid native¿ª·¢µÄ×î¼Ñ½ø»¯.ºÜ¶à¿ªÔ´ºÍÉÌÒµ»¯ÏîÄ¿Ê¹ÓÃ**CrystaX NDK**½øĞĞAndroid¿ª·¢ºÍÒÆÖ².  
+è¿™ä¸ªé¡¹ç›®æœ€åˆæ˜¯2009å¹´Dmitry Moskalchukçš„ä¸ªäººé¡¹ç›®,åªæ˜¯ä¸ºäº†æ·»åŠ ä¸€äº›Google Android NDKç¼ºå¤±çš„C++ç‰¹æ€§(exceptions,RTTI,C++æ ‡å‡†åº“),åæ¥è¶ŠåŠ è¶Šå¤š, ä¸æ–­ä¼˜åŒ–, **CrystaX NDK**é€æ­¥å˜æˆäº†Android nativeå¼€å‘çš„æœ€ä½³è¿›åŒ–.å¾ˆå¤šå¼€æºå’Œå•†ä¸šåŒ–é¡¹ç›®ä½¿ç”¨**CrystaX NDK**è¿›è¡ŒAndroidå¼€å‘å’Œç§»æ¤.  
   
-ÏÖÔÚ**CrystaX NDK**Ìá¹©ÁË´óÁ¿ĞÂ¹¦ÄÜ,Ê¹µÃAndroid native¿ª·¢¸üÈİÒ×,Ïê¼ûÒÔÏÂ¹Ø¼üÌØĞÔ.  
+ç°åœ¨**CrystaX NDK**æä¾›äº†å¤§é‡æ–°åŠŸèƒ½,ä½¿å¾—Android nativeå¼€å‘æ›´å®¹æ˜“,è¯¦è§ä»¥ä¸‹å…³é”®ç‰¹æ€§.  
   
-###1. ÍêÕûÖ§³Ö¿í×Ö·û  
-¿í×Ö·ûÊÇCºÍC++±ê×¼¿âµÄÒ»²¿·Ö,ÀıÈçC±ê×¼¿âµÄ**wcsnlen, wcsncasecmp, wcsncmp**ºÍ[ÆäËû](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/wchar.h.html), C++±ê×¼¿âµÄ**wchar_t**, **std::base_string, std::basic_ostream, std::basic_regex**µÈµÈ.Android libc (Bionic)¶ÔÕâĞ©Ö§³Ö²»×ã.  
+###1. å®Œæ•´æ”¯æŒå®½å­—ç¬¦  
+å®½å­—ç¬¦æ˜¯Cå’ŒC++æ ‡å‡†åº“çš„ä¸€éƒ¨åˆ†,ä¾‹å¦‚Cæ ‡å‡†åº“çš„**wcsnlen, wcsncasecmp, wcsncmp**å’Œ[å…¶ä»–](http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/wchar.h.html), C++æ ‡å‡†åº“çš„**wchar_t**, **std::base_string, std::basic_ostream, std::basic_regex**ç­‰ç­‰.Android libc (Bionic)å¯¹è¿™äº›æ”¯æŒä¸è¶³.  
   
-**CrystaX NDK**Ìá¹©±ê×¼»¯µÄ¿í×Ö·ûÖ§³Ö,°üÀ¨multibyte-to-wideºÍ·´Ö®ÒàÈ»µÄ×ª»». Äã¿ÉÒÔÇáËÉÒÆÖ²ÒÑÓĞ´úÂë, »òÕß×«Ğ´ĞÂ´úÂë, ¾¡ÇéÊ¹ÓÃ¿í×Ö·û, ×Ö·û´®, Á÷ÒÔ¼°ÕıÔò±í´ïÊ½, ²»ÔÙÊÜÏŞÓÚAndroidÏµÍ³.  
-Àı×Ó  
+**CrystaX NDK**æä¾›æ ‡å‡†åŒ–çš„å®½å­—ç¬¦æ”¯æŒ,åŒ…æ‹¬multibyte-to-wideå’Œåä¹‹äº¦ç„¶çš„è½¬æ¢. ä½ å¯ä»¥è½»æ¾ç§»æ¤å·²æœ‰ä»£ç , æˆ–è€…æ’°å†™æ–°ä»£ç , å°½æƒ…ä½¿ç”¨å®½å­—ç¬¦, å­—ç¬¦ä¸², æµä»¥åŠæ­£åˆ™è¡¨è¾¾å¼, ä¸å†å—é™äºAndroidç³»ç»Ÿ.  
+ä¾‹å­  
 ```
 #include <iostream>
 #include <iomanip>
@@ -36,13 +36,13 @@ void strconv()
 {
     setlocale(LC_CTYPE, "ru_RU.UTF-8");
 
-    std::string hello = "§©§Õ§â§Ñ§Ó§ã§ä§Ó§å§Û, §Ş§Ú§â!";
+    std::string hello = "Ğ—Ğ´Ñ€Ğ°Ğ²ÑÑ‚Ğ²ÑƒĞ¹, Ğ¼Ğ¸Ñ€!";
 
     wchar_t buf[128];
     mbstowcs(buf, hello.c_str(), hello.size());
 
     std::wstring s(buf);
-    std::wcout << s << std::endl;  //=> §©§Õ§â§Ñ§Ó§ã§ä§Ó§å§Û, §Ş§Ú§â!
+    std::wcout << s << std::endl;  //=> Ğ—Ğ´Ñ€Ğ°Ğ²ÑÑ‚Ğ²ÑƒĞ¹, Ğ¼Ğ¸Ñ€!
 }
 
 int main()
@@ -54,11 +54,11 @@ int main()
 }
 ```
 
-###2. ÍêÕûÖ§³ÖCÇøÓòÉèÖÃlocales  
-Android libc (Bionic) ²»Ö§³Ölocales, ËùÒÔÔÚnative´úÂëÖĞÊ¹ÓÃ±¾µØ»¯ÊäÈëÊä³öµÄÎ¨Ò»·½·¨ÊÇÍ¨¹ıJNIµ÷ÓÃJava±¾µØ»¯ÊµÏÖ. ÏÔÈ»ÕâÖÖ·½·¨Ôö¼ÓÁËÏÔÖøµÄÔËĞĞÊ±¿ªÏú, µ«ÕâÊÇÄãÊ¹ÓÃ¹È¸èAndroid NDKµÄÎ¨Ò»Ñ¡Ôñ.  
+###2. å®Œæ•´æ”¯æŒCåŒºåŸŸè®¾ç½®locales  
+Android libc (Bionic) ä¸æ”¯æŒlocales, æ‰€ä»¥åœ¨nativeä»£ç ä¸­ä½¿ç”¨æœ¬åœ°åŒ–è¾“å…¥è¾“å‡ºçš„å”¯ä¸€æ–¹æ³•æ˜¯é€šè¿‡JNIè°ƒç”¨Javaæœ¬åœ°åŒ–å®ç°. æ˜¾ç„¶è¿™ç§æ–¹æ³•å¢åŠ äº†æ˜¾è‘—çš„è¿è¡Œæ—¶å¼€é”€, ä½†è¿™æ˜¯ä½ ä½¿ç”¨è°·æ­ŒAndroid NDKçš„å”¯ä¸€é€‰æ‹©.  
   
-**CrystaX NDK**ÄÚÖÃÖ§³Ölocales, Ö»Ğè¼òµ¥µ÷ÓÃ±ê×¼µÄ**setlocale**, ËùÓĞºóĞøC±ê×¼º¯Êıµ÷ÓÃ¶¼Ê¹ÓÃÉèÖÃµÄlocale×öÊäÈëÊä³ö. **CrystaX NDK**»¹Ö§³Ö"localesÀ©Õ¹" (²¿·Ö[IEEE Std 1003.1, 2013 Edition](http://pubs.opengroup.org/onlinepubs/9699919799/)), Ìá¹©ºÜ¶à±ê×¼C½Ó¿ÚµÄlocaleÓĞĞ§µÄº¯Êı,ÀıÈç**printf_l, strftime_l, strfmon_l**µÈµÈ.  
-Àı×Ó  
+**CrystaX NDK**å†…ç½®æ”¯æŒlocales, åªéœ€ç®€å•è°ƒç”¨æ ‡å‡†çš„**setlocale**, æ‰€æœ‰åç»­Cæ ‡å‡†å‡½æ•°è°ƒç”¨éƒ½ä½¿ç”¨è®¾ç½®çš„localeåšè¾“å…¥è¾“å‡º. **CrystaX NDK**è¿˜æ”¯æŒ"localesæ‰©å±•" (éƒ¨åˆ†[IEEE Std 1003.1, 2013 Edition](http://pubs.opengroup.org/onlinepubs/9699919799/)), æä¾›å¾ˆå¤šæ ‡å‡†Cæ¥å£çš„localeæœ‰æ•ˆçš„å‡½æ•°,ä¾‹å¦‚**printf_l, strftime_l, strfmon_l**ç­‰ç­‰.  
+ä¾‹å­  
 
 ```
 #include <locale.h>
@@ -96,38 +96,38 @@ int main()
     printtime("fi_FI.UTF-8", t);      /*=> Su 28 Syy 02:04:04 2014  */
     printtime("sv_SE.UTF-8", t);      /*=> S?n 28 Sep 02:04:04 2014 */
     printtime("no_NO.UTF-8", t);      /*=> s?n 28 sep 02:04:04 2014 */
-    printtime("ru_RU.UTF-8", t);      /*=> §Ó§à§ã§Ü§â§Ö§ã§Ö§ß§î§Ö, 28 §ã§Ö§ß§ä§ñ§Ò§â§ñ 2014 §Ô. 02:04:04 */
+    printtime("ru_RU.UTF-8", t);      /*=> Ğ²Ğ¾ÑĞºÑ€ĞµÑĞµĞ½ÑŒĞµ, 28 ÑĞµĞ½Ñ‚ÑĞ±Ñ€Ñ 2014 Ğ³. 02:04:04 */
     printtime("tr_TR.ISO8859-9", t);  /*=> Paz 28 Eyl 02:04:04 2014 */
 
     printmonetary("C", v);                /*=> 13653.68       */
     printmonetary("en_US.UTF-8", v);      /*=> $13,653.68     */
-    printmonetary("fi_FI.UTF-8", v);      /*=> 13.653,68€     */
+    printmonetary("fi_FI.UTF-8", v);      /*=> 13.653,68â‚¬     */
     printmonetary("sv_SE.ISO8859-1", v);  /*=> 13 653,68 kr   */
     printmonetary("no_NO.ISO8859-15", v); /*=> kr13.653,68    */
-    printmonetary("ru_RU.UTF-8", v);      /*=> 13 653,68 §â§å§Ò. */
+    printmonetary("ru_RU.UTF-8", v);      /*=> 13 653,68 Ñ€ÑƒĞ±. */
     printmonetary("tr_TR.UTF-8", v);      /*=> L 13.653,68    */
 
     return 0;
 }
 ```
-###3. ÍêÕûÊıÑ§Ö§³Ö, °üÀ¨¸´ÔÓÀàĞÍµÄ·ºĞÍº¯Êı  
-ISO C±ê×¼¶¨ÒåÍ·ÎÄ¼ş<tgmath.h>ºÍ<complex.h>. ÔÚGoogle's Android NDKÖĞ, <complex.h>Ê¼ÓÚr10, ½öÖ§³ÖAndroid 5.0 (android-21), type-generic math functionsÃ»ÓĞÍêÕûÊµÏÖ.  
-¶ø**CrystaX NDK**, Ã»Ê²Ã´ºÃËµµÄ,¶¼ÍêÕûÊµÏÖÁË. ¾¡ÇéÊ¹ÓÃ!  
+###3. å®Œæ•´æ•°å­¦æ”¯æŒ, åŒ…æ‹¬å¤æ‚ç±»å‹çš„æ³›å‹å‡½æ•°  
+ISO Cæ ‡å‡†å®šä¹‰å¤´æ–‡ä»¶<tgmath.h>å’Œ<complex.h>. åœ¨Google's Android NDKä¸­, <complex.h>å§‹äºr10, ä»…æ”¯æŒAndroid 5.0 (android-21), type-generic math functionsæ²¡æœ‰å®Œæ•´å®ç°.  
+è€Œ**CrystaX NDK**, æ²¡ä»€ä¹ˆå¥½è¯´çš„,éƒ½å®Œæ•´å®ç°äº†. å°½æƒ…ä½¿ç”¨!  
 
-###4. ×îĞÂ¹¤¾ßÁ´  
-**CrystaX NDK**°üº¬×îĞÂ°æGCCºÍClang±àÒëÆ÷. Ö§³ÖĞÂÌØĞÔ,ÀıÈçC++11/C++14.  
+###4. æœ€æ–°å·¥å…·é“¾  
+**CrystaX NDK**åŒ…å«æœ€æ–°ç‰ˆGCCå’ŒClangç¼–è¯‘å™¨. æ”¯æŒæ–°ç‰¹æ€§,ä¾‹å¦‚C++11/C++14.  
 
-###5. C++11/C++14Ö§³Ö  
-ÓÉÓÚ**CrystaX NDK**°üº¬×îĞÂ°æGCCºÍClang±àÒëÆ÷, ËùÒÔËüÖ§³ÖËùÓĞC++11/C++14ÌØĞÔ. [C++11 Support in GCC](https://gcc.gnu.org/projects/cxx0x.html), [C++14 Support in GCC](https://gcc.gnu.org/projects/cxx1y.html)ºÍ[C++ Support in Clang](http://clang.llvm.org/cxx_status.html).  
+###5. C++11/C++14æ”¯æŒ  
+ç”±äº**CrystaX NDK**åŒ…å«æœ€æ–°ç‰ˆGCCå’ŒClangç¼–è¯‘å™¨, æ‰€ä»¥å®ƒæ”¯æŒæ‰€æœ‰C++11/C++14ç‰¹æ€§. [C++11 Support in GCC](https://gcc.gnu.org/projects/cxx0x.html), [C++14 Support in GCC](https://gcc.gnu.org/projects/cxx1y.html)å’Œ[C++ Support in Clang](http://clang.llvm.org/cxx_status.html).  
 
-###6. ÍêÕûµÄC++±ê×¼¿â  
-**CrystaX NDK**Ìá¹©ÍêÕû¿ÉÓÃµÄC++11±ê×¼¿â, °üÀ¨**std::thread** ºÍ **std::mutex**, **std::chrono**µÄÀàºÍ·½·¨, ÒÔ¼°·½·¨**std::stol, std::stoul** etc. ÕâĞ©ÔÚGoogle's Android NDKÖĞ¶¼È±Ê§.»òÕßÑÏ¸ñµØËµ,´æÔÚµ«½öÏŞÓÚÊµÑé°æµÄLLMV libc++ÊµÏÖ.  
+###6. å®Œæ•´çš„C++æ ‡å‡†åº“  
+**CrystaX NDK**æä¾›å®Œæ•´å¯ç”¨çš„C++11æ ‡å‡†åº“, åŒ…æ‹¬**std::thread** å’Œ **std::mutex**, **std::chrono**çš„ç±»å’Œæ–¹æ³•, ä»¥åŠæ–¹æ³•**std::stol, std::stoul** etc. è¿™äº›åœ¨Google's Android NDKä¸­éƒ½ç¼ºå¤±.æˆ–è€…ä¸¥æ ¼åœ°è¯´,å­˜åœ¨ä½†ä»…é™äºå®éªŒç‰ˆçš„LLMV libc++å®ç°.  
   
-**CrystaX NDK**ÍêÕûÖ§³ÖC++±ê×¼¿â, ÎŞÂÛÄãÊ¹ÓÃGNU libstdc++»òLLVM libc++.  
+**CrystaX NDK**å®Œæ•´æ”¯æŒC++æ ‡å‡†åº“, æ— è®ºä½ ä½¿ç”¨GNU libstdc++æˆ–LLVM libc++.  
   
-ÁíÍâ, LLVM libc++ ÔÚ**CrystaX NDK**ÖĞÒ²ÊÇµÚÒ»ÓÅÏÈ¼¶, µØÎ»µÈÍ¬ÓÚGNU libstdc++, ËùÒÔÄã¿ÉÒÔ×ÔÓÉÑ¡ÔñÆäÖĞÖ®Ò»,Ä¬ÈÏÊ¹ÓÃGNU libstdc++.  
+å¦å¤–, LLVM libc++ åœ¨**CrystaX NDK**ä¸­ä¹Ÿæ˜¯ç¬¬ä¸€ä¼˜å…ˆçº§, åœ°ä½ç­‰åŒäºGNU libstdc++, æ‰€ä»¥ä½ å¯ä»¥è‡ªç”±é€‰æ‹©å…¶ä¸­ä¹‹ä¸€,é»˜è®¤ä½¿ç”¨GNU libstdc++.  
   
-Àı×Ó  
+ä¾‹å­  
 ```
 #include <iostream>
 #include <thread>
@@ -170,34 +170,34 @@ int main()
     return 0;
 }
 ```
-###7. ÄÚÖÃBoost C++¿â  
-Ìá¹©ÁËÔ¤±àÒëºÃµÄBoost C++¿âÎÄ¼ş. ÇáËÉÊ¹ÓÃBoost,²»ÓÃÔÙ×Ô¼ºÕÛÌÚÁË.¸üÖØÒªµÄÊÇ, Boost C++¿â¸ú**CrystaX NDK**¸üÅä! ÒòÎª»ùÓÚ¸ü¼Ó±ê×¼»¯Ö§³ÖµÄ**CrystaX NDK**(ÊÇµÄ, ÕâÊÇlibcrystax, **Crystax NDK**µÄºËĞÄ).  
+###7. å†…ç½®Boost C++åº“  
+æä¾›äº†é¢„ç¼–è¯‘å¥½çš„Boost C++åº“æ–‡ä»¶. è½»æ¾ä½¿ç”¨Boost,ä¸ç”¨å†è‡ªå·±æŠ˜è…¾äº†.æ›´é‡è¦çš„æ˜¯, Boost C++åº“è·Ÿ**CrystaX NDK**æ›´é…! å› ä¸ºåŸºäºæ›´åŠ æ ‡å‡†åŒ–æ”¯æŒçš„**CrystaX NDK**(æ˜¯çš„, è¿™æ˜¯libcrystax, **Crystax NDK**çš„æ ¸å¿ƒ).  
   
-Àı×Ó [ÈçºÎÔÚAndroid¹¤³ÌÖĞÊ¹ÓÃBoost C++¿â](https://www.crystax.net/en/blog/2)  
+ä¾‹å­ [å¦‚ä½•åœ¨Androidå·¥ç¨‹ä¸­ä½¿ç”¨Boost C++åº“](https://www.crystax.net/en/blog/2)  
 
-###8. Ö§³ÖObjective-C and Objective-C++  
-Google's NDKÖ»Ö§³ÖC C++. **CrystaX NDK**»¹Ö§³ÖObjective-CºÍObjective-C++. Ä¿Ç°Ö»Ö§³ÖºËĞÄÓïÑÔ²¿·Ö; ÕıÔÚÊµÏÖCocoa¿âºÍObjective-C v2 runtime. Ê¹ÓÃObjective-C, Ö»ĞèÌí¼ÓÔ´ÂëÎÄ¼şµ½Android.mk, LOCAL_SRC_FILESÌí¼Ó .m (Objective-C) ºÍ .mm (Objective-C++).  
+###8. æ”¯æŒObjective-C and Objective-C++  
+Google's NDKåªæ”¯æŒC C++. **CrystaX NDK**è¿˜æ”¯æŒObjective-Cå’ŒObjective-C++. ç›®å‰åªæ”¯æŒæ ¸å¿ƒè¯­è¨€éƒ¨åˆ†; æ­£åœ¨å®ç°Cocoaåº“å’ŒObjective-C v2 runtime. ä½¿ç”¨Objective-C, åªéœ€æ·»åŠ æºç æ–‡ä»¶åˆ°Android.mk, LOCAL_SRC_FILESæ·»åŠ  .m (Objective-C) å’Œ .mm (Objective-C++).  
 
-###9. ±ê×¼C¿âµÄ´óÁ¿È±ÏİĞŞ¸´ºÍ¹¦ÄÜ¸Ä½ø  
-ÖÚËùÖÜÖªAndroid libc (Bionic)µÄ±ê×¼Cº¯ÊıÊµÏÖÓĞ´óÁ¿bug, ÀıÈç**strtod**, Ö»¶Ô×î¼òµ¥¸ñÊ½µÄ×Ö·û´®ÊäÈëÓĞĞ§, ²»Ö§³ÖÆäËû±ê×¼CĞèÒªµÄ. ÓĞĞ©bugĞŞ¸´ÁË,ÓĞĞ©»¹Ã». ¼´Ê¹ĞŞ¸´ÁË,Ò²Ö»¶ÔºóĞøĞÂ°æ±¾ÓĞĞ§.¿ª·¢ÈËÔ±Ö»ÄÜ×Ô¼ºÊµÏÖÕë¶ÔÒÑ·¢²¼°æ±¾µÄÊÊÅä.  
-**CrystaX NDK**ÔÚlibcrystaxÖĞÖØĞ´ÁËÕâĞ©ÓĞbugµÄº¯Êı,¶øÇÒÆ½Ì¨°æ±¾ÎŞ¹Ø,¶Ô¿ª·¢ÈËÔ±Í¸Ã÷.  
+###9. æ ‡å‡†Cåº“çš„å¤§é‡ç¼ºé™·ä¿®å¤å’ŒåŠŸèƒ½æ”¹è¿›  
+ä¼—æ‰€å‘¨çŸ¥Android libc (Bionic)çš„æ ‡å‡†Cå‡½æ•°å®ç°æœ‰å¤§é‡bug, ä¾‹å¦‚**strtod**, åªå¯¹æœ€ç®€å•æ ¼å¼çš„å­—ç¬¦ä¸²è¾“å…¥æœ‰æ•ˆ, ä¸æ”¯æŒå…¶ä»–æ ‡å‡†Céœ€è¦çš„. æœ‰äº›bugä¿®å¤äº†,æœ‰äº›è¿˜æ²¡. å³ä½¿ä¿®å¤äº†,ä¹Ÿåªå¯¹åç»­æ–°ç‰ˆæœ¬æœ‰æ•ˆ.å¼€å‘äººå‘˜åªèƒ½è‡ªå·±å®ç°é’ˆå¯¹å·²å‘å¸ƒç‰ˆæœ¬çš„é€‚é….  
+**CrystaX NDK**åœ¨libcrystaxä¸­é‡å†™äº†è¿™äº›æœ‰bugçš„å‡½æ•°,è€Œä¸”å¹³å°ç‰ˆæœ¬æ— å…³,å¯¹å¼€å‘äººå‘˜é€æ˜.  
 
-###10. Î´Íê´ıĞø...  
-Èç¹ûÄã»¹ĞèÒªÆäËûÌØĞÔ,Çë[ÁªÏµÎÒÃÇ](https://www.crystax.net/en/contact). »¶Ó­·´À¡[ÎÊÌâºÍÈ±Ïİ](https://tracker.crystax.net/projects/ndk), µ±È»,Ò²·Ç³£»¶Ó­¹±Ï×!  
+###10. æœªå®Œå¾…ç»­...  
+å¦‚æœä½ è¿˜éœ€è¦å…¶ä»–ç‰¹æ€§,è¯·[è”ç³»æˆ‘ä»¬](https://www.crystax.net/en/contact). æ¬¢è¿åé¦ˆ[é—®é¢˜å’Œç¼ºé™·](https://tracker.crystax.net/projects/ndk), å½“ç„¶,ä¹Ÿéå¸¸æ¬¢è¿è´¡çŒ®!  
 
-##³ï¿î»î¶¯
+##ç­¹æ¬¾æ´»åŠ¨
 
-Õ¹ÍûCrystaX NDKµÄÎ´À´. ÎÒÃÇÏë°ÑËü×ö³ÉÒ»¸ö×ÛºÏĞÔµÄAndroid native¿ª·¢¹¤¾ßÏä, Ìá¹©Ò»¸ö¼áÊµ¿É¿¿µÄ»ù´¡,Ê¹µÃÈÎºÎPOSIX¼æÈİµÄÈí¼şÎŞĞèĞŞ¸Ä¾Í¿ÉÔËĞĞÔÚAndroidÉÏ. ÎªÁËÊµÏÖÕâÒ»Ä¿±ê,ÎÒÃÇĞèÒªÉçÇøµÄÖ§³Ö°ïÖú.  
-ÎÒÃÇÔÚ[BountySource](https://www.bountysource.com/teams/crystaxndk/fundraiser)·¢ÆğÁËÒ»ÏîÖÚ³ï»î¶¯, ÎªÁËÏîÄ¿µÄÎ´À´·¢Õ¹, ÎªÁË¶ÔËùÓĞAndroid¿ª·¢ÈËÔ±Ê¼ÖÕ±£³ÖÃâ·Ñ, ÇëÇóÃ¿Ò»¸ö¹Ø×¢Android native developmÎ´À´·¢Õ¹µÄÈËÔ±µÄ°ïÖú. »¶Ó­ÈÎºÎĞÎÊ½µÄÖ§³Ö, ×Ê½ğ, ¸øÎÒÃÇ·¢ËÍpatch, °ïÖú´«²¥.  
-ÇëÔÄ¶Á[CrystaX NDKµÄÀúÊ·ºÍÎ´À´](https://www.crystax.net/en/blog/4), °ïÖúÎÒÃÇÊµÏÖËü.  
+å±•æœ›CrystaX NDKçš„æœªæ¥. æˆ‘ä»¬æƒ³æŠŠå®ƒåšæˆä¸€ä¸ªç»¼åˆæ€§çš„Android nativeå¼€å‘å·¥å…·ç®±, æä¾›ä¸€ä¸ªåšå®å¯é çš„åŸºç¡€,ä½¿å¾—ä»»ä½•POSIXå…¼å®¹çš„è½¯ä»¶æ— éœ€ä¿®æ”¹å°±å¯è¿è¡Œåœ¨Androidä¸Š. ä¸ºäº†å®ç°è¿™ä¸€ç›®æ ‡,æˆ‘ä»¬éœ€è¦ç¤¾åŒºçš„æ”¯æŒå¸®åŠ©.  
+æˆ‘ä»¬åœ¨[BountySource](https://www.bountysource.com/teams/crystaxndk/fundraiser)å‘èµ·äº†ä¸€é¡¹ä¼—ç­¹æ´»åŠ¨, ä¸ºäº†é¡¹ç›®çš„æœªæ¥å‘å±•, ä¸ºäº†å¯¹æ‰€æœ‰Androidå¼€å‘äººå‘˜å§‹ç»ˆä¿æŒå…è´¹, è¯·æ±‚æ¯ä¸€ä¸ªå…³æ³¨Android native developmæœªæ¥å‘å±•çš„äººå‘˜çš„å¸®åŠ©. æ¬¢è¿ä»»ä½•å½¢å¼çš„æ”¯æŒ, èµ„é‡‘, ç»™æˆ‘ä»¬å‘é€patch, å¸®åŠ©ä¼ æ’­.  
+è¯·é˜…è¯»[CrystaX NDKçš„å†å²å’Œæœªæ¥](https://www.crystax.net/en/blog/4), å¸®åŠ©æˆ‘ä»¬å®ç°å®ƒ.  
 
-##ÊÚÈ¨
+##æˆæƒ
 
-**CrystaX NDK**°üº¬Èô¸Éopen-source licenses. Ïê¼ûÃ¿¸öÄ£¿éµÄ°æÈ¨ÉùÃ÷.  
-Çë×¢Òâ**CrystaX NDK**·¢²¼°üÖĞÒ²°üÀ¨±àÒëÆ÷,Á´½ÓÆ÷,ÎÄµµµÈµÄÔ¤±àÒë¶ş½øÖÆÎÄ¼ş. ¹¤¾ßÁ´µÄÔ´ÂëÔÚ[GitHub](https://github.com/crystax/) (Äã¿ÉÒÔÊ¹ÓÃ[±àÒë½Å±¾](https://www.crystax.net/download/ndk-crystax-r10-build.sh)×Ô¶¯ÏÂÔØËü).  
-Ô¤±àÒëµÄGCCºÍÆäËû¶ş½øÖÆÎÄ¼ş(GDB, binutils µÈµÈ)»ùÓÚthe GNU General Public License (GPL) »ò the GNU Lesser General Public License (LGPL). Ïê¼ûCOPYING and COPYING.LIB Î»ÓÚ $NDK/toolchains/<toolchain>/prebuilt/<system>.  
-Ô¤±àÒëµÄLLVM/Clang¹¤¾ßÁ´»ùÓÚ[LLVM "BSD" license](http://llvm.org/docs/DeveloperPolicy.html#license).  
-»ù±¾ÉÏ, ÊÚÈ¨¹æÔòµÈÍ¬ÓÚGoogle's Android NDK - ÀıÈç, ÔÊĞíÉÌÒµ&·ÇÉÌÒµÓÃÍ¾. Î¨Ò»Çø±ğÊÇCrystaX²¿·Ö, »ùÓÚBSD 2-clause license.  
+**CrystaX NDK**åŒ…å«è‹¥å¹²open-source licenses. è¯¦è§æ¯ä¸ªæ¨¡å—çš„ç‰ˆæƒå£°æ˜.  
+è¯·æ³¨æ„**CrystaX NDK**å‘å¸ƒåŒ…ä¸­ä¹ŸåŒ…æ‹¬ç¼–è¯‘å™¨,é“¾æ¥å™¨,æ–‡æ¡£ç­‰çš„é¢„ç¼–è¯‘äºŒè¿›åˆ¶æ–‡ä»¶. å·¥å…·é“¾çš„æºç åœ¨[GitHub](https://github.com/crystax/) (ä½ å¯ä»¥ä½¿ç”¨[ç¼–è¯‘è„šæœ¬](https://www.crystax.net/download/ndk-crystax-r10-build.sh)è‡ªåŠ¨ä¸‹è½½å®ƒ).  
+é¢„ç¼–è¯‘çš„GCCå’Œå…¶ä»–äºŒè¿›åˆ¶æ–‡ä»¶(GDB, binutils ç­‰ç­‰)åŸºäºthe GNU General Public License (GPL) æˆ– the GNU Lesser General Public License (LGPL). è¯¦è§COPYING and COPYING.LIB ä½äº $NDK/toolchains/<toolchain>/prebuilt/<system>.  
+é¢„ç¼–è¯‘çš„LLVM/Clangå·¥å…·é“¾åŸºäº[LLVM "BSD" license](http://llvm.org/docs/DeveloperPolicy.html#license).  
+åŸºæœ¬ä¸Š, æˆæƒè§„åˆ™ç­‰åŒäºGoogle's Android NDK - ä¾‹å¦‚, å…è®¸å•†ä¸š&éå•†ä¸šç”¨é€”. å”¯ä¸€åŒºåˆ«æ˜¯CrystaXéƒ¨åˆ†, åŸºäºBSD 2-clause license.  
 ```
 CrystaX NDK contains code from libc library of FreeBSD project which by-turn contains
 code from other projects. Also, several another open-source projects used, such as GNU gcc,
@@ -233,9 +233,9 @@ authors and should not be interpreted as representing official policies, either 
 or implied, of CrystaX .NET.
 
 ```
-##ÏÂÔØ  
+##ä¸‹è½½  
 
-| ÎÄ¼ş | ´óĞ¡ | SHA1Ğ£ÑéÖµ |
+| æ–‡ä»¶ | å¤§å° | SHA1æ ¡éªŒå€¼ |
 | :--- | :--- | :--- |
 | [crystax-ndk-10.1.0-windows-x86.exe](https://www.crystax.net/download/crystax-ndk-10.1.0-windows-x86.exe) | 800.793 MB | 1474fc065311f5cfd40531cba71fcc878ca591d7 |
 | [crystax-ndk-10.1.0-windows-x86_64.exe](https://www.crystax.net/download/crystax-ndk-10.1.0-windows-x86_64.exe) |858.172 MB | f73a16892dc8f007872c5457a650e9b50969ebe1|
@@ -248,22 +248,22 @@ or implied, of CrystaX .NET.
 | [crystax-ndk-10.1.0-linux-x86_64.7z](https://www.crystax.net/download/crystax-ndk-10.1.0-linux-x86_64.7z) | 814.350 MB | a5a6964e5062239cfa72af37d9147f4577a8f21a|
 | [crystax-ndk-10.1.0-linux-x86_64.tar.bz2](https://www.crystax.net/download/crystax-ndk-10.1.0-linux-x86_64.tar.bz2) | 1.824 GB | 498ebae28243de399bb9a59fbde1d04b24653e64|
 
-##ÈçºÎ±àÒë
+##å¦‚ä½•ç¼–è¯‘
 
-Èç¹ûÄã²»ÏëÊ¹ÓÃÔ¤±àÒë°æ±¾, Ò²¿ÉÒÔ×Ô¼º±àÒë.Ïê¼ûÒÔÏÂÁ÷³Ì.  
+å¦‚æœä½ ä¸æƒ³ä½¿ç”¨é¢„ç¼–è¯‘ç‰ˆæœ¬, ä¹Ÿå¯ä»¥è‡ªå·±ç¼–è¯‘.è¯¦è§ä»¥ä¸‹æµç¨‹.  
 
-**ÅäÖÃ±àÒë»·¾³**  
-×ñÑ­AOSPµÄ±ê×¼ (³ıÁËJava²¿·Ö):  
-Õë¶Ô [Linux](http://source.android.com/source/initializing.html#setting-up-a-linux-build-environment)Ö÷»ú.  
-Õë¶Ô [OS X](http://source.android.com/source/initializing.html#setting-up-a-mac-os-x-build-environment)Ö÷»ú.  
-**¾¯¸æ!!! ±àÒëWindows°æ±¾µÄCrystaX NDK,Ö»Ö§³ÖLinuxÖ÷»ú(Ê¹ÓÃ½»²æ±àÒë). ÔÚWindowsÖ÷»úÉÏ±àÒëÎ´¾­²âÊÔºÍÖ§³Ö**.  
+**é…ç½®ç¼–è¯‘ç¯å¢ƒ**  
+éµå¾ªAOSPçš„æ ‡å‡† (é™¤äº†Javaéƒ¨åˆ†):  
+é’ˆå¯¹ [Linux](http://source.android.com/source/initializing.html#setting-up-a-linux-build-environment)ä¸»æœº.  
+é’ˆå¯¹ [OS X](http://source.android.com/source/initializing.html#setting-up-a-mac-os-x-build-environment)ä¸»æœº.  
+**è­¦å‘Š!!! ç¼–è¯‘Windowsç‰ˆæœ¬çš„CrystaX NDK,åªæ”¯æŒLinuxä¸»æœº(ä½¿ç”¨äº¤å‰ç¼–è¯‘). åœ¨Windowsä¸»æœºä¸Šç¼–è¯‘æœªç»æµ‹è¯•å’Œæ”¯æŒ**.  
 
-**±àÒëNDK**  
+**ç¼–è¯‘NDK**  
 
-ÏÂÔØÔËĞĞ[build script](https://www.crystax.net/download/ndk-crystax-r10-build.sh).  
-Àı×Ó:  
+ä¸‹è½½è¿è¡Œ[build script](https://www.crystax.net/download/ndk-crystax-r10-build.sh).  
+ä¾‹å­:  
 ```
 \curl -sSL https://www.crystax.net/download/ndk-crystax-r10-build.sh | /bin/bash
 ```
-»áÔËĞĞºÜ¾Ã - ³¤´ïÊıĞ¡Ê±. ½Å±¾Ö´ĞĞÍê³Éºó, »áÊä³öÉú³ÉµÄNDK·¢²¼°üµÄÂ·¾¶.  
-Íê³ÉÁË! Ê¹ÓÃËü´úÌæGoogle's NDK°É!
+ä¼šè¿è¡Œå¾ˆä¹… - é•¿è¾¾æ•°å°æ—¶. è„šæœ¬æ‰§è¡Œå®Œæˆå, ä¼šè¾“å‡ºç”Ÿæˆçš„NDKå‘å¸ƒåŒ…çš„è·¯å¾„.  
+å®Œæˆäº†! ä½¿ç”¨å®ƒä»£æ›¿Google's NDKå§!

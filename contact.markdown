@@ -1,14 +1,14 @@
-#ÁªÏµÎÒÃÇ  
+#è”ç³»æˆ‘ä»¬  
   
-ÏëÁË½â¸ü¶à¹ØÓÚCrystaX .NET¿ÉÒÔÈçºÎÖúÁ¦ÄúµÄÏîÄ¿µÄÏêÇé, Çë·¢ËÍÓÊ¼şÖÁ[contact@crystax.net](contact@crystax.net)»òÖ±½ÓÔÚÏÂ±íÖĞÁôÑÔ.  
+æƒ³äº†è§£æ›´å¤šå…³äºCrystaX .NETå¯ä»¥å¦‚ä½•åŠ©åŠ›æ‚¨çš„é¡¹ç›®çš„è¯¦æƒ…, è¯·å‘é€é‚®ä»¶è‡³[contact@crystax.net](contact@crystax.net)æˆ–ç›´æ¥åœ¨ä¸‹è¡¨ä¸­ç•™è¨€.  
   
-##ÄúµÄĞÕÃû  
+##æ‚¨çš„å§“å  
 TODO: add TextEditor here!  
   
-##ÄúµÄÓÊ¼şµØÖ·  
+##æ‚¨çš„é‚®ä»¶åœ°å€  
 TODO: add TextEditor here!  
 
-##ÁôÑÔĞÅÏ¢  
+##ç•™è¨€ä¿¡æ¯  
 TODO: add TextEditor here!  
 
 ##Submit  

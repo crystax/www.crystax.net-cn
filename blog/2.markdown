@@ -1,15 +1,15 @@
-ÄãÊÇ·ñ´úÂëÖĞÊ¹ÓÃÁËBoost C++¿â? ÄãÊÇ·ñÏëÇáËÉÒÆÖ²ÕâĞ©´úÂëµ½Android? »òÕßÄãÖ»ÊÇÏëÊ¹ÓÃBoost¿ªÊ¼´´½¨Ò»¸öAndroidÆ½Ì¨µÄĞÂÏîÄ¿? Í¨¹ıCrystaX NDK 10.1.0, Äã¾Í¿ÉÒÔÍ¬Ê±ÓµÓĞAndroidÔ­Éú¿ª·¢Ì×¼şºÍBoost C++¿â!  
+ä½ æ˜¯å¦ä»£ç ä¸­ä½¿ç”¨äº†Boost C++åº“? ä½ æ˜¯å¦æƒ³è½»æ¾ç§»æ¤è¿™äº›ä»£ç åˆ°Android? æˆ–è€…ä½ åªæ˜¯æƒ³ä½¿ç”¨Boostå¼€å§‹åˆ›å»ºä¸€ä¸ªAndroidå¹³å°çš„æ–°é¡¹ç›®? é€šè¿‡CrystaX NDK 10.1.0, ä½ å°±å¯ä»¥åŒæ—¶æ‹¥æœ‰AndroidåŸç”Ÿå¼€å‘å¥—ä»¶å’ŒBoost C++åº“!  
   
-½ÓÏÂÀ´¿´¿´ÈçºÎÊµÏÖ.  
-Ê×ÏÈÎÒ¼ÙÉèÄãÊ¹ÓÃ±ê×¼µÄNDK build·½Ê½, °üÀ¨Ê¹ÓÃApplication.mkºÍAndroid.mkÎÄ¼ş. ÒÔÏÂÊÇÒ»¸ö×î¼òµ¥µÄÏîÄ¿,Ö»ÓĞnative²¿·ÖµÄÔËĞĞ³ÌĞò:  
+æ¥ä¸‹æ¥çœ‹çœ‹å¦‚ä½•å®ç°.  
+é¦–å…ˆæˆ‘å‡è®¾ä½ ä½¿ç”¨æ ‡å‡†çš„NDK buildæ–¹å¼, åŒ…æ‹¬ä½¿ç”¨Application.mkå’ŒAndroid.mkæ–‡ä»¶. ä»¥ä¸‹æ˜¯ä¸€ä¸ªæœ€ç®€å•çš„é¡¹ç›®,åªæœ‰nativeéƒ¨åˆ†çš„è¿è¡Œç¨‹åº:  
 ```
 .
-©¸©¤©¤ jni
-    ©À©¤©¤ Android.mk
-    ©À©¤©¤ Application.mk
-    ©¸©¤©¤ test.cpp
+â””â”€â”€ jni
+    â”œâ”€â”€ Android.mk
+    â”œâ”€â”€ Application.mk
+    â””â”€â”€ test.cpp
 ```
-#³õÊ¼»¯ÎÄ¼ş  
+#åˆå§‹åŒ–æ–‡ä»¶  
 Application.mk  
 ```
 # Application.mk
@@ -35,11 +35,11 @@ int main()
     return 0;
 }
 ```
-#Ìí¼ÓBoost  
-ÏÖÔÚÀ´À©Õ¹³ÉÒ»¸ö¼òµ¥µÄBoost-enabledÏîÄ¿. ÕâÀïÊ¹ÓÃBoostĞòÁĞ»¯¿âÊ¾Àı; ÆäËû¿âÀàËÆ. Î¨Ò»Çø±ğÊÇAndroid.mkÖĞµÄÒıÓÃ¿âÃû³Æ.  
+#æ·»åŠ Boost  
+ç°åœ¨æ¥æ‰©å±•æˆä¸€ä¸ªç®€å•çš„Boost-enabledé¡¹ç›®. è¿™é‡Œä½¿ç”¨Booståºåˆ—åŒ–åº“ç¤ºä¾‹; å…¶ä»–åº“ç±»ä¼¼. å”¯ä¸€åŒºåˆ«æ˜¯Android.mkä¸­çš„å¼•ç”¨åº“åç§°.  
 
-Ê×ÏÈ,Ìí¼ÓÔ´ÎÄ¼ş  
-(Ê¹ÓÃ [official Boost example](http://www.boost.org/doc/libs/1_57_0/libs/serialization/doc/tutorial.html#simplecase) ):  
+é¦–å…ˆ,æ·»åŠ æºæ–‡ä»¶  
+(ä½¿ç”¨ [official Boost example](http://www.boost.org/doc/libs/1_57_0/libs/serialization/doc/tutorial.html#simplecase) ):  
   
 gps.hpp  
 ```CPP
@@ -133,7 +133,7 @@ void load(gps_position &g)
     // archive and stream closed when destructors are called
 }
 ```
-Æä´Î, ĞŞ¸Ätest.cpp×öµãÊµ¼ÊµÄÊÂÇé:
+å…¶æ¬¡, ä¿®æ”¹test.cppåšç‚¹å®é™…çš„äº‹æƒ…:
   
 test.cpp  
 ```Cpp
@@ -164,7 +164,7 @@ int main()
     return 0;
 }
 ```
-×îºó,ĞŞ¸ÄAndroid.mk°üº¬ÒÔÉÏÎÄ¼ş,ÆôÓÃBoost Serialization:  
+æœ€å,ä¿®æ”¹Android.mkåŒ…å«ä»¥ä¸Šæ–‡ä»¶,å¯ç”¨Boost Serialization:  
   
 Android.mk
 ```
@@ -181,18 +181,18 @@ include $(BUILD_EXECUTABLE)
 
 $(call import-module,boost/1.57.0)
 ```
-ÏÖÔÚÕâ¸öÊ¾ÀıÏîÄ¿ÈçÏÂËùÊ¾:
+ç°åœ¨è¿™ä¸ªç¤ºä¾‹é¡¹ç›®å¦‚ä¸‹æ‰€ç¤º:
 ```
 .
-©¸©¤©¤ jni
-    ©À©¤©¤ Android.mk
-    ©À©¤©¤ Application.mk
-    ©À©¤©¤ gps.cpp
-    ©À©¤©¤ gps.hpp
-    ©¸©¤©¤ test.cpp
+â””â”€â”€ jni
+    â”œâ”€â”€ Android.mk
+    â”œâ”€â”€ Application.mk
+    â”œâ”€â”€ gps.cpp
+    â”œâ”€â”€ gps.hpp
+    â””â”€â”€ test.cpp
 ```
-#×îÖÕ½á¹û  
-Ok, Íê³ÉÁË! À´¿´¿´ÈçºÎ±àÒëÔËĞĞ. ×¢ÒâÕâÀïndk-buildÊ¹ÓÃÁËAPP_ABI²ÎÊıarmeabi-v7a; Ö»ÊÇÊ¾Àı,ÆäËûËùÓĞABIs¶¼Ò»Ñù¿ÉÓÃ.  
+#æœ€ç»ˆç»“æœ  
+Ok, å®Œæˆäº†! æ¥çœ‹çœ‹å¦‚ä½•ç¼–è¯‘è¿è¡Œ. æ³¨æ„è¿™é‡Œndk-buildä½¿ç”¨äº†APP_ABIå‚æ•°armeabi-v7a; åªæ˜¯ç¤ºä¾‹,å…¶ä»–æ‰€æœ‰ABIséƒ½ä¸€æ ·å¯ç”¨.  
 ```
 $ ndk-build APP_ABI=armeabi-v7a
 [armeabi-v7a] Compile++ thumb: test-boost <= test.cpp
@@ -218,5 +218,5 @@ Initial value: GPS(35/59/24.567)
 After load: GPS(35/59/24.567)
 Congratulations! GPS object was successfully saved and then loaded
 ```
-ÈçÄãËù¼û,²»ÓÃĞŞ¸ÄÈÎºÎ´úÂë¾Í¿ÉÓÃÁË - ´úÂë¸úÆäËû×ÀÃæºÍÒÆ¶¯Æ½Ì¨ÍêÈ«Ò»Ñù. ¶øÇÒÔÚËùÓĞÆ½Ì¨µÄÔËĞĞ±íÏÖÒ²Ò»Ñù. Android´Ó2.3 (API level 9)¿ªÊ¼Ö§³Ö.  
-Ó¡ÏóÉî¿Ì°É? ÏÖÔÚ¾ÍÀ´ÌåÑé[CrystaX NDK](https://www.crystax.net/cn/android/ndk)°É!
+å¦‚ä½ æ‰€è§,ä¸ç”¨ä¿®æ”¹ä»»ä½•ä»£ç å°±å¯ç”¨äº† - ä»£ç è·Ÿå…¶ä»–æ¡Œé¢å’Œç§»åŠ¨å¹³å°å®Œå…¨ä¸€æ ·. è€Œä¸”åœ¨æ‰€æœ‰å¹³å°çš„è¿è¡Œè¡¨ç°ä¹Ÿä¸€æ ·. Androidä»2.3 (API level 9)å¼€å§‹æ”¯æŒ.  
+å°è±¡æ·±åˆ»å§? ç°åœ¨å°±æ¥ä½“éªŒ[CrystaX NDK](https://www.crystax.net/cn/android/ndk)å§!

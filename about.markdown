@@ -1,19 +1,19 @@
-#¸ßÖÊÁ¿ÒÆ¶¯ºÍ·þÎñÆ÷ÑÐ·¢  
+#é«˜è´¨é‡ç§»åŠ¨å’ŒæœåŠ¡å™¨ç ”å‘  
   
-**CrystaX .NET**ÊÇÒ»¼Ò³ÉÁ¢ÓÚ2012ÄêÌá¹©Èí¼þ¿ª·¢ºÍ×ÉÑ¯·þÎñµÄÃÀ¹úÆóÒµ. ×÷ÎªÒÆ¶¯ºÍ·þÎñÆ÷¿ª·¢ÁìÓòµÄ×¨¼Ò, ÎÒÃÇÁé»îÊ¹ÓÃÒµ½çÎÈ¶¨³ÉÊì·½°¸ºÍ×îÐÂ¼â¶Ë¼¼Êõ. ÎÒÃÇÀûÓÃ×ÔÉí¼¼ÊõÓÅÊÆ, Ê¹ÓÃ×î¼Ñ¼¼Êõ·½°¸À´½â¾öÒµÎñÎÊÌâ, ´Ó¶øÎªÎÒÃÇµÄ¿Í»§Ìá¹©ÓÅÖÊµÄ²úÆ·. ×îºó»¹ÓÐÖØÒªµÄÒ»µã, ÎÒÃÇÊÇÒ»¼ÒÐ¡ÐÍºÍ³äÂú»îÁ¦µÄ¹«Ë¾, ËùÒÔÎÒÃÇ×öÊÂ¸ßÐ§, ÞðÆúÈß·±Á÷³Ì.  
+**CrystaX .NET**æ˜¯ä¸€å®¶æˆç«‹äºŽ2012å¹´æä¾›è½¯ä»¶å¼€å‘å’Œå’¨è¯¢æœåŠ¡çš„ç¾Žå›½ä¼ä¸š. ä½œä¸ºç§»åŠ¨å’ŒæœåŠ¡å™¨å¼€å‘é¢†åŸŸçš„ä¸“å®¶, æˆ‘ä»¬çµæ´»ä½¿ç”¨ä¸šç•Œç¨³å®šæˆç†Ÿæ–¹æ¡ˆå’Œæœ€æ–°å°–ç«¯æŠ€æœ¯. æˆ‘ä»¬åˆ©ç”¨è‡ªèº«æŠ€æœ¯ä¼˜åŠ¿, ä½¿ç”¨æœ€ä½³æŠ€æœ¯æ–¹æ¡ˆæ¥è§£å†³ä¸šåŠ¡é—®é¢˜, ä»Žè€Œä¸ºæˆ‘ä»¬çš„å®¢æˆ·æä¾›ä¼˜è´¨çš„äº§å“. æœ€åŽè¿˜æœ‰é‡è¦çš„ä¸€ç‚¹, æˆ‘ä»¬æ˜¯ä¸€å®¶å°åž‹å’Œå……æ»¡æ´»åŠ›çš„å…¬å¸, æ‰€ä»¥æˆ‘ä»¬åšäº‹é«˜æ•ˆ, æ‘’å¼ƒå†—ç¹æµç¨‹.  
   
-#ÍÅ¶Ó  
-ÎÒÃÇµÄÁìµ¼ÍÅ¶ÓÓµÓÐÊýÊ®ÄêÔÚÐí¶à¹«Ë¾Áìµ¼´óÐÍÏîÄ¿µÄ¾­Ñé, ´Ó´óÐÍÆóÒµµ½³õ´´ÍÅ¶Ó.  ÎÒÃÇÓë´óÁ¿ÆóÒµ½øÐÐ¹ýºÏ×÷, °üÀ¨ÒÆ¶¯, µçÐÅ, ½ðÈÚºÍÆäËû. Í¨¹ýÕâÐ©¾­Ñé, ÎÒÃÇÕÆÎÕÁËÈçºÎÊµÏÖ×î¼Ñ·½°¸µÄÃØ¾÷. ÎÒÃÇ×ñÑ­Ãô½Ý¿ª·¢Á÷³Ì. ÎÒÃÇ²ÉÓÃÀë°¶/·Ö²¼Ê½Ä£ÐÍÀ´Âú×ãÄúµÄÔ¤ËãºÍ½»¸¶ÆÚÏÞ.  
+#å›¢é˜Ÿ  
+æˆ‘ä»¬çš„é¢†å¯¼å›¢é˜Ÿæ‹¥æœ‰æ•°åå¹´åœ¨è®¸å¤šå…¬å¸é¢†å¯¼å¤§åž‹é¡¹ç›®çš„ç»éªŒ, ä»Žå¤§åž‹ä¼ä¸šåˆ°åˆåˆ›å›¢é˜Ÿ.  æˆ‘ä»¬ä¸Žå¤§é‡ä¼ä¸šè¿›è¡Œè¿‡åˆä½œ, åŒ…æ‹¬ç§»åŠ¨, ç”µä¿¡, é‡‘èžå’Œå…¶ä»–. é€šè¿‡è¿™äº›ç»éªŒ, æˆ‘ä»¬æŽŒæ¡äº†å¦‚ä½•å®žçŽ°æœ€ä½³æ–¹æ¡ˆçš„ç§˜è¯€. æˆ‘ä»¬éµå¾ªæ•æ·å¼€å‘æµç¨‹. æˆ‘ä»¬é‡‡ç”¨ç¦»å²¸/åˆ†å¸ƒå¼æ¨¡åž‹æ¥æ»¡è¶³æ‚¨çš„é¢„ç®—å’Œäº¤ä»˜æœŸé™.  
   
-ÔÚ**CrystaX .NET**, ÎÒÃÇµÄÀíÄîÊÇ¹Ø×¢ÖÊÁ¿, ËùÒÔÎÒÃÇÁ¦ÇóÔÚÈ«Çò·¶Î§ÄÚÕÐÄ¼×î°ôµÄ¿ª·¢ÈËÔ±.  
+åœ¨**CrystaX .NET**, æˆ‘ä»¬çš„ç†å¿µæ˜¯å…³æ³¨è´¨é‡, æ‰€ä»¥æˆ‘ä»¬åŠ›æ±‚åœ¨å…¨çƒèŒƒå›´å†…æ‹›å‹Ÿæœ€æ£’çš„å¼€å‘äººå‘˜.  
   
-##ºËÐÄÁìµ¼  
+##æ ¸å¿ƒé¢†å¯¼  
 ![Crystax](https://www.crystax.net/assets/company/crystax-42cfa1995e0bbe1363849caaca2c003c.jpg)  
   
 ###Dmitry Moskalchuk  
-Dmitry ÓµÓÐÊ®ÄêÈí¼þ¿ª·¢¾­ÑéºÍ¼¼ÊõÍÅ¶ÓÁìµ¼¾­Ñé. Ëû×î½üµÄ´ÓÒµ¾­Àú°üÀ¨ Unison(Unified Communications Software)µÄ¼Ü¹¹Ê¦ºÍ¿ª·¢Õß, Rhomobile Rhodes²úÆ·µÄºËÐÄ¿ª·¢Õß, CrystaX NDKµÄºËÐÄ¿ª·¢Õß, ²¢²ÎÓëÁËÐí¶àÆäËûÉÌÒµºÍ¿ªÔ´ÏîÄ¿µÄ¼Ü¹¹Éè¼ÆºÍÊµÏÖ.  
+Dmitry æ‹¥æœ‰åå¹´è½¯ä»¶å¼€å‘ç»éªŒå’ŒæŠ€æœ¯å›¢é˜Ÿé¢†å¯¼ç»éªŒ. ä»–æœ€è¿‘çš„ä»Žä¸šç»åŽ†åŒ…æ‹¬ Unison(Unified Communications Software)çš„æž¶æž„å¸ˆå’Œå¼€å‘è€…, Rhomobile Rhodesäº§å“çš„æ ¸å¿ƒå¼€å‘è€…, CrystaX NDKçš„æ ¸å¿ƒå¼€å‘è€…, å¹¶å‚ä¸Žäº†è®¸å¤šå…¶ä»–å•†ä¸šå’Œå¼€æºé¡¹ç›®çš„æž¶æž„è®¾è®¡å’Œå®žçŽ°.  
   
 ![Zuav](https://www.crystax.net/assets/company/zuav-f22d726d099d1cf9e9b71635b70c65dd.jpg)  
   
 ###Alexander Zhukov  
-Alexander ÊÇÎÒÃÇµÄÃ÷ÐÇ¿ª·¢ÈËÔ±. ËûÊÇÒ»¸öÓµÓÐ20¶àÄê·þÎñÆ÷ºÍÒÆ¶¯¿ª·¢¾­ÑéµÄ×¨¼Ò. ËûÄÜ½â¾öÈÎºÎ±ðÈË¿ÉÄÜÔçÒÑ·ÅÆúÁËµÄÀ§ÄÑ¼¼ÊõÎÊÌâ. Ðí¶à¹«Ë¾¶¼ÒÀ¿¿AlexanderÀ´Ê¹ÓÃÇ¿´óµÄ, ÓÅÑÅµÄ´úÂë½â¾ö×î¼¬ÊÖµÄÎÊÌâ¡£ ËûÉÃ³¤µÄÖªÊ¶ÁìÓò°üÀ¨µ«²»ÏÞÓÚC, C++, Java, ErlangºÍÐí¶àÆäËû¼¼Êõ.  
+Alexander æ˜¯æˆ‘ä»¬çš„æ˜Žæ˜Ÿå¼€å‘äººå‘˜. ä»–æ˜¯ä¸€ä¸ªæ‹¥æœ‰20å¤šå¹´æœåŠ¡å™¨å’Œç§»åŠ¨å¼€å‘ç»éªŒçš„ä¸“å®¶. ä»–èƒ½è§£å†³ä»»ä½•åˆ«äººå¯èƒ½æ—©å·²æ”¾å¼ƒäº†çš„å›°éš¾æŠ€æœ¯é—®é¢˜. è®¸å¤šå…¬å¸éƒ½ä¾é Alexanderæ¥ä½¿ç”¨å¼ºå¤§çš„, ä¼˜é›…çš„ä»£ç è§£å†³æœ€æ£˜æ‰‹çš„é—®é¢˜ã€‚ ä»–æ“…é•¿çš„çŸ¥è¯†é¢†åŸŸåŒ…æ‹¬ä½†ä¸é™äºŽC, C++, Java, Erlangå’Œè®¸å¤šå…¶ä»–æŠ€æœ¯.  

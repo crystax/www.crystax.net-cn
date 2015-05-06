@@ -1,9 +1,9 @@
-ÔÚ[ÉÏÒ»Æª](https://www.crystax.net/cn/blog/2), ÎÒÃÇ½éÉÜÁËÈçºÎ¹¹½¨Ò»¸ö¼òµ¥µÄÊ¹ÓÃBoost C++¿âµÄAndroid¿ÉÖ´ÐÐ³ÌÐò. Õâ¸öÀý×ÓºÜºÃµÄËµÃ÷ÁË¹¤×÷Á÷³ÌºÍÄÚ²¿Ô­Àí. µ«ÊÇ´ÓÊµÓÃ½Ç¶È³ö·¢, ÎÒÃÇÐèÒªÁË½âÈçºÎ¹¹½¨Ò»¸ö¿ÉÒÔÌá½»Google PlayÉÌµêµÄÍêÕûAndroidÓ¦ÓÃ³ÌÐò. ±¾Æª½«¾ÙÀýËµÃ÷.  
+åœ¨[ä¸Šä¸€ç¯‡](https://www.crystax.net/cn/blog/2), æˆ‘ä»¬ä»‹ç»äº†å¦‚ä½•æž„å»ºä¸€ä¸ªç®€å•çš„ä½¿ç”¨Boost C++åº“çš„Androidå¯æ‰§è¡Œç¨‹åº. è¿™ä¸ªä¾‹å­å¾ˆå¥½çš„è¯´æ˜Žäº†å·¥ä½œæµç¨‹å’Œå†…éƒ¨åŽŸç†. ä½†æ˜¯ä»Žå®žç”¨è§’åº¦å‡ºå‘, æˆ‘ä»¬éœ€è¦äº†è§£å¦‚ä½•æž„å»ºä¸€ä¸ªå¯ä»¥æäº¤Google Playå•†åº—çš„å®Œæ•´Androidåº”ç”¨ç¨‹åº. æœ¬ç¯‡å°†ä¸¾ä¾‹è¯´æ˜Ž.  
   
-¹Ù·½Ö§³ÖµÄ±ê×¼ÊµÏÖ·½Ê½ÊÇÍ¨¹ý[Android Studio](http://developer.android.com/sdk/index.html)À´´´½¨ÕâÑùµÄÓ¦ÓÃ³ÌÐò. ²»ÐÒµÄÊÇ, Android Studio¶ÔnativeÓ¦ÓÃ³ÌÐòµÄÖ§³Ö²»ÏñJavaÓ¦ÓÃ³ÌÐòÄÇÃ´ºÃ. NDKµÄÖ§³ÖÄ¿Ç°·Ç³£ÓÐÏÞ. Òò´Ë¿ª·¢ÕßÊ¹ÓÃAndroid StudioÓÃÓÚ¹¹½¨Ó¦ÓÃ¿ª·¢µÄGradle½Å±¾, Î¨Ò»Ö§³ÖµÄNDKÓ¦ÓÃÊÇÖ»°üº¬Ò»¸öÄ£¿é(×îÖÕ¹²Ïí¿âÎÄ¼þ), ´ÓÎ»ÓÚjniÎÄ¼þ¼ÐµÄÔ´Âë½øÐÐ¹¹½¨, Ã»ÓÐÈÎºÎÒÀÀµ, Ã»ÓÐ×ÓÄ£¿é(ÀýÈçÒ»×é¾²Ì¬¿âºÍ¹²Ïí¿âµÈ),µÈµÈ. Ã»·¨×ö¶¨ÖÆ(³ýÁËÒ»Ð©·Ç³£ÓÐÏÞµÄÉèÖÃÑ¡Ïî).  
+å®˜æ–¹æ”¯æŒçš„æ ‡å‡†å®žçŽ°æ–¹å¼æ˜¯é€šè¿‡[Android Studio](http://developer.android.com/sdk/index.html)æ¥åˆ›å»ºè¿™æ ·çš„åº”ç”¨ç¨‹åº. ä¸å¹¸çš„æ˜¯, Android Studioå¯¹nativeåº”ç”¨ç¨‹åºçš„æ”¯æŒä¸åƒJavaåº”ç”¨ç¨‹åºé‚£ä¹ˆå¥½. NDKçš„æ”¯æŒç›®å‰éžå¸¸æœ‰é™. å› æ­¤å¼€å‘è€…ä½¿ç”¨Android Studioç”¨äºŽæž„å»ºåº”ç”¨å¼€å‘çš„Gradleè„šæœ¬, å”¯ä¸€æ”¯æŒçš„NDKåº”ç”¨æ˜¯åªåŒ…å«ä¸€ä¸ªæ¨¡å—(æœ€ç»ˆå…±äº«åº“æ–‡ä»¶), ä»Žä½äºŽjniæ–‡ä»¶å¤¹çš„æºç è¿›è¡Œæž„å»º, æ²¡æœ‰ä»»ä½•ä¾èµ–, æ²¡æœ‰å­æ¨¡å—(ä¾‹å¦‚ä¸€ç»„é™æ€åº“å’Œå…±äº«åº“ç­‰),ç­‰ç­‰. æ²¡æ³•åšå®šåˆ¶(é™¤äº†ä¸€äº›éžå¸¸æœ‰é™çš„è®¾ç½®é€‰é¡¹).  
 
 build.gradle  
-¡¤¡¤¡¤
+Â·Â·Â·
 defaultConfig {
         ...
         ndk {
@@ -16,26 +16,26 @@ defaultConfig {
     }
 }
 ```
-NDK buildÖ»ÄÜÉèÖÃ**moduleName, cFlags, ldLibs, stl** ºÍ **abiFilter**; ÔÚÕâÀïÎÒÃÇ²»ÄÜÖ¸¶¨¶îÍâµÄÒÀÀµ¹ØÏµ(ÈçBoost¿â). ÎÒÃÇÒ²²»ÄÜÖ¸¶¨Ò»Ð©Â·¾¶¹©Á´½ÓÆ÷È¥ËÑË÷¿âÎÄ¼þµÄËùÔÚÎ»ÖÃ, ÒÔ¼°Ðí¶àÆäËûµÄÉèÖÃ.  
+NDK buildåªèƒ½è®¾ç½®**moduleName, cFlags, ldLibs, stl** å’Œ **abiFilter**; åœ¨è¿™é‡Œæˆ‘ä»¬ä¸èƒ½æŒ‡å®šé¢å¤–çš„ä¾èµ–å…³ç³»(å¦‚Booståº“). æˆ‘ä»¬ä¹Ÿä¸èƒ½æŒ‡å®šä¸€äº›è·¯å¾„ä¾›é“¾æŽ¥å™¨åŽ»æœç´¢åº“æ–‡ä»¶çš„æ‰€åœ¨ä½ç½®, ä»¥åŠè®¸å¤šå…¶ä»–çš„è®¾ç½®.  
   
-ÕâÊÇÒòÎªGradle²å¼þ(Android StudioÓÃÀ´±àÒë¹¤³Ì)ºöÂÔjniÎÄ¼þ¼ÐµÄ**Application.mk**ºÍ**Android.mk**ÎÄ¼þ. Ïà·´Ëü»áÔÚÔËÐÐÊ±Éú³ÉËü×Ô¼ºµÄ**Android.mk**,Ê¹ÓÃ¹¹½¨½Å±¾ÖÐµÄÉèÖÃ.  
+è¿™æ˜¯å› ä¸ºGradleæ’ä»¶(Android Studioç”¨æ¥ç¼–è¯‘å·¥ç¨‹)å¿½ç•¥jniæ–‡ä»¶å¤¹çš„**Application.mk**å’Œ**Android.mk**æ–‡ä»¶. ç›¸åå®ƒä¼šåœ¨è¿è¡Œæ—¶ç”Ÿæˆå®ƒè‡ªå·±çš„**Android.mk**,ä½¿ç”¨æž„å»ºè„šæœ¬ä¸­çš„è®¾ç½®.  
   
-Êµ¼ÊÉÏ, ÔÚAndroid StudioÖÐ¹¹½¨¹¦ÄÜÆëÈ«µÄNDKÓ¦ÓÃ³ÌÐòµÄÎ¨Ò»·½Ê½ÊÇÍêÈ«½ûÓÃËüÓÐÏÞµÄNDKÖ§³Ö, ÊÖ¶¯µ÷ÓÃ**$NDK/ndk-build**ÃüÁî. ÕâÀïÎÒÃÇ½«ÃèÊöÖð²½ÔõÃ´×ö.  
+å®žé™…ä¸Š, åœ¨Android Studioä¸­æž„å»ºåŠŸèƒ½é½å…¨çš„NDKåº”ç”¨ç¨‹åºçš„å”¯ä¸€æ–¹å¼æ˜¯å®Œå…¨ç¦ç”¨å®ƒæœ‰é™çš„NDKæ”¯æŒ, æ‰‹åŠ¨è°ƒç”¨**$NDK/ndk-build**å‘½ä»¤. è¿™é‡Œæˆ‘ä»¬å°†æè¿°é€æ­¥æ€Žä¹ˆåš.  
   
-ÎÒÃÇ½«´ÓÁã¿ªÊ¼Ê¹ÓÃAndroid Studio´´½¨Ò»¸ö¼òµ¥µÄAndroidÓ¦ÓÃ³ÌÐò, È»ºóÌí¼Ónative²¿·Ö. ÎÒÃÇ¼ÙÉèÄãÒÑ¾­°²×°ÁËAndroid StudioºÍÉèÖÃºÃÁËAndroid SDK; ÎÒÃÇ»¹¼ÙÉèÄãÒÑ¾­ÏÂÔØ²¢½âÑ¹[CrystaX NDK](https://www.crystax.net/cn/android/ndk)µ½ÄúµÄ¼ÆËã»úÉÏÄ³´¦.  
+æˆ‘ä»¬å°†ä»Žé›¶å¼€å§‹ä½¿ç”¨Android Studioåˆ›å»ºä¸€ä¸ªç®€å•çš„Androidåº”ç”¨ç¨‹åº, ç„¶åŽæ·»åŠ nativeéƒ¨åˆ†. æˆ‘ä»¬å‡è®¾ä½ å·²ç»å®‰è£…äº†Android Studioå’Œè®¾ç½®å¥½äº†Android SDK; æˆ‘ä»¬è¿˜å‡è®¾ä½ å·²ç»ä¸‹è½½å¹¶è§£åŽ‹[CrystaX NDK](https://www.crystax.net/cn/android/ndk)åˆ°æ‚¨çš„è®¡ç®—æœºä¸ŠæŸå¤„.  
   
-#Java²¿·Ö  
-Ê×ÏÈ, ´ò¿ªAndroid Studio, ÐÂ½¨Ò»¸öAndroid¹¤³Ì:  
+#Javaéƒ¨åˆ†  
+é¦–å…ˆ, æ‰“å¼€Android Studio, æ–°å»ºä¸€ä¸ªAndroidå·¥ç¨‹:  
 ![screenshot1](https://www.crystax.net/data/blog/3/screenshot1.png)  
-Ñ¡Ôñ"Android 4.0.3" target:  
+é€‰æ‹©"Android 4.0.3" target:  
 ![screenshot2](https://www.crystax.net/data/blog/3/screenshot2.png)  
-Ñ¡Ôñblank activity:  
+é€‰æ‹©blank activity:  
 ![screenshot3](https://www.crystax.net/data/blog/3/screenshot3.png)  
-½ÓÊÜÄ¬ÈÏÃû³Æ, µã»÷"Finish"°´Å¥:  
+æŽ¥å—é»˜è®¤åç§°, ç‚¹å‡»"Finish"æŒ‰é’®:  
 ![screenshot4](https://www.crystax.net/data/blog/3/screenshot4.png)  
 
-#²¼¾Ö
-ÏÖÔÚ, ÐÞ¸Ä**app/res/layout/activity_main.xml** ÈçÏÂËùÊ¾:  
+#å¸ƒå±€
+çŽ°åœ¨, ä¿®æ”¹**app/res/layout/activity_main.xml** å¦‚ä¸‹æ‰€ç¤º:  
 ```
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
@@ -53,23 +53,23 @@ NDK buildÖ»ÄÜÉèÖÃ**moduleName, cFlags, ldLibs, stl** ºÍ **abiFilter**; ÔÚÕâÀïÎÒÃ
 ```
 
 #MainActivity  
-Ìí¼ÓÒÔÏÂ´úÂëµ½**MainActivity.onCreate()**:  
+æ·»åŠ ä»¥ä¸‹ä»£ç åˆ°**MainActivity.onCreate()**:  
 ```
 TextView field = (TextView)findViewById(R.id.text);
 field.setText(getGPSCoordinates(getFilesDir().getAbsolutePath()));
 ```
-Ìí¼Ónative·½·¨µÄÉùÃ÷µ½**MainActivity**Àà:  
+æ·»åŠ nativeæ–¹æ³•çš„å£°æ˜Žåˆ°**MainActivity**ç±»:  
 ```
 private native String getGPSCoordinates(String rootPath);
 ```
-Í¬Ñù±ðÍü¼ÇÌí¼Ó¼ÓÔØnative¿âÎÄ¼þµ½static³õÊ¼»¯²¿·Ö:  
+åŒæ ·åˆ«å¿˜è®°æ·»åŠ åŠ è½½nativeåº“æ–‡ä»¶åˆ°staticåˆå§‹åŒ–éƒ¨åˆ†:  
 ```
 static {
     System.loadLibrary("test-boost");
 }
 ```
 
-×îÖÕ**MainActivity.java**µÄÄÚÈÝÈçÏÂËùÊ¾:  
+æœ€ç»ˆ**MainActivity.java**çš„å†…å®¹å¦‚ä¸‹æ‰€ç¤º:  
 
 MainActivity.java
 ```
@@ -121,16 +121,16 @@ public class MainActivity extends ActionBarActivity {
     }
 }
 ```
-Java²¿·ÖÍê³ÉÁË; ½ÓÏÂÀ´¿´native²¿·Ö.  
-#Native²¿·Ö  
+Javaéƒ¨åˆ†å®Œæˆäº†; æŽ¥ä¸‹æ¥çœ‹nativeéƒ¨åˆ†.  
+#Nativeéƒ¨åˆ†  
 
-´´½¨native´úÂë´æ·ÅµÄÎÄ¼þ¼ÐÂ·¾¶:  
+åˆ›å»ºnativeä»£ç å­˜æ”¾çš„æ–‡ä»¶å¤¹è·¯å¾„:  
 ![screenshot5](https://www.crystax.net/data/blog/3/screenshot5.png)  
-ÔÚÏÂÒ»¸ö´°¿ÚÊ¹ÓÃÄ¬ÈÏµÄ'main' source set, µã»÷"Finish"°´Å¥:  
+åœ¨ä¸‹ä¸€ä¸ªçª—å£ä½¿ç”¨é»˜è®¤çš„'main' source set, ç‚¹å‡»"Finish"æŒ‰é’®:  
 ![screenshot6](https://www.crystax.net/data/blog/3/screenshot6.png)  
 
-#Ô´Âë  
-ÔÚ¸Õ¸Õ´´½¨µÄÎÄ¼þ¼ÐÖÐ´´½¨ÒÔÏÂÎÄ¼þ(**app/src/main/jni**):  
+#æºç   
+åœ¨åˆšåˆšåˆ›å»ºçš„æ–‡ä»¶å¤¹ä¸­åˆ›å»ºä»¥ä¸‹æ–‡ä»¶(**app/src/main/jni**):  
   
 Application.mk  
 ```
@@ -302,21 +302,21 @@ Java_net_crystax_examples_testboost_MainActivity_getGPSCoordinates( JNIEnv* env,
     }
 }
 ```
-#±àÒë½Å±¾  
+#ç¼–è¯‘è„šæœ¬  
   
-ÏÖÔÚÎÒÃÇÐèÒªÐÞ¸Ä±àÒë½Å±¾, ÒÔ±ã¿ÉÒÔÏñJava²¿·ÖÒ»Ñù±àÒënative²¿·Ö. Ê×ÏÈ´ò¿ª**local.properties** Ìí¼ÓCrystaX NDKµÄÂ·¾¶, ÈçÏÂËùÊ¾:  
+çŽ°åœ¨æˆ‘ä»¬éœ€è¦ä¿®æ”¹ç¼–è¯‘è„šæœ¬, ä»¥ä¾¿å¯ä»¥åƒJavaéƒ¨åˆ†ä¸€æ ·ç¼–è¯‘nativeéƒ¨åˆ†. é¦–å…ˆæ‰“å¼€**local.properties** æ·»åŠ CrystaX NDKçš„è·¯å¾„, å¦‚ä¸‹æ‰€ç¤º:  
 ```
 sdk.dir=/opt/android/android-sdk-mac
 ndk.dir=/opt/android/crystax-ndk-10.1.0
 ```
-¶ÔÓÚWindowsÓÃ»§, Â·¾¶ÖÐµÄ·´Ð±¸ÜºÍÃ°ºÅÐèÒª´¦Àí:  
+å¯¹äºŽWindowsç”¨æˆ·, è·¯å¾„ä¸­çš„åæ–œæ å’Œå†’å·éœ€è¦å¤„ç†:  
 ```
 sdk.dir=C\:\\android\\android-sdk-mac
 ndk.dir=C\:\\android\\crystax-ndk-10.1.0
 ```
-×îºó´ò¿ª±à¼­**build.gradle**:  
+æœ€åŽæ‰“å¼€ç¼–è¾‘**build.gradle**:  
 ![screenshot7](https://www.crystax.net/data/blog/3/screenshot7.png)  
-Ê¹ËüÈçÏÂËùÊ¾:  
+ä½¿å®ƒå¦‚ä¸‹æ‰€ç¤º:  
 build.gradle  
 ```
 import org.apache.tools.ant.taskdefs.condition.Os
@@ -388,7 +388,7 @@ def getNdkBuildCmd() {
     return ndkbuild
 }
 ```
-ÒÔÏÂÊÇÎÒÃÇÐÞ¸Ä¹ýµÄbuild.gradleµÄdiffÄÚÈÝ:  
+ä»¥ä¸‹æ˜¯æˆ‘ä»¬ä¿®æ”¹è¿‡çš„build.gradleçš„diffå†…å®¹:  
 build.gradle.diff  
 ```
 diff --git a/build.gradle b/build.gradle
@@ -453,38 +453,38 @@ index a6b8c98..08dce1c 100644
 +    return ndkbuild
 +}
 ```
-#ÎÄ¼þÊ÷×´½á¹¹  
-**TestBoost/app**Ä¿Â¼ÏÂµÄÔ´´úÂëÎÄ¼þ½á¹¹ÈçÏÂËùÊ¾:  
+#æ–‡ä»¶æ ‘çŠ¶ç»“æž„  
+**TestBoost/app**ç›®å½•ä¸‹çš„æºä»£ç æ–‡ä»¶ç»“æž„å¦‚ä¸‹æ‰€ç¤º:  
 ```
 .
-©À©¤©¤ app.iml
-©À©¤©¤ build.gradle
-©À©¤©¤ proguard-rules.pro
-©¸©¤©¤ src
-    ©À©¤©¤ androidTest
-    ©¦   ©¸©¤©¤ java
-    ©¦       ©¸©¤©¤ net
-    ©¦           ©¸©¤©¤ crystax
-    ©¦               ©¸©¤©¤ examples
-    ©¦                   ©¸©¤©¤ testboost
-    ©¦                       ©¸©¤©¤ ApplicationTest.java
-    ©¸©¤©¤ main
-        ©À©¤©¤ AndroidManifest.xml
-        ©À©¤©¤ java
-        ©¦   ©¸©¤©¤ net
-        ©¦       ©¸©¤©¤ crystax
-        ©¦           ©¸©¤©¤ examples
-        ©¦               ©¸©¤©¤ testboost
-        ©¦                   ©¸©¤©¤ MainActivity.java
-        ©À©¤©¤ jni
-        ©¦   ©À©¤©¤ Android.mk
-        ©¦   ©À©¤©¤ Application.mk
-        ©¦   ©À©¤©¤ gps.cpp
-        ©¦   ©À©¤©¤ gps.hpp
-        ©¦   ©¸©¤©¤ test.cpp
-        ©¸©¤©¤ res
+â”œâ”€â”€ app.iml
+â”œâ”€â”€ build.gradle
+â”œâ”€â”€ proguard-rules.pro
+â””â”€â”€ src
+    â”œâ”€â”€ androidTest
+    â”‚   â””â”€â”€ java
+    â”‚       â””â”€â”€ net
+    â”‚           â””â”€â”€ crystax
+    â”‚               â””â”€â”€ examples
+    â”‚                   â””â”€â”€ testboost
+    â”‚                       â””â”€â”€ ApplicationTest.java
+    â””â”€â”€ main
+        â”œâ”€â”€ AndroidManifest.xml
+        â”œâ”€â”€ java
+        â”‚   â””â”€â”€ net
+        â”‚       â””â”€â”€ crystax
+        â”‚           â””â”€â”€ examples
+        â”‚               â””â”€â”€ testboost
+        â”‚                   â””â”€â”€ MainActivity.java
+        â”œâ”€â”€ jni
+        â”‚   â”œâ”€â”€ Android.mk
+        â”‚   â”œâ”€â”€ Application.mk
+        â”‚   â”œâ”€â”€ gps.cpp
+        â”‚   â”œâ”€â”€ gps.hpp
+        â”‚   â””â”€â”€ test.cpp
+        â””â”€â”€ res
             .......
 ```
-#×îÖÕ½á¹û  
-ºÃÁË! ÏÖÔÚÕý³£±àÒëÏîÄ¿(Build -> Make Module 'app') ²¢ÔËÐÐÔÚÉè±¸ÉÏ. ÕâÀïÊÇÒ»ÕÅÔËÐÐÊ±µÄ½ØÍ¼:  
+#æœ€ç»ˆç»“æžœ  
+å¥½äº†! çŽ°åœ¨æ­£å¸¸ç¼–è¯‘é¡¹ç›®(Build -> Make Module 'app') å¹¶è¿è¡Œåœ¨è®¾å¤‡ä¸Š. è¿™é‡Œæ˜¯ä¸€å¼ è¿è¡Œæ—¶çš„æˆªå›¾:  
 ![screenshot8](https://www.crystax.net/data/blog/3/screenshot8.png)  

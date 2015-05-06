@@ -1,45 +1,45 @@
-����Dmitry Moskalchuk, CrystaX NDK(Androidԭ�������׼�)������.  
+我是Dmitry Moskalchuk, CrystaX NDK(Android原生开发套件)的作者.  
   
-����2009�꿪ʼ�������Ŀ�� ͨ����������C++����֧�ֺ�C++��׼�⵽�ȸ�Android NDK��(�ȸ��һ��Android NDK��֧��C++). CrystaX NDK��һ�淢����Ѹ����������, ��Ϊ���������ҪC++, ʹ�����ǵ�Ӧ�ó���/�����������Android��, ��������Java��д. ����C++��֧��, �ȸ������Ŵﵽ��CrystaX NDK��һ��ĳ̶�. ��������������ʶ��Android NDK���кܶ���������ֵ��ȥ�Ľ�, �����Ұ������Ŀ��Ŀ��"Android NDK��չC++֧��"���¶���Ϊ"Android NDK��ǿ��", ������Ͷ�뾫��.  
+我在2009年开始了这个项目， 通过添加完整C++语言支持和C++标准库到谷歌Android NDK中(谷歌第一版Android NDK不支持C++). CrystaX NDK第一版发布后迅速流行起来, 因为人们真的需要C++, 使得他们的应用程序/库可以运行在Android上, 而不是用Java重写. 对于C++的支持, 谷歌两年后才达到了CrystaX NDK第一版的程度. 这让我清晰的认识到Android NDK中有很多其他部分值得去改进, 所以我把这个项目的目标"Android NDK扩展C++支持"重新定义为"Android NDK增强版", 并持续投入精力.  
   
-�������Ѿ�Ϊ�����Ŀ����������, ΪNDK������Խ��Խ��Ĺ������Ľ�Androidԭ������. ����ǰ, Alexander ZhukovҲ�����������Ŀ, ������������һ����. ���Ǵ��������CrystaX NDKʱ��, ��һֱ�Է�, û���κ��ⲿ����. ��ʹ������ֻ������������ʽ׬Ǯ(����а�һЩ������Ŀ, ��һЩ��ѯ����), ��Ͷ�뵽������Ŀ��. �������ֻ�ܼ�ְ��CrystaX NDK, ����ζ�����޷���ø�ǿ��, ��ʵ������������. �ڹ�ȥ�İ˸���, ���ǿ�ʼ�ĳ�ȫְ����CrystaX NDK, ���������Ѿ�ȡ���������ĳɹ�, ������Ķ�[NDKҳ��](https://www.crystax.net/cn/android/ndk)�鿴.  
+现在我已经为这个项目工作了五年, 为NDK增加了越来越多的功能来改进Android原生开发. 两年前, Alexander Zhukov也加入了这个项目, 所以现在我们一起工作. 我们从最初开发CrystaX NDK时起, 就一直自费, 没有任何外部赞助. 这使得我们只能依靠其他方式赚钱(例如承包一些其他项目, 做一些咨询工作), 再投入到我们项目中. 因此我们只能兼职做CrystaX NDK, 这意味着它无法变得更强大, 其实它可以做到的. 在过去的八个月, 我们开始改成全职开发CrystaX NDK, 现在我们已经取得了显著的成果, 你可以阅读[NDK页面](https://www.crystax.net/cn/android/ndk)查看.  
   
-չ��δ��, ���Ǽƻ���CrystaX NDK���һ��ǿ���ȫ���ۺ��ԵĿ����׼�, ʹ�ÿ�����Ա����ʹ��������ϲ���ı������, ��ܺͿ� - ����Android�������Ѻ�, �����ǰѿ�����Ա���ֳɵ�һ��(Java)��������.  
+展望未来, 我们计划把CrystaX NDK变成一个强大的全面综合性的开发套件, 使得开发人员可以使用他们最喜爱的编程语言, 框架和库 - 即让Android开发更友好, 而不是把开发人员划分成第一类(Java)和其他类.  
   
-#����  
-Androidԭ��������֧����״�ܲ�:  
+#问题  
+Android原生开发的支持现状很差:  
   
-- AndroidϵͳԶԶ���ܱ���Ϊ"��׼". ����֧�ֺܶ��׼ �C ������ַ�, �������õ�, ʹ�ô�����ƽ̨��ֲ���д��뵽Android���ѡ�  
-- AndroidϵͳҲԶ���ȶ� - libc�ṩ�ĺܶຯ����ֻ�ǲ���ʵ�ֻ����ȱ��. û�б�Ҫ����һ���ȶ��Ļ���������Ҫ, �Լ�Ϊʲô��������ô��, ��Щbug��Ҫ���������������µ�ʱ��ȥ���Զ�λ.  
-- ��ʹ��Щȱ�����µ�Android�汾���޸���, ��ǰ�ɵ�Android�汾Ҳ�޷��õ��޸�. �ȸ��ΪJava API�ṩ������.  
-- û�кõĹ��߽��б��ص���. ����gdb/lldb�Ѿ�֧��Զ�̵���, ��ʵ�ʿ����е���Android native�������ļ������ǲ����ܵ�.  
-- ����������Ҫ��Ӧ�ó��������ֻ��ͨ��Java API. ����ζ������UI, ����, ����, �������API, Ӧ�ó����ڹ���, �ȵ�.  
-- ����C��C++, ��֧���κ�����native�������. �������Ѿ���ø���Ҫ��, ��Android�ѱ鲼ȫ����, �Ѿ������ڷǳ��õ�Ӳ����(��ֻ���ֻ�; ���ڻ���ƽ�����, ����, ���������ǵ�).  
+- Android系统远远不能被称为"标准". 它不支持很多标准 – 例如宽字符, 区域设置等, 使得从其他平台移植现有代码到Android很难。  
+- Android系统也远非稳定 - libc提供的很多函数都只是部分实现或存在缺陷. 没有必要重申一个稳定的基础多少重要, 以及为什么它表现这么差, 有些bug需要花费数周甚至数月的时间去调试定位.  
+- 即使有些缺陷在新的Android版本中修复了, 以前旧的Android版本也无法得到修复. 谷歌仅为Java API提供向后兼容.  
+- 没有好的工具进行本地调试. 尽管gdb/lldb已经支持远程调试, 在实际开发中调试Android native二进制文件几乎是不可能的.  
+- 几乎所有重要的应用程序的特性只能通过Java API. 这意味着整个UI, 网络, 服务, 网络管理API, 应用程序内购买, 等等.  
+- 除了C和C++, 不支持任何其他native编程语言. 现在这已经变得更重要了, 当Android已遍布全世界, 已经运行在非常好的硬件上(不只是手机; 现在还有平板电脑, 电视, 汽车导航仪等).  
   
-#�������  
+#解决方案  
 
-������CrystaX NDK���Ѿ��޸�����������������, �����������ʣ��Ĳ���. �����ṩ�˸��Ӳ�, ͸�����滻libc����, ΪӦ�ó����ṩ���õı�׼��һ����, ��Android��ø��ӷ��ϱ�׼. ����Ҳ�����������, ����Ϊ����֧�ֵ�Android�汾ȫ���޸�ȱ�ݳ�Ϊ����. ��ʹ������(��Щ�Ѿ�����������POSIXƽ̨�ϵ�)������ֲ������. ���ǵ�һ��������Ҫ�����Ľ�, ��Ϊ����ϵͳʵ��ȫ���ԭ��API, ����UI����������.  
+我们在CrystaX NDK中已经修复了许多这样的问题, 接下来将解决剩余的部分. 我们提供了附加层, 透明地替换libc功能, 为应用程序提供更好的标准的一致性, 把Android变得更加符合标准. 我们也兼顾向后兼容性, 所以为所有支持的Android版本全部修复缺陷成为可能. 这使得现有(那些已经运行在其他POSIX平台上的)代码移植更容易. 这是第一步，还需要继续改进, 即为整个系统实现全面的原生API, 包括UI和其他部分.  
   
-����Ҳ�Ѿ���ʼ��Android Boost C++���[���ڳ������](http://www.boost.org/development/tests/master/developer/summary.html) - ����BoostҲ�����Android�ϵ�һ�ȹ���. ����Ҫ����Boost��ʲô; �ִ�C++�����������벻��Boost; ֱ�ӵ���Boost����ӱ�Boost��������. ����ISO C++��׼, Ҳ�ǻ���Boost.  
+我们也已经开始了Android Boost C++库的[定期常规测试](http://www.boost.org/development/tests/master/developer/summary.html) - 所以Boost也变成了Android上的一等公民. 不需要解释Boost是什么; 现代C++开发几乎都离不开Boost; 直接调用Boost库或间接被Boost技术启发. 即便ISO C++标准, 也是基于Boost.  
   
-Ȼ��ֱ������Boost��û�б�Android֧��, ԭ���ڶ�. ����, ���ڴ��ڴ�������, �ܶ����������û����, ����Android libc��ȱ���Լ�����ȱʧ. ��Σ�û��ͨ�����ڳ������, ����û���κ�����, ֱ��������ȱ�ݱ��޸�. ͨ��CrystaX NDK, �����Ѿ�ʹAndroid���ӽ���׼(ISO C, ISO C++, POSIX��), ���Boost(Ҳ��������������Ŀ)������д�Ϳ���������Android��. ���ǽ����������ƶ�Android Boost, �޸�NDK��ȱ��, ����Boost������ȱ��, ����BoostҲ�����Androidƽ̨��һ�ȹ���.  
+然而直到现在Boost还没有被Android支持, 原因众多. 首先, 由于存在大量问题, 很多事情根本就没法做, 比如Android libc的缺陷以及功能缺失. 其次，没有通过定期常规测试, 它就没有任何意义, 直到基础的缺陷被修复. 通过CrystaX NDK, 我们已经使Android更接近标准(ISO C, ISO C++, POSIX等), 因此Boost(也代表其他大量项目)不用重写就可以运行在Android上. 我们将继续大力推动Android Boost, 修复NDK的缺陷, 或者Boost自身的缺陷, 所以Boost也变成了Android平台的一等公民.  
   
-����, ��Ϊ�������˽�һ����չ�ļ�ʵ����, ����Ҫ�����Ӹ���Ĺ���, �����¹��ܱ�ø�����. ���������, ������ΪAndroidƽ̨ԭ����������һ��ȫ���ۺ��ԵĹ����׼�, ʹ������Ա�ܹ������κ����͵�AndroidӦ�ó���(UI�����Լ�services����broadcast receivers�㲥���ջ��Ƶ�), ����Ҫǿ�ȿ�����Ա����ʹ��Java���Ժ͹��߼�.  
+现在, 因为我们有了进一步发展的坚实基础, 我们要逐步增加更多的功能, 增加新功能变得更容易. 理想情况下, 我们想为Android平台原生开发创建一个全面综合性的工具套件, 使开发人员能够创建任何类型的Android应用程序(UI界面以及services服务，broadcast receivers广播接收机制等), 不需要强迫开发人员必须使用Java语言和工具集.  
   
-���ǻ���������������ֲIOSӦ�õ�Android, �ṩһ��Objective-C�������Լ�Cocoa���ݿ��. ���������, ���ǽ��ܹ�ͨ��CrystaX NDK�İ���������IOSӦ�ó���Android, ��ȫ���漰���ǵ�Ӧ�ó����Դ����.  
+我们还想让人们容易移植IOS应用到Android, 提供一个Objective-C编译器以及Cocoa兼容框架. 理想情况下, 人们将能够通过CrystaX NDK的帮助来编译IOS应用程序到Android, 完全不涉及他们的应用程序的源代码.  
   
-�⻹�кܳ���·Ҫ��, ��������֪�����ȥʵ����, ���ǿ�������ؿ���ÿһ���������. Ϊ��ʵ����һԸ��, ��������ÿһ����עAndroidԭ��������δ����չ�����Ѱ���.
+这还有很长的路要走, 但是我们知道如何去实现它, 我们可以清楚地看到每一步该如何走. 为了实现这一愿望, 我们请求每一个关注Android原生开发的未来发展的朋友帮助.
   
-#����  
-������������ΪCrystaX NDK���ӵ�һЩ�¹���.  
-- һ��Android����ʹ�õ�Ԥ������ļ���ͷ�ļ��Ĳֿ�.  һ������Debian��'apt-get'��OS X��'brew'�Ĺ���. Ϊ�������Ѿ���һ������"crew"�Ŀͻ��˹���. �����κ�native����, ������Ա��Ҫʹ�ø���֪���ľþ�����Ŀ�Դ��� - ����openssl, libraw, freetype, ffmpeg/libav, expat/libxml2, libjpeg, libpng�ȵ�. Ŀǰÿ��Android������Ա�����ò��Լ�������Щ��, �����е����Ժ�ȱ��������. �����뾡���ܵļ��� - ����, ������Աֻ��Ҫ����"crew install libpng"��"crew install ffmpeg"�Ϳ���������NDKĿ¼�»��ֱ�ӿ��õĿ��ļ���ͷ�ļ�.  
-- ֧��Objective-C v2. ĿǰCrystaX NDK֧��Objective-C core. Ȼ�����ںܴ�ľ�����, ʹ���޷�������Ӧ��. ��������Ŀǰֻ֧��Objective-C v1 runtime. ��δ֧��Objective-C v2 runtime. ������ǻ�δʵ���������õ�Cocoa���ݿ��. ����һ�����, ������Ա�Ϳ���������ֲIOS/OS X��Objective-C���뵽Android��.  
-- ֧�ָ���������. Ŀǰ����֧��C, C++�����޵�Objective-C. Ȼ�������ϻ���������������, ���������ӵ�CrystaX NDK. ����֧��D, Go, Fortran, Lisp, Erlang �C �ǲ��Ǻܿ���? ���Һ���Ϣ��ͨ��CrystaX NDK, ���Ѿ���ñ���ǰ��������. ��Ϊ���ǵĺ��������� - ��׼��������.  
-- ԭ��API. ĿǰAndroid��Ψһȫ���API��Java API. Ϊ��������������ʹ����, �����߱���дJNI��װ����ʹ������QT�Ŀ�ƽ̨ͳһ��(�����ṩ�Ļ���ȫ). ���������������, Ϊ����Android API����ʵ��native (C and C++) API, ����������ʹ���κ�native���Զ������ɵ���.  
-- ���ǻ���ʵ�ָ������Ĺ���, ������Щ�Ǵ����ǽǶ��������������. ����Ҳ�ǳ����������κ����뷨, ����ܶ����ڴ��Ļ�, ����Ҳ��ʵ����. ���κ��뷨��ʹ�����ǵ�[�������ϵͳ](https://tracker.crystax.net/projects/ndk)��[ֱ����ϵ����](https://www.crystax.net/en/contact).  
+#特性  
+以下是我们想为CrystaX NDK添加的一些新功能.  
+- 一个Android开发使用的预编译库文件和头文件的仓库.  一种类似Debian的'apt-get'或OS X的'brew'的工具. 为此我们已经有一个叫做"crew"的客户端工具. 进行任何native开发, 开发人员需要使用各种知名的久经考验的开源组件 - 例如openssl, libraw, freetype, ffmpeg/libav, expat/libxml2, libjpeg, libpng等等. 目前每个Android开发人员都不得不自己编译这些库, 跟所有的特性和缺陷做斗争. 我们想尽可能的简化它 - 例如, 开发人员只需要输入"crew install libpng"或"crew install ffmpeg"就可以立即在NDK目录下获得直接可用的库文件和头文件.  
+- 支持Objective-C v2. 目前CrystaX NDK支持Objective-C core. 然而存在很大的局限性, 使它无法被真正应用. 首先我们目前只支持Objective-C v1 runtime. 还未支持Objective-C v2 runtime. 其次我们还未实现完整可用的Cocoa兼容框架. 这项一旦完成, 开发人员就可以轻松移植IOS/OS X的Objective-C代码到Android上.  
+- 支持更多编程语言. 目前我们支持C, C++和受限的Objective-C. 然而世界上还有许多其他语言, 我们想添加到CrystaX NDK. 想想支持D, Go, Fortran, Lisp, Erlang – 那不是很酷吗? 而且好消息是通过CrystaX NDK, 它已经变得比以前更容易了. 因为我们的核心优势是 - 标准化兼容性.  
+- 原生API. 目前Android上唯一全面的API是Java API. 为了在其他语言中使用它, 开发者被迫写JNI封装或者使用类似QT的跨平台统一库(而且提供的还不全). 我们想解决这个问题, 为所有Android API调用实现native (C and C++) API, 允许开发者使用任何native语言都能轻松调用.  
+- 我们还想实现更多更酷的功能, 以上这些是从我们角度来看最有意义的. 我们也非常乐意倾听任何新想法, 如果很多人期待的话, 我们也会实现它. 有任何想法请使用我们的[问题跟踪系统](https://tracker.crystax.net/projects/ndk)或[直接联系我们](https://www.crystax.net/en/contact).  
   
-#����  
-չ��δ��, ���Ǽƻ���CrystaX NDK���һ��ǿ���ȫ���ۺ��ԵĿ����׼�, Ϊ����POSIX-���ݵ�����������д��������Android���ṩһ����ʵ�Ļ���. Ϊ��ʵ����һԸ��, �������������İ���.  
+#资助  
+展望未来, 我们计划把CrystaX NDK变成一个强大的全面综合性的开发套件, 为所有POSIX-兼容的软件无需重写即运行在Android上提供一个坚实的基础. 为了实现这一愿望, 我们请求社区的帮助.  
   
-������[BountySource](https://www.bountysource.com/teams/crystaxndk/fundraiser)������һ���������, ּ��ά�ֺͼ���CrystaX NDK�Ŀ���, ʹ�����ܹ�������Android������Աʼ�ձ������.  
-��������ÿһ����עAndroidԭ��������δ����չ�����Ѱ���. �������ĵĸ�л�κ���ʽ��֧��, �����Ǿ��, ����Ŀ�ύ����, ���߰�����������, �ø������˽���.  
+我们在[BountySource](https://www.bountysource.com/teams/crystaxndk/fundraiser)发起了一项筹款宣传活动, 旨在维持和继续CrystaX NDK的开发, 使得它能够对所有Android开发人员始终保持免费.  
+我们请求每一个关注Android原生开发的未来发展的朋友帮助. 我们衷心的感谢任何形式的支持, 无论是捐款, 给项目提交补丁, 或者帮助我们宣传, 让更多人了解它.  

@@ -1,11 +1,11 @@
-#AndroidÔ­Éú¿ª·¢Ì×¼şCrystaX NDK  
+#AndroidåŸç”Ÿå¼€å‘å¥—ä»¶CrystaX NDK  
   
-ÕâÀïÊÇCrystaX NDKËùÓĞ·¢²¼°æ±¾µÄÁĞ±í, ´ÓµÚÒ»°æµ½×îĞÂ°æ. Çë×¢Òâ,¾É°æ±¾½ö¹©±¸·İ¼ÇÂ¼,²»ÔÙÌá¹©ÈÎºÎ¼¼ÊõÖ§³Ö.ÎÒÃÇÍÆ¼ö´ó¼Ò¾¡Á¿Ê¹ÓÃ×îĞÂ°æ, [CrystaX NDK 10](https://www.crystax.net/cn/android/ndk).  
+è¿™é‡Œæ˜¯CrystaX NDKæ‰€æœ‰å‘å¸ƒç‰ˆæœ¬çš„åˆ—è¡¨, ä»ç¬¬ä¸€ç‰ˆåˆ°æœ€æ–°ç‰ˆ. è¯·æ³¨æ„,æ—§ç‰ˆæœ¬ä»…ä¾›å¤‡ä»½è®°å½•,ä¸å†æä¾›ä»»ä½•æŠ€æœ¯æ”¯æŒ.æˆ‘ä»¬æ¨èå¤§å®¶å°½é‡ä½¿ç”¨æœ€æ–°ç‰ˆ, [CrystaX NDK 10](https://www.crystax.net/cn/android/ndk).  
   
-##CrystaX NDKËùÓĞ·¢²¼°æ±¾ÁĞ±í  
+##CrystaX NDKæ‰€æœ‰å‘å¸ƒç‰ˆæœ¬åˆ—è¡¨  
   
 CrystaX NDK 10  
-| **ÎÄ¼ş** | **´óĞ¡** | **SHA1Ğ£ÑéÖµ** |
+| **æ–‡ä»¶** | **å¤§å°** | **SHA1æ ¡éªŒå€¼** |
 | :--- | :--- | :--- |
 | [crystax-ndk-10.1.0-windows-x86.exe](https://www.crystax.net/download/crystax-ndk-10.1.0-windows-x86.exe) | 800.793 MB | 1474fc065311f5cfd40531cba71fcc878ca591d7 |
 | [crystax-ndk-10.1.0-windows-x86_64.exe](https://www.crystax.net/download/crystax-ndk-10.1.0-windows-x86_64.exe) | 858.172 MB | f73a16892dc8f007872c5457a650e9b50969ebe1 |
@@ -25,7 +25,7 @@ CrystaX NDK 10
 | [crystax-ndk-10.0.0-darwin-x86_64.tar.bz2](https://www.crystax.net/download/crystax-ndk-10.0.0-darwin-x86_64.tar.bz2) | 1.155 GB | 2af59d54db8fb428826a94f524ef465e2424a778 |
   
 CrystaX NDK r8  
-| **ÎÄ¼ş** | **´óĞ¡** | **SHA1Ğ£ÑéÖµ** |
+| **æ–‡ä»¶** | **å¤§å°** | **SHA1æ ¡éªŒå€¼** |
 | :--- | :--- | :--- |
 | [android-ndk-r8-crystax-1-windows-x86.zip](https://www.crystax.net/download/android-ndk-r8-crystax-1-windows-x86.zip) | 514.186 MB | c52a6399015c9858b56b5720900a63a79802efc0 |
 | [android-ndk-r8-crystax-1-windows-x86_64.zip](https://www.crystax.net/download/android-ndk-r8-crystax-1-windows-x86_64.zip) | 547.004 MB | 490df6fdda07edb3436944f22bbecf2d9872de95 |
@@ -35,7 +35,7 @@ CrystaX NDK r8
 | [android-ndk-r8-crystax-1-darwin-x86_64.tar.bz2](https://www.crystax.net/download/android-ndk-r8-crystax-1-darwin-x86_64.tar.bz2) | 566.709 MB | 89c4e6104c2ccae902c89766361871132cf7647f |
   
 CrystaX NDK r7  
-| **ÎÄ¼ş** | **´óĞ¡** | **SHA1Ğ£ÑéÖµ** |
+| **æ–‡ä»¶** | **å¤§å°** | **SHA1æ ¡éªŒå€¼** |
 | :--- | :--- | :--- |
 | [android-ndk-r7-crystax-5.beta3-windows.zip](https://www.crystax.net/download/android-ndk-r7-crystax-5.beta3-windows.zip) | 249.952 MB | c72446f18efbbe3651e11e1527f4b697948447d0 |
 | [android-ndk-r7-crystax-5.beta3-linux-x86.tar.bz2](https://www.crystax.net/download/android-ndk-r7-crystax-5.beta3-linux-x86.tar.bz2) | 196.778 MB | 59faf07a28ffcf2ea37f45749548449bb61bad47 |
@@ -57,7 +57,7 @@ CrystaX NDK r7
 | [android-ndk-r7-crystax-1-darwin-x86.tar.bz2](https://www.crystax.net/download/android-ndk-r7-crystax-1-darwin-x86.tar.bz2) | 118.969 MB | c63190f0af2ccf1368b76d55c06aa90f84a2580a |
   
 CrystaX NDK r6  
-| **ÎÄ¼ş** | **´óĞ¡** | **SHA1Ğ£ÑéÖµ** |
+| **æ–‡ä»¶** | **å¤§å°** | **SHA1æ ¡éªŒå€¼** |
 | :--- | :--- | :--- |
 | [android-ndk-r6-crystax-2-windows.zip](https://www.crystax.net/download/android-ndk-r6-crystax-2-windows.zip) | 66.334 MB | 2d9c2d299ce10fb813313c4e96d32a50c61edeec |
 | [android-ndk-r6-crystax-2-linux-x86.tar.bz2](https://www.crystax.net/download/android-ndk-r6-crystax-2-linux-x86.tar.bz2) | 47.986 MB | be31212d35c44df4440b9232bd8cf09efcb9a1b6 |
@@ -67,7 +67,7 @@ CrystaX NDK r6
 | [android-ndk-r6-crystax-1-darwin-x86.tar.bz2](https://www.crystax.net/download/android-ndk-r6-crystax-1-darwin-x86.tar.bz2) | 53.265 MB | 0dbb7223e14cc0ed1c5503e4fc0ef9f8125cb0d5 |
   
 CrystaX NDK r5  
-| **ÎÄ¼ş** | **´óĞ¡** | **SHA1Ğ£ÑéÖµ** |
+| **æ–‡ä»¶** | **å¤§å°** | **SHA1æ ¡éªŒå€¼** |
 | :--- | :--- | :--- |
 | [android-ndk-r5-crystax-2-windows.zip](https://www.crystax.net/download/android-ndk-r5-crystax-2-windows.zip) | 63.516 MB | adc5cb3b69ba3b0b7203709d246dd9bf5ae6b080 |
 | [android-ndk-r5-crystax-2-linux-x86.tar.bz2](https://www.crystax.net/download/android-ndk-r5-crystax-2-linux-x86.tar.bz2) | 48.410 MB | f448c1a41d442683ef5887621e100d261ba2367d |
@@ -85,7 +85,7 @@ CrystaX NDK r5
 | [android-ndk-r5-crystax-1-darwin-x86.tar.bz2](https://www.crystax.net/download/android-ndk-r5-crystax-1-darwin-x86.tar.bz2) | 53.427 MB | e76318527a7d56982253f626f1f28098c7bf904f |
   
 CrystaX NDK r4  
-| **ÎÄ¼ş** | **´óĞ¡** | **SHA1Ğ£ÑéÖµ** |
+| **æ–‡ä»¶** | **å¤§å°** | **SHA1æ ¡éªŒå€¼** |
 | :--- | :--- | :--- |
 | [android-ndk-r4-windows-crystax-4.zip](https://www.crystax.net/download/android-ndk-r4-windows-crystax-4.zip) | 141.917 MB | 6428c8aadee610303f42839c53d35ed514f44628 |
 | [android-ndk-r4-windows-crystax-3.zip](https://www.crystax.net/download/android-ndk-r4-windows-crystax-3.zip) | 142.741 MB | 253583f114bc07659fa79d74f61700b564dc39a3 |
@@ -100,7 +100,7 @@ CrystaX NDK r4
 | [android-ndk-r4-darwin-x86-crystax-1.tar.bz2](https://www.crystax.net/download/android-ndk-r4-darwin-x86-crystax-1.tar.bz2) | 119.765 MB | 25fdcd660b128c64995e98fb5b7084caa2c65cfd |
   
 CrystaX NDK r3  
-| **ÎÄ¼ş** | **´óĞ¡** | **SHA1Ğ£ÑéÖµ** |
+| **æ–‡ä»¶** | **å¤§å°** | **SHA1æ ¡éªŒå€¼** |
 | :--- | :--- | :--- |
 | [android-ndk-r3-windows-crystax-3.zip](https://www.crystax.net/download/android-ndk-r3-windows-crystax-3.zip) | 131.713 MB | 4dd81601a7e2a11f66c9dd780d82cf5cd9e9772f |
 | [android-ndk-r3-windows-crystax-2.zip](https://www.crystax.net/download/android-ndk-r3-windows-crystax-2.zip) | 127.337 MB | d19528ef143a2094b009592faeababa406ec298d |
@@ -110,7 +110,7 @@ CrystaX NDK r3
 | [android-ndk-r3-darwin-x86-crystax-2.tar.bz2](https://www.crystax.net/download/android-ndk-r3-darwin-x86-crystax-2.tar.bz2) | 109.679 MB | 8eeb6120adce2a3c4d0ca063f8bfaac703416eaf |
   
 CrystaX NDK r2  
-| **ÎÄ¼ş** | **´óĞ¡** | **SHA1Ğ£ÑéÖµ** |
+| **æ–‡ä»¶** | **å¤§å°** | **SHA1æ ¡éªŒå€¼** |
 | :--- | :--- | :--- |
 | [android-ndk-r2-windows-crystax-1.zip](https://www.crystax.net/download/android-ndk-r2-windows-crystax-1.zip) | 110.442 MB | af3552f97c6ceb94f32be75ef51fb9e568d5a650 |
 | [android-ndk-r2-linux-x86-crystax-1.tar.bz2](https://www.crystax.net/download/android-ndk-r2-linux-x86-crystax-1.tar.bz2) | 88.356 MB | 7a59ea2d13955c1b9e2151d7a95962675f88f534 |
