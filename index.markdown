@@ -10,6 +10,14 @@
 有趣吧? CrystaX NDK给Android开发者们带来了哪些新特性, 请[查看更多信息](https://www.crystax.net/cn/android/ndk).  
 #新闻  
   
+##[CrystaX NDK 10.2.0 已发布!](https://www.crystax.net/cn/blog/5)  06/24/2015 03:01 PM  
+  
+我们很高兴的宣布**CrystaX NDK 10.2.0**已发布!  
+  
+我们[如约前行](https://www.crystax.net/cn/blog/4), 在这个版本中, 我们修复大量缺陷并实现大量优化改进. 请阅读下面的全文, 查看**CrystaX NDK 10.2.0**带来了哪些重要新特性.  
+  
+[阅读全文](https://www.crystax.net/cn/blog/5)  
+  
 ##[筹款宣传活动开启](https://www.crystax.net/cn/blog/4)	03/24/2015 01:47 PM  
   
 我们在[BountySource](https://www.bountysource.com/teams/crystaxndk/fundraiser)发起了一项筹款宣传活动, 旨在维持和继续CrystaX NDK的开发, 使得它能够对所有Android开发人员始终保持免费.  

@@ -176,11 +176,15 @@ int main()
 例子 [如何在Android工程中使用Boost C++库](https://www.crystax.net/en/blog/2)  
 
 ###8. 支持Objective-C and Objective-C++  
-Google's NDK只支持C C++. **CrystaX NDK**还支持Objective-C和Objective-C++. 目前只支持核心语言部分; 正在实现Cocoa库和Objective-C v2 runtime. 使用Objective-C, 只需添加源码文件到Android.mk, LOCAL_SRC_FILES添加 .m (Objective-C) 和 .mm (Objective-C++).  
-
+Google's NDK只支持C C++. **CrystaX NDK**还支持Objective-C和Objective-C++.  
+  
+从CrystaX NDK 10.2.0开始, 我们新增支持Objective-C v2 runtime 和初始版本的frameworks (Foundation and CoreFoundation).  
+  
+[这里](https://github.com/crystax/android-platform-ndk/tree/crystax-ndk-10.2.0/tests/device/crystax-test-objc-cocotron/jni)是一个小例子, 介绍如何在Android平台使用Objective-C. 简单说明, 只需添加源码文件到**Android.mk**, **LOCAL_SRC_FILES** 添加.m (Objective-C) 和.mm (Objective-C++), 添加**"APP_OBJC := cocotron"** 到 **Application.mk**.
+  
 ###9. 标准C库的大量缺陷修复和功能改进  
-众所周知Android libc (Bionic)的标准C函数实现有大量bug, 例如**strtod**, 只对最简单格式的字符串输入有效, 不支持其他标准C定义的规范. 有些缺陷已修复, 有些还未修复. 即使已修复, 也只对后续新版本有效. 开发人员只能自己实现针对已发布版本的适配.  
-**CrystaX NDK**在libcrystax中重写了这些有缺陷的函数,而且平台版本无关,对开发人员透明.  
+众所周知Android libc (Bionic)的标准C函数实现有大量bug, 例如**strtod**, 只对最简单格式的字符串输入有效, 不支持其他标准C定义的规范. 有些缺陷已修复, 有些还未修复. 即使已修复, 也只对后续新版本有效. 开发人员只能自己实现针对已发布版本的适配.这显著增加了Android原生应用的开发移植时间.  
+**CrystaX NDK**在libcrystax中重写了这些有缺陷的函数,而且平台版本无关,对开发人员透明. 开发人员无须关注libcrystax替代Bionic的技术细节, 同时您也无须关注一个缺陷修复是针对哪个Android版本的问题, 我们保证任何缺陷修复都是全部版本生效.  
 
 ###10. 未完待续...  
 如果你还需要其他特性,请[联系我们](https://www.crystax.net/en/contact). 欢迎反馈[问题和缺陷](https://tracker.crystax.net/projects/ndk), 当然,也非常欢迎贡献!  
@@ -235,18 +239,18 @@ or implied, of CrystaX .NET.
 ```
 ##下载  
 
-| 文件 | 大小 | SHA1校验值 |
+| **文件** | **大小** | **SHA1校验值** |
 | :--- | :--- | :--- |
-| [crystax-ndk-10.1.0-windows-x86.exe](https://www.crystax.net/download/crystax-ndk-10.1.0-windows-x86.exe) | 800.793 MB | 1474fc065311f5cfd40531cba71fcc878ca591d7 |
-| [crystax-ndk-10.1.0-windows-x86_64.exe](https://www.crystax.net/download/crystax-ndk-10.1.0-windows-x86_64.exe) |858.172 MB | f73a16892dc8f007872c5457a650e9b50969ebe1|
-| [crystax-ndk-10.1.0-darwin-x86.7z](https://www.crystax.net/download/crystax-ndk-10.1.0-darwin-x86.7z) | 560.190 MB | d502f57ea314e5a572387b4492c297f77e68a982|
-| [crystax-ndk-10.1.0-darwin-x86.tar.bz2](https://www.crystax.net/download/crystax-ndk-10.1.0-darwin-x86.tar.bz2) | 1.422 GB | c30724ff738bbcc1906bc2d89114fbe706a05fb5|
-| [crystax-ndk-10.1.0-darwin-x86_64.7z](https://www.crystax.net/download/crystax-ndk-10.1.0-darwin-x86_64.7z) | 530.204 MB | dc125ae803ede7d4b68ac9d57b30909bfcb1a8d6|
-| [crystax-ndk-10.1.0-darwin-x86_64.tar.bz2](https://www.crystax.net/download/crystax-ndk-10.1.0-darwin-x86_64.tar.bz2) | 1.386 GB | 505677a7c971fbfeb56e1ba19ea2262aadd439ed|
-| [crystax-ndk-10.1.0-linux-x86.7z](https://www.crystax.net/download/crystax-ndk-10.1.0-linux-x86.7z) | 790.919 MB | 55aa8750e8ed8704e748114f7788dbfe81668737|
-| [crystax-ndk-10.1.0-linux-x86.tar.bz2](https://www.crystax.net/download/crystax-ndk-10.1.0-linux-x86.tar.bz2) | 1.798 GB | 07698fe850311c43d14d29f93123a6f6ec69bf9b|
-| [crystax-ndk-10.1.0-linux-x86_64.7z](https://www.crystax.net/download/crystax-ndk-10.1.0-linux-x86_64.7z) | 814.350 MB | a5a6964e5062239cfa72af37d9147f4577a8f21a|
-| [crystax-ndk-10.1.0-linux-x86_64.tar.bz2](https://www.crystax.net/download/crystax-ndk-10.1.0-linux-x86_64.tar.bz2) | 1.824 GB | 498ebae28243de399bb9a59fbde1d04b24653e64|
+| [crystax-ndk-10.2.0-windows-x86.exe](https://www.crystax.net/download/crystax-ndk-10.2.0-windows-x86.exe) | 804.281 MB | 27049f80986524cbc59612f836bb9199bba9e528 |
+| [crystax-ndk-10.2.0-windows-x86_64.exe](https://www.crystax.net/download/crystax-ndk-10.2.0-windows-x86_64.exe) | 875.824 MB | b639c565db15975b6bc60b023867d0b54e8ee2da|
+| [crystax-ndk-10.2.0-darwin-x86.7z](https://www.crystax.net/download/crystax-ndk-10.2.0-darwin-x86.7z) | 529.606 MB | d199ce7d0c325e8ab71b04a9d41bf925ac7e03a1|
+| [crystax-ndk-10.2.0-darwin-x86.tar.bz2](https://www.crystax.net/download/crystax-ndk-10.2.0-darwin-x86.tar.bz2) | 1.536 GB | de2bf55e8cb3c7931fb16cbb42b037237c607488|
+| [crystax-ndk-10.2.0-darwin-x86_64.7z](https://www.crystax.net/download/crystax-ndk-10.2.0-darwin-x86_64.7z) | 506.425 MB | c75b07a79f7f40d947f70fd36dbcdc08fbee686e|
+| [crystax-ndk-10.2.0-darwin-x86_64.tar.bz2](https://www.crystax.net/download/crystax-ndk-10.2.0-darwin-x86_64.tar.bz2) | 1.506 GB | 161b6045e03542a2af904ea2b998519406d5b916|
+| [crystax-ndk-10.2.0-linux-x86.7z](https://www.crystax.net/download/crystax-ndk-10.2.0-linux-x86.7z) | 771.790 MB | 1dc87872518967d962485b05b40f55b9c6c9b10a|
+| [crystax-ndk-10.2.0-linux-x86.tar.bz2](https://www.crystax.net/download/crystax-ndk-10.2.0-linux-x86.tar.bz2) | 1.920 GB | dec7d9eed0860a44b5c1296728eb65d2522e8ca5|
+| [crystax-ndk-10.2.0-linux-x86_64.7z](https://www.crystax.net/download/crystax-ndk-10.2.0-linux-x86_64.7z) | 819.557 MB | 7f6f24f44adf8336b0650d42149ecaf6e427f416|
+| [crystax-ndk-10.2.0-linux-x86_64.tar.bz2](https://www.crystax.net/download/crystax-ndk-10.2.0-linux-x86_64.tar.bz2) | 1.941 GB | 2642eb27e28064f9c8826cc4e98ebb3aeea1f1c6|
 
 ##如何编译
 

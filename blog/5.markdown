@@ -1,0 +1,182 @@
+我们很高兴的宣布[CrystaX NDK 10.2.0](https://www.crystax.net/cn/android/ndk)已发布!  
+  
+我们[如约前行](https://www.crystax.net/cn/blog/4), 在这个版本中, 我们修复大量缺陷并实现大量优化改进. 请阅读以下内容, 查看该版本带来了哪些重要新特性.  
+  
+#Objective-C v2  
+新增支持[Objective-C v2 runtime](https://en.wikipedia.org/wiki/Objective-C#Objective-C_2.0) (兼容苹果公司的Objective-C runtime), 以及初始版本的Cocoa-compatible frameworks (Foundation and CoreFoundation).  
+  
+在这里我们想感谢[GNUstep](http://www.gnustep.org/)和[Cocotron](http://www.cocotron.org/)社区 - 如果没有这些非常棒的开源项目, CrystaX NDK实现支持Objective-C v2将会异常困难和复杂. 感谢上帝(以及[理查德·斯托曼](https://zh.wikipedia.org/wiki/%E7%90%86%E6%9F%A5%E5%BE%B7%C2%B7%E6%96%AF%E6%89%98%E6%9B%BC)), 现在我们已经拥有了众多可以互相支持和协助的开源项目, [自由及开放源代码软件](https://zh.wikipedia.org/wiki/%E8%87%AA%E7%94%B1%E5%8F%8A%E5%BC%80%E6%94%BE%E6%BA%90%E4%BB%A3%E7%A0%81%E8%BD%AF%E4%BB%B6)的世界就是如此高效!  
+  
+这是漫长道路上的第一步, 我们将继续努力实现Objective-C相关支持, 以及邀请所有感兴趣的团队帮助我们. 我们非常乐于接受任何形式的帮助, 共同把Objective-C打造成为Android平台的一等公民!  
+  
+[这里](https://github.com/crystax/android-platform-ndk/tree/master/tests/device/crystax-test-objc-cocotron/jni)是一个小例子, 介绍如何在Android平台使用Objective-C v2.  
+  
+#Boost 1.58.0  
+在该版本中, 添加了2个版本[Boost](http://www.boost.org/)预编译库文件 - 1.57.0 和 1.58.0. 尽情在Android上[使用](https://www.crystax.net/cn/blog/3)Boost吧, 把编译问题都抛到脑后!  
+  
+请记住, 我们一直在运行Boost库的定期回归测试, 所以您可以随时查看Boost库在Android平台的兼容性细节: [master](http://www.boost.org/development/tests/master/developer/summary.html) 和 [develop](http://www.boost.org/development/tests/develop/developer/summary.html).  
+  
+#Clang 3.6  
+新增了clang-3.6工具链, 向后兼容我们在clang-3.4和clang-3.5上所做的全部缺陷修复. 它是当前默认"clang"工具链; 换言之, 如果您在**Application.mk**中设置**"NDK_TOOLCHAIN_VERSION := clang"**, clang-3.6将会被启用.  
+  
+同时升级LLVM libc++到**release_36**分支, 所以它已经是目前最新版本.  
+  
+#PNG, JPEG 和 TIFF 库  
+新增预编译的[libpng-1.6.17](https://github.com/crystax/android-platform-ndk/tree/crystax-ndk-10.2.0/sources/libpng/1.6.17), [libjpeg-9a](https://github.com/crystax/android-platform-ndk/tree/crystax-ndk-10.2.0/sources/libjpeg/9a) and [libtiff-4.0.4beta](https://github.com/crystax/android-platform-ndk/tree/crystax-ndk-10.2.0/sources/libtiff/4.0.4beta), 所以无需再自己编译; 直接在**Android.mk**中包含引用:  
+  
+Android.mk
+```
+include $(CLEAR_VARS)
+
+LOCAL_MODULE           := test-static
+LOCAL_SRC_FILES        := $(SRCFILES)
+LOCAL_STATIC_LIBRARIES := \
+    libpng_static         \
+    libjpeg_static        \
+    libtiff_static
+
+include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE           := test-shared
+LOCAL_SRC_FILES        := $(SRCFILES)
+LOCAL_SHARED_LIBRARIES := \
+    libpng_shared         \
+    libjpeg_shared        \
+    libtiff_shared
+
+include $(BUILD_SHARED_LIBRARY)
+
+$(call import-module,libpng/1.6.17)
+$(call import-module,libjpeg/9a)
+$(call import-module,libtiff/4.0.4beta)
+```
+这些库文件同样也已经添加到自动生成的独立工具链, 所以使用autotools构建变得非常简单:  
+例子  
+```
+$ /opt/android/crystax-ndk-10.2.0/build/tools/make-standalone-toolchain.sh \
+    --toolchain=arm-linux-androideabi-4.9 --platform=android-9 \
+    --install-dir=$HOME/android-arm-toolchain
+Auto-config: --arch=arm
+Copying prebuilt binaries...
+Copying sysroot headers and libraries...
+Copying crystax headers and libraries...
+Copying libpng headers and libraries...
+Copying libjpeg headers and libraries...
+Copying libtiff headers and libraries...
+Copying libobjc headers and libraries...
+Copying c++ runtime headers and libraries...
+Copying files to: /Users/crystax/android-arm-toolchain
+Cleaning up...
+Done.
+
+$ ls -FAl $HOME/android-arm-toolchain/arm-linux-androideabi/include
+total 340
+-rw-r--r--  1 crystax wheel   1757 Jun 19 09:04 jconfig.h
+-rw-r--r--  1 crystax wheel  14580 Jun 19 09:04 jerror.h
+-rw-r--r--  1 crystax wheel  14925 Jun 19 09:04 jmorecfg.h
+-rw-r--r--  1 crystax wheel  49281 Jun 19 09:04 jpeglib.h
+drwxr-xr-x  5 crystax wheel    170 Jun 19 03:40 libpng16/
+drwxr-xr-x 12 crystax wheel    408 Jun 19 02:10 objc/
+-rw-r--r--  1 crystax wheel 146763 Jun 19 09:04 png.h
+-rw-r--r--  1 crystax wheel  22841 Jun 19 09:04 pngconf.h
+-rw-r--r--  1 crystax wheel   7256 Jun 19 09:04 pnglibconf.h
+-rw-r--r--  1 crystax wheel  35987 Jun 19 09:04 tiff.h
+-rw-r--r--  1 crystax wheel   3442 Jun 19 09:04 tiffconf.h
+-rw-r--r--  1 crystax wheel  23003 Jun 19 09:04 tiffio.h
+-rw-r--r--  1 crystax wheel   1702 Jun 19 09:04 tiffio.hxx
+-rw-r--r--  1 crystax wheel    414 Jun 19 09:04 tiffvers.h
+-rw-r--r--  1 crystax wheel   2923 Jun 19 09:04 unwind.h
+
+$ ls -FAl $HOME/android-arm-toolchain/arm-linux-androideabi/lib/armv7-a
+total 30684
+drwxr-xr-x 20 crystax wheel      680 Jun 23 13:50 hard/
+-rw-r--r--  1 crystax wheel   411780 Jun 19 09:04 libatomic.a
+-rw-r--r--  1 crystax wheel  6053520 Jun 19 09:03 libcrystax.a
+-rwxr-xr-x  1 crystax wheel  3296588 Jun 19 09:03 libcrystax.so*
+-rwxr-xr-x  1 crystax wheel   289192 Jun 19 09:04 libgnuobjc_shared.so*
+-rwxr-xr-x  1 crystax wheel  5951764 Jun 19 09:03 libgnustl_shared.so*
+-rw-r--r--  1 crystax wheel   515224 Jun 19 09:04 libgomp.a
+-rw-r--r--  1 crystax wheel      153 Jun 19 09:04 libgomp.spec
+-rw-r--r--  1 crystax wheel   288912 Jun 19 09:04 libjpeg.a
+-rwxr-xr-x  1 crystax wheel   285780 Jun 19 09:04 libjpeg.so*
+-rw-r--r--  1 crystax wheel   375692 Jun 19 09:04 libobjc.a
+-rw-r--r--  1 crystax wheel   248606 Jun 19 09:04 libpng.a
+-rwxr-xr-x  1 crystax wheel   246116 Jun 19 09:04 libpng.so*
+-rw-r--r--  1 crystax staff 11190794 Jun 19 09:03 libstdc++.a
+-rw-r--r--  1 crystax wheel  1171236 Jun 19 09:03 libsupc++.a
+-rw-r--r--  1 crystax wheel   546726 Jun 19 09:04 libtiff.a
+-rwxr-xr-x  1 crystax wheel   485408 Jun 19 09:04 libtiff.so*
+-rw-r--r--  1 crystax wheel    14502 Jun 19 09:04 libtiffxx.a
+-rwxr-xr-x  1 crystax wheel    12724 Jun 19 09:04 libtiffxx.so*
+drwxr-xr-x 21 crystax wheel      714 Jun 23 13:50 thumb/
+
+$ cat test.c
+#include <stdio.h>
+#include <png.h>
+#include <jpeglib.h>
+#include <tiffio.h>
+
+void test_libjpeg()
+{
+    printf("libjpeg version: %d.%d\n\n",
+        JPEG_LIB_VERSION_MAJOR,
+        JPEG_LIB_VERSION_MINOR);
+}
+
+void test_libpng()
+{
+    printf("libpng version: (%lu):%s\n",
+        (unsigned long)png_access_version_number(),
+        png_get_header_version(NULL));
+}
+
+void test_libtiff()
+{
+    printf("TIFF version: %s\n", TIFFGetVersion());
+}
+
+int main()
+{
+    test_libpng();
+    test_libjpeg();
+    test_libtiff();
+
+    return 0;
+}
+
+$ $HOME/android-arm-toolchain/bin/arm-linux-androideabi-gcc \
+    -march=armv7-a -mthumb -mfloat-abi=softfp -mfpu=vfpv3-d16 \
+    -fPIE -pie -o test test.c \
+    -Wl,-Bstatic -lpng -ltiff -ljpeg -Wl,-Bdynamic -lz
+
+$ adb push $HOME/android-arm-toolchain/arm-linux-androideabi/lib/armv7-a/libcrystax.so /data/local/tmp
+6133 KB/s (3296588 bytes in 0.524s)
+
+$ adb push test /data/local/tmp
+6713 KB/s (243976 bytes in 0.035s)
+
+$ adb shell chmod 0700 /data/local/tmp/test
+
+$ adb shell 'cd /data/local/tmp && LD_LIBRARY_PATH=/data/local/tmp ./test'
+libpng version: (10617): libpng version 1.6.17 - March 26, 2015
+
+
+libjpeg version: 9.1
+
+TIFF version: LIBTIFF, Version 4.0.4beta
+Copyright (c) 1988-1996 Sam Leffler
+Copyright (c) 1991-1996 Silicon Graphics, Inc.
+```
+  
+#其他  
+最后一点, 该版本中还包含很多缺陷修复和小优化, 使CrystaX NDK运行得更流畅稳定. [这里](https://tracker.crystax.net/versions/38)是我们在**10.2.0**版本中关闭的缺陷列表.  
+  
+#下载  
+从[这里](https://www.crystax.net/cn/android/ndk)下载体验**CrystaX NDK 10.2.0**!  
+  
+另外如果您使用OS X和[Homebrew](http://brew.sh/), 直接输入:  
+```
+brew install crystax-ndk
+```
