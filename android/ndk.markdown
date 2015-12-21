@@ -240,7 +240,7 @@ or implied, of CrystaX .NET.
 
 ## 反馈
 我们坚持不懈地优化完善**CrystaX NDK**。但它也并非完美无瑕 - 万物皆如此。如果您发现任何缺陷，请提交反馈，我们会尽最大努力修正它。  
-同时，您可以使用[公共讨论组](https://groups.google.com/d/forum/crystax-ndk)探讨**CrystaX NDK**相关问题（例如，当您不确定某些问题是缺陷或特性）。您可以通过网页提交问题，或使用邮件列表：发送电子邮件至[crystax-ndk@googlegroups.com](mailto:crystax-ndk@googlegroups.com)。这是一个自组织的讨论组，所以如果您没能即时查看到您发布的内容，请不要担心；请容许我们花一些时间来查看和处理。  
+同时，您可以使用[公共讨论组](https://groups.google.com/d/forum/crystax-ndk)探讨**CrystaX NDK**相关问题（例如，当您不确定某些问题是缺陷或特性）。您可以通过网页提交问题，或使用邮件列表：发送电子邮件至[crystax-ndk@googlegroups.com](mailto:crystax-ndk@googlegroups.com)。这是一个自组织的讨论小组，所以如果您没能即时查看到您发布的内容，请不要担心；请容许我们花一些时间来查看和处理。  
 最后，如果以上方式无法满足您的需求，您也可以直接联系我们。
 
 ## 下载  
