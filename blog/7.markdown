@@ -1,3 +1,5 @@
+# Android Studio 实验性 Gradle 插件与 CrystaX NDK 的配合使用
+
 之前我们介绍过如何在 [Android Studio 中使用 CrystaX NDK](https://www.crystax.net/cn/blog/3)。前些时候 Google 发布了一个 Android Studio 相关支持 NDK 开发的新(实验性)Gradle插件。 让我们来看看如何基于这个新插件使用 **CrystaX NDK**。  
 
 为了保持连贯性， 我们配合新插件的使用来重新梳理之前的文章， 依然是一个简单的UI应用程序，使用 Boost.Serialization。 使用 Boost 并不是为了理解 Gradle 实验性插件的新功能；我们使用 Boost 举例只是为了覆盖更多的使用场景。  
