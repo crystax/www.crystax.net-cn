@@ -2,13 +2,13 @@
 
 为了保持连贯性， 我们配合新插件的使用来重新梳理之前的文章， 依然是一个简单的UI应用程序，使用 Boost.Serialization。 使用 Boost 并不是为了理解 Gradle 实验性插件的新功能；我们使用 Boost 举例只是为了覆盖更多的使用场景。  
 
-在新 Gradle 插件中， Google放弃了旧的基于 GNU Make 的构建系统(ndk-build)。 现在 Gradle的 DSL 负责描述构建流程的每一步。对于那些不太熟悉旧 GNU Make 机制， 使用 IDE 来全权管理编译流程，不太关注 GNU Make 文件的开发者来说，这是个好消息。  
+在新 Gradle 插件中， Google放弃了旧的基于 GNU Make 的构建系统(`ndk-build`)。 现在 Gradle的 DSL 负责描述构建流程的每一步。对于那些不太熟悉旧 GNU Make 机制， 使用 IDE 来全权管理编译流程，不太关注 GNU Make 文件的开发者来说，这是个好消息。  
 
 然而，这种方式也存在一些缺点。最重要的一点是，在这种情况下，开发者需要更多的参与到使用 Gradle DSL 创建构建配置文件，更好地理解 Groovy。  
 
 接下来看看它具体如何实现。  
 
-## Java part
+## Java 部分
 首先，打开 Android Studio 并创建一个 Android 工程：  
 
 ![screenshot1](https://www.crystax.net/blog/7/screenshot1.png)
@@ -25,13 +25,13 @@
 
 ![screenshot4](https://www.crystax.net/blog/7/screenshot4.png)
 
-## Gradle
+### Gradle
 
 默认 Android Studio 会使用旧 Gradle 插件。这里切换到新的（实验性）。  
 
 首先打开并编辑若干文件：  
 
-### build.gradle.diff
+#### build.gradle.diff
 ```
 diff --git a/build.gradle b/build.gradle
 index e0b366a..a4d7068 100644
@@ -49,7 +49,7 @@ index e0b366a..a4d7068 100644
 ```
 ![screenshot5](https://www.crystax.net/blog/7/screenshot5.png)
 
-### gradle/wrapper/gradle-wrapper.properties.diff
+#### gradle/wrapper/gradle-wrapper.properties.diff
 ```
 diff --git a/gradle/wrapper/gradle-wrapper.properties b/gradle/wrapper/gradle-wrapper.properties
 index f23df6e..bfcae0a 100644
@@ -64,7 +64,7 @@ index f23df6e..bfcae0a 100644
 ```
 ![screenshot6](https://www.crystax.net/blog/7/screenshot6.png)
 
-### app/build.gradle.diff
+#### app/build.gradle.diff
 ```
 diff --git a/app/build.gradle b/app/build.gradle
 index 3fd571b..d9b2bf0 100644
@@ -128,11 +128,11 @@ ndk.dir=C\:\\android\\crystax-ndk-10.3.0
 
 ![screenshot9](https://www.crystax.net/blog/7/screenshot9.png)
 
-## Layout
+### Layout
 
 现在修改 `app/res/layout/content_main.xml` 如下所示:  
 
-### content_main.xml.diff
+#### content_main.xml.diff
 ```
 diff --git a/app/src/main/res/layout/content_main.xml b/app/src/main/res/layout/content_main.xml
 index ec3933f..077dacc 100644
@@ -151,7 +151,7 @@ index ec3933f..077dacc 100644
  </RelativeLayout>
 ```
 
-### content_main.xml
+#### content_main.xml
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -176,7 +176,7 @@ index ec3933f..077dacc 100644
 </RelativeLayout>
 ```
 
-## MainActivity  
+### MainActivity  
 添加以下代码至 `MainActivity.onCreate()`:  
 ```java
 TextView field = (TextView)findViewById(R.id.text);
@@ -197,7 +197,7 @@ static {
 
 以下是修改部分：  
 
-### MainActivity.java.diff
+#### MainActivity.java.diff
 ```java
 diff --git a/app/src/main/java/net/crystax/examples/testboost2/MainActivity.java b/app/src/main/java/net/crystax/examples/testboost2/MainActivity.java
 index f9c0821..0519122 100644
@@ -234,7 +234,7 @@ index f9c0821..0519122 100644
 
 `MainActivity.java` 的最终内容应该如下所示：  
 
-### MainActivity.java
+#### MainActivity.java
 ```java
 package net.crystax.examples.testboost2;
 
@@ -300,6 +300,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 我们已经完成了这个应用程序的 Java 部分，现在切换到 native 部分。  
+
 ## Native 部分
 首先我们在 `app/build.gradle` 中启用 native 编译：  
 
@@ -738,7 +739,7 @@ index 3da6874..b5642f9 100644
 +}
 ```
 
-## 文件树状列表
+## 文件夹树状列表
 `TestBoost2/app` 文件夹的源代码文件结构应该看上去如下所示：  
 
 ```
