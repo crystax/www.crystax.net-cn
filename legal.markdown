@@ -1,0 +1,1 @@
+本页面中的部分内容基于 [Android开源项目](http://code.google.com/policies.html)所创建和共享的成果进行修改，并且根据[知识共享许可协议2.5版本](http://creativecommons.org/licenses/by/2.5/)的条款进行使用。

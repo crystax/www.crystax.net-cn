@@ -1,0 +1,88 @@
+我们很高兴的宣布 [CrystaX NDK 10.3.0](https://www.crystax.net/cn/android/ndk) 已发布!  
+
+这次发布的重大更新有：  
++ 更新GCC和LLVM/clang工具链
++ Objective-C v2支持的重大优化
++ 初步支持 Android 平台 Python (2.7 和 3.5)
+
+另外，我们修复大量缺陷并增加若干优化改进。详见下文。  
+
+## 更新GCC和LLVM/clang工具链
+在该版本中，我们提供了最新的基于[gcc-5.3](https://gcc.gnu.org/onlinedocs/5.3.0/)和[llvm-3.7](http://llvm.org/releases/3.7.0/docs/ReleaseNotes.html)的工具链。考虑到兼容性，旧的gcc-4.9和llvm-3.6工具链依然保留，但是预计会在下一个版本移除。  
+
+### 查看版本
+```
+$ $NDK/toolchains/arm-linux-androideabi-5/prebuilt/linux-x86_64/bin/arm-linux-androideabi-gcc --version
+arm-linux-androideabi-gcc (GCC) 5.3 20151204
+Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+$ $NDK/toolchains/llvm-3.7/prebuilt/linux-x86_64/bin/clang -target armv7-none-linux-androideabi --version
+clang version 3.7
+Target: armv7-none-linux-android
+Thread model: posix
+```
+
+## Objective-C v2优化
+我们对 Objective-C v2 runtime 进行了大量优化，使得所有 Objective-C v2 特性均可用，例如自动引用计数， Objective-C 字面量，等等。同时在该版本中，我们还添加支持了 CoreData, CoreText, CoreGraphics 和 CoreVideo frameworks。  
+
+我们创建了一个[小工程](https://github.com/crystax/android-samples-opengl)，用于展示如何使用Objective-C v2同时开发 iOS 和 Android。  
+
+请注意! 所有 Objective-C v2 特性仅支持 LLVM/clang 工具链构建。如果您使用 `ndk-build`，最简单的用法是添加如下内容到您的 `Application.mk` :  
+
+### Application.mk
+
+```
+# Application.mk
+NDK_TOOLCHAIN_VERSION := clang
+# Or this one, if you want to be explicit regarding version:
+#NDK_TOOLCHAIN_VERSION := clang3.7
+```
+
+## Python for Android
+我们提供了预编译的 **python-2.7** 和 **python-3.5** 二进制文件（可执行文件，库和头文件），支持所有 Andr​​oid ABI 。与 CrystaX NDK 所有其他预编译库相同，Python 的二进制文件使用官方源包编译，未经任何修改。这是我们的一贯做法：当某些模块无法通过编译，我们不会去修改那些特定模块或软件。相反，我们修正**CrystaX NDK**，使自身的运行表现更加符合规范（POSIX和事实标准，如GNU/Linux的运行表现）。  
+
+Python 支持，到目前为止运行良好，但它仍处于实验阶段。尚未像其他模块一样经过全面测试，可能仍会有些许错误和遗漏部分。如果您发现任何问题，请不要犹豫，向我们[反馈](https://www.crystax.net/cn/android/ndk#feedback)！  
+
+在此我们郑重感谢 [Vitaly Murashev](https://github.com/vmurashev) - **CrystaX NDK**能够支持Python，主要是他的功劳。这也就是开源的优势：为了兴趣做事，并与他人分享成果。谢谢你，Vitaly！  
+
+预编译的Python二进制文件位于 **$NDK/sources/python/2.7** 和 **$NDK/sources/python/3.5** 文件夹。如果你使用`NDK-build`，以下是一个关于如何在项目中使用Python库的例子：  
+
+### Android.mk
+```
+# Android.mk
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE           := mymodule
+LOCAL_SRC_FILES        := ...
+LOCAL_SHARED_LIBRARIES := python_shared
+include $(BUILD_SHARED_LIBRARY)
+
+# Replace 3.5 by 2.7 if needed
+$(call import-module,python/3.5)
+```
+
+## POSIX支持
+我们进一步优化了**CrystaX NDK**中的POSIX支持。在该版本，我们在`libcrystax.so`（**CrystaX NDK**的核心库）中实现了更多POSIX接口，更少的依赖Google的libc库。事实上，目前唯一非常依赖Google的libc的部分是POSIX线程；这也是我们打算在下一版本中重点解决的问题，使用`libcrystax.so`彻底替代Google的libc。  
+
+我们持续优化POSIX标准支持的成效之一，是我们已经集成 [Open POSIX Test Suite](http://posixtest.sourceforge.net/) 到**CrystaX NDK** 自动化测试流程中, 确保`libcrystax.so`提供符合标准的输出实现。  
+
+## Boost 1.59.0
+我们添加了 Boost 1.59.0 预编译库，同时支持 **GNU libstdc++** 和 **LLVM libc++** C++标准库实现。在之前版本，我们的Boost预编译库仅支持 **GNU libstdc++**，迫使开发者只能使用`gnustl`。现在您可以自由选择：`ndk-build`会自动检测并使用恰当的Boost预编译库。  
+
+同时，既然我们已经支持了Android Python，那么我们也开始着手构建和测试 Boost.Python。这项工作尚未彻底完成，相信在我们的努力下， 计日可待。  
+
+**CrystaX**是 Boost 项目正式认可的测试团队。这意味着我们为 Boost 项目提供了持续常规测试，并提交测试结果至 Boost 网站([master](http://www.boost.org/development/tests/master/developer/summary.html), [develop](http://www.boost.org/development/tests/develop/developer/summary.html))。这项工作使得 **CrystaX NDK** 和 **Boost** 项目双方均受益良多。Boost用户可以在Android平台上使用经过充分测试的Boost库。同时**CrystaX NDK**得以证明自身拥有针对POSIX和C++标准的优秀兼容性。  
+
+## 其他
+最后补充一点，我们还完成了若干缺陷修复和小改进，使**CrystaX NDK**表现更加出色。这里是一份我们在10.3.0版本中关闭的[任务清单](https://tracker.crystax.net/versions/40)。  
+
+## 下载
+从这里[下载](https://www.crystax.net/cn/android/ndk)使用CrystaX NDK 10.3.0 !
+
+如果您使用 OS X 和 Homebrew， 直接键入：  
+```
+brew install crystax-ndk
+```
