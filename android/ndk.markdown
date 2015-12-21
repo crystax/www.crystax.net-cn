@@ -197,9 +197,9 @@ Google's NDK只支持C C++. **CrystaX NDK**还支持Objective-C和Objective-C++.
 
 ##授权
 
-**CrystaX NDK**包含若干open-source licenses. 详见每个模块的版权声明文件.  
+**CrystaX NDK**包含若干开源许可证. 详见每个模块的版权声明文件.  
 请注意**CrystaX NDK**发布包中也包括编译器,链接器,文档等的预编译二进制文件. 工具链的源码在[GitHub](https://github.com/crystax/) (你可以使用[编译脚本](https://www.crystax.net/download/ndk-crystax-r10-build.sh)自动下载它).  
-预编译的GCC和其他二进制文件(GDB, binutils 等等)基于the GNU General Public License (GPL) 或 the GNU Lesser General Public License (LGPL). 详见COPYING and COPYING.LIB 位于 $NDK/toolchains/<toolchain>/prebuilt/<system>.  
+预编译的GCC和其他二进制文件(GDB, binutils 等等)基于the GNU General Public License (GPL) 或 the GNU Lesser General Public License (LGPL). 详见COPYING和COPYING.LIB,位于 $NDK/toolchains/<toolchain>/prebuilt/<system>.  
 预编译的LLVM/Clang工具链基于[LLVM "BSD" license](http://llvm.org/docs/DeveloperPolicy.html#license).  
 基本上, 授权规则等同于Google's Android NDK - 例如, 允许商业&非商业用途. 唯一区别是CrystaX部分, 基于BSD 2-clause license.  
 ```
@@ -237,7 +237,13 @@ authors and should not be interpreted as representing official policies, either 
 or implied, of CrystaX .NET.
 
 ```
-##下载  
+
+## 反馈
+我们坚持不懈地优化完善**CrystaX NDK**。但它也并非完美无瑕 - 万物皆如此。如果您发现任何缺陷，请提交反馈，我们会尽最大努力修正它。  
+同时，您可以使用[公共讨论组](https://groups.google.com/d/forum/crystax-ndk)探讨**CrystaX NDK**相关问题（例如，当您不确定某些问题是缺陷或特性）。您可以通过网页提交问题，或使用邮件列表：发送电子邮件至[crystax-ndk@googlegroups.com](mailto:crystax-ndk@googlegroups.com)。这是一个自组织的讨论组，所以如果您没能即时查看到您发布的内容，请不要担心；请容许我们花一些时间来查看和处理。  
+最后，如果以上方式无法满足您的需求，您也可以直接联系我们。
+
+## 下载  
 
 | **文件** | **大小** | **SHA1校验值** |
 | :--- | :--- | :--- |
