@@ -1,0 +1,811 @@
+之前我们介绍过如何在 [Android Studio 中使用 CrystaX NDK](https://www.crystax.net/cn/blog/3)。前些时候 Google 发布了一个 Android Studio 相关支持 NDK 开发的新(实验性)Gradle插件。 让我们来看看如何基于这个新插件使用 **CrystaX NDK**。  
+
+为了保持连贯性， 我们配合新插件的使用来重新梳理之前的文章， 依然是一个简单的UI应用程序，使用 Boost.Serialization。 使用 Boost 并不是为了理解 Gradle 实验性插件的新功能；我们使用 Boost 举例只是为了覆盖更多的使用场景。  
+
+在新 Gradle 插件中， Google放弃了旧的基于 GNU Make 的构建系统(ndk-build)。 现在 Gradle的 DSL 负责描述构建流程的每一步。对于那些不太熟悉旧 GNU Make 机制， 使用 IDE 来全权管理编译流程，不太关注 GNU Make 文件的开发者来说，这是个好消息。  
+
+然而，这种方式也存在一些缺点。最重要的一点是，在这种情况下，开发者需要更多的参与到使用 Gradle DSL 创建构建配置文件，更好地理解 Groovy。  
+
+接下来看看它具体如何实现。  
+
+## Java part
+首先，打开 Android Studio 并创建一个 Android 工程：  
+
+![screenshot1](https://www.crystax.net/blog/7/screenshot1.png)
+
+选择 "Android 4.0.3" 目标版本:  
+
+![screenshot2](https://www.crystax.net/blog/7/screenshot2.png)
+
+选择 空白 activity:  
+
+![screenshot3](https://www.crystax.net/blog/7/screenshot3.png)
+
+选择默认名称并点击 "Finish" 按钮:  
+
+![screenshot4](https://www.crystax.net/blog/7/screenshot4.png)
+
+## Gradle
+
+默认 Android Studio 会使用旧 Gradle 插件。这里切换到新的（实验性）。  
+
+首先打开并编辑若干文件：  
+
+### build.gradle.diff
+```
+diff --git a/build.gradle b/build.gradle
+index e0b366a..a4d7068 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -5,7 +5,7 @@ buildscript {
+         jcenter()
+     }
+     dependencies {
+-        classpath 'com.android.tools.build:gradle:1.5.0'
++        classpath 'com.android.tools.build:gradle-experimental:0.3.0-alpha7'
+
+         // NOTE: Do not place your application dependencies here; they belong
+         // in the individual module build.gradle files
+```
+![screenshot5](https://www.crystax.net/blog/7/screenshot5.png)
+
+### gradle/wrapper/gradle-wrapper.properties.diff
+```
+diff --git a/gradle/wrapper/gradle-wrapper.properties b/gradle/wrapper/gradle-wrapper.properties
+index f23df6e..bfcae0a 100644
+--- a/gradle/wrapper/gradle-wrapper.properties
++++ b/gradle/wrapper/gradle-wrapper.properties
+@@ -3,4 +3,4 @@ distributionBase=GRADLE_USER_HOME
+ distributionPath=wrapper/dists
+ zipStoreBase=GRADLE_USER_HOME
+ zipStorePath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-2.8-all.zip
++distributionUrl=https\://services.gradle.org/distributions/gradle-2.6-all.zip
+```
+![screenshot6](https://www.crystax.net/blog/7/screenshot6.png)
+
+### app/build.gradle.diff
+```
+diff --git a/app/build.gradle b/app/build.gradle
+index 3fd571b..d9b2bf0 100644
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -1,20 +1,23 @@
+-apply plugin: 'com.android.application'
++apply plugin: 'com.android.model.application'
+
+-android {
+-    compileSdkVersion 23
+-    buildToolsVersion "23.0.2"
++model {
++    android {
++        compileSdkVersion = 23
++        buildToolsVersion = "23.0.2"
+
+-    defaultConfig {
+-        applicationId "net.crystax.examples.testboost2"
+-        minSdkVersion 15
+-        targetSdkVersion 23
+-        versionCode 1
+-        versionName "1.0"
++        defaultConfig.with {
++            applicationId = "net.crystax.testboost2"
++            minSdkVersion.apiLevel = 15
++            targetSdkVersion.apiLevel = compileSdkVersion.asType(Integer)
++            versionCode = 1
++            versionName = "1.0"
++        }
+     }
+-    buildTypes {
++
++    android.buildTypes {
+         release {
+-            minifyEnabled false
+-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
++            minifyEnabled = false
++            proguardFiles += file('proguard-rules.pro')
+         }
+     }
+ }
+```
+![screenshot7](https://www.crystax.net/blog/7/screenshot7.png)
+
+现在打开 local.properties 添加指向 CrystaX NDK 的路径，如下：  
+![screenshot8](https://www.crystax.net/blog/7/screenshot8.png)
+
+```
+sdk.dir=/opt/android/android-sdk-mac
+ndk.dir=/opt/android/crystax-ndk-10.3.0
+```
+
+对于 Windows 用户，路径中的反斜杠和冒号需要被标注:  
+```
+sdk.dir=C\:\\android\\android-sdk-mac
+ndk.dir=C\:\\android\\crystax-ndk-10.3.0
+```
+
+生效 Gradle 修改：  
+
+![screenshot9](https://www.crystax.net/blog/7/screenshot9.png)
+
+## Layout
+
+现在修改 `app/res/layout/content_main.xml` 如下所示:  
+
+### content_main.xml.diff
+```
+diff --git a/app/src/main/res/layout/content_main.xml b/app/src/main/res/layout/content_main.xml
+index ec3933f..077dacc 100644
+--- a/app/src/main/res/layout/content_main.xml
++++ b/app/src/main/res/layout/content_main.xml
+@@ -13,7 +13,9 @@
+     tools:showIn="@layout/activity_main">
+
+     <TextView
++        android:id="@+id/text"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:text="Hello World!" />
++        />
++
+ </RelativeLayout>
+```
+
+### content_main.xml
+```
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="net.crystax.examples.testboost2.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+</RelativeLayout>
+```
+
+## MainActivity  
+添加以下代码至 `MainActivity.onCreate()`:  
+```java
+TextView field = (TextView)findViewById(R.id.text);
+field.setText(getGPSCoordinates(getFilesDir().getAbsolutePath()));
+```
+
+添加 native 方法的声明到 MainActivity 类:  
+```java
+private native String getGPSCoordinates(String rootPath);
+```
+
+同样的，别忘记在静态初始化部分添加 native 库的加载逻辑：  
+```java
+static {
+    System.loadLibrary("test-boost2");
+}
+```
+
+以下是修改部分：  
+
+### MainActivity.java.diff
+```java
+diff --git a/app/src/main/java/net/crystax/examples/testboost2/MainActivity.java b/app/src/main/java/net/crystax/examples/testboost2/MainActivity.java
+index f9c0821..0519122 100644
+--- a/app/src/main/java/net/crystax/examples/testboost2/MainActivity.java
++++ b/app/src/main/java/net/crystax/examples/testboost2/MainActivity.java
+@@ -8,9 +8,16 @@ import android.support.v7.widget.Toolbar;
+ import android.view.View;
+ import android.view.Menu;
+ import android.view.MenuItem;
++import android.widget.TextView;
+
+ public class MainActivity extends AppCompatActivity {
+
++    static {
++        System.loadLibrary("test-boost2");
++    }
++
++    private native String getGPSCoordinates(String rootPath);
++
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+@@ -26,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
+                         .setAction("Action", null).show();
+             }
+         });
++
++        TextView field = (TextView) findViewById(R.id.text);
++        field.setText(getGPSCoordinates(getFilesDir().getAbsolutePath()));
+     }
+
+     @Override
+```
+
+`MainActivity.java` 的最终内容应该如下所示：  
+
+### MainActivity.java
+```java
+package net.crystax.examples.testboost2;
+
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    static {
+        System.loadLibrary("test-boost2");
+    }
+
+    private native String getGPSCoordinates(String rootPath);
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
+        TextView field = (TextView)findViewById(R.id.text);
+        field.setText(getGPSCoordinates(getFilesDir().getAbsolutePath()));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}
+```
+我们已经完成了这个应用程序的 Java 部分，现在切换到 native 部分。  
+## Native 部分
+首先我们在 `app/build.gradle` 中启用 native 编译：  
+
+### app/build.gradle.diff
+```
+diff --git a/app/build.gradle b/app/build.gradle
+index d9b2bf0..4debb04 100644
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -14,6 +14,15 @@ model {
+         }
+     }
+
++    android.ndk {
++        moduleName = "test-boost2"
++        cppFlags += "-std=c++11"
++        cppFlags += "-fexceptions"
++        cppFlags += "-frtti"
++        stl = "gnustl_shared"
++    }
++
+     android.buildTypes {
+         release {
+             minifyEnabled = false
+```
+
+然后打开 `MainActivity.java` 添加 native 方法的实现：  
+
+![screenshot10](https://www.crystax.net/blog/7/screenshot10.png)
+
+它会创建 `app/src/main/jni/test-boost2.c` 文件。现在把它重命名为 `app/src/main/jni/test.cpp` ，并添加另外两个文件： `app/src/main/jni/gps.hpp` 和 `app/src/main/jni/gps.cpp`。  
+
+### app/src/main/jni/gps.hpp
+```cpp
+#ifndef GPS_HPP_7D5AF29629F64210BE00F3AF697BA650
+#define GPS_HPP_7D5AF29629F64210BE00F3AF697BA650
+
+#include <string>
+
+// include headers that implement a archive in simple text format
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
+
+/////////////////////////////////////////////////////////////
+// gps coordinate
+//
+// illustrates serialization for a simple type
+//
+class gps_position
+{
+private:
+    friend class boost::serialization::access;
+    friend std::ostream &operator<<(std::ostream &, gps_position const &);
+    // When the class Archive corresponds to an output archive, the
+    // & operator is defined similar to <<.  Likewise, when the class Archive
+    // is a type of input archive the & operator is defined similar to >>.
+    template<class Archive>
+    void serialize(Archive & ar, const unsigned int version)
+    {
+        ar & degrees;
+        ar & minutes;
+        ar & seconds;
+    }
+    int degrees;
+    int minutes;
+    float seconds;
+public:
+    gps_position(){}
+    gps_position(int d, int m, float s) :
+            degrees(d), minutes(m), seconds(s)
+    {}
+
+    bool operator==(gps_position const &g) const
+    {
+        return degrees == g.degrees &&
+               minutes == g.minutes &&
+               seconds == g.seconds;
+    }
+
+    bool operator!=(gps_position const &g) const
+    {
+        return !(*this == g);
+    }
+};
+
+void save(std::string const &root, gps_position const &g);
+void load(std::string const &root, gps_position &g);
+
+#endif // GPS_HPP_7D5AF29629F64210BE00F3AF697BA650
+```
+
+### app/src/main/jni/gps.cpp
+```cpp
+#include <fstream>
+
+#include "gps.hpp"
+
+const char *FILENAME = "gps.dat";
+
+std::ostream &operator<<(std::ostream &s, gps_position const &g)
+{
+    s << "GPS(" << g.degrees << "/" << g.minutes << "/" << g.seconds << ")";
+    return s;
+}
+
+void save(std::string const &root, gps_position const &g)
+{
+    // create and open a character archive for output
+    std::ofstream ofs(root + "/" + FILENAME);
+    boost::archive::text_oarchive oa(ofs);
+    // write class instance to archive
+    oa << g;
+    // archive and stream closed when destructors are called
+}
+
+void load(std::string const &root, gps_position &g)
+{
+    // create and open an archive for input
+    std::ifstream ifs(root + "/" + FILENAME);
+    boost::archive::text_iarchive ia(ifs);
+    // read class state from archive
+    ia >> g;
+    // archive and stream closed when destructors are called
+}
+```
+
+### app/src/main/jni/test.cpp
+
+```cpp
+#include <jni.h>
+
+#include <string.h>
+#include <stdlib.h>
+
+#include <string>
+#include <exception>
+#include <sstream>
+
+#include <android/log.h>
+
+#define LOG(fmt, ...) __android_log_print(ANDROID_LOG_INFO, "TEST-BOOST", fmt, ##__VA_ARGS__)
+
+#include "gps.hpp"
+
+std::string gps(std::string const &root)
+{
+    const gps_position g(35, 59, 24.567f);
+    save(root, g);
+
+    gps_position newg;
+    load(root, newg);
+
+    std::ostringstream ostr;
+
+    if (g != newg)
+    return std::string();
+
+    ostr << "GPS coordinates: " << newg;
+    return ostr.str();
+}
+
+extern "C"
+jstring
+Java_net_crystax_examples_testboost2_MainActivity_getGPSCoordinates( JNIEnv* env,
+                                                                    jobject thiz,
+                                                                    jstring rootPath )
+{
+    const char *s = env->GetStringUTFChars(rootPath, 0);
+    std::string root(s);
+    env->ReleaseStringUTFChars(rootPath, s);
+    LOG("root: %s", root.c_str());
+
+    try {
+        std::string ret = gps(root);
+        return env->NewStringUTF(ret.c_str());
+    }
+    catch (std::exception &e) {
+        LOG("ERROR: %s", e.what());
+        abort();
+    }
+    catch (...) {
+        LOG("Unknown error");
+        abort();
+    }
+}
+```
+
+最后我们添加新任务和帮助类方法到 `app/build.gradle`：  
+### app/build.gradle.diff
+```
+diff --git a/app/build.gradle b/app/build.gradle
+index 3da6874..b5642f9 100644
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -1,5 +1,10 @@
++import org.gradle.internal.os.OperatingSystem;
++
+ apply plugin: 'com.android.model.application'
+ 
++final APP_ABIS = ["armeabi", "armeabi-v7a", "x86"]
++final BOOST_SHARED_LIBS = ["boost_serialization"]
++
+ model {
+     android {
+         compileSdkVersion = 23
+@@ -15,10 +20,14 @@ model {
+     }
+ 
+     android.ndk {
++        toolchain = "gcc"
++        toolchainVersion = "5"
+         moduleName = "test-boost2"
+         cppFlags += "-std=c++11"
+         cppFlags += "-fexceptions"
+         cppFlags += "-frtti"
++        cppFlags += "-I" + getBoostIncDir()
++        ldLibs.addAll BOOST_SHARED_LIBS
+         ldLibs += "log"
+         stl = "gnustl_shared"
+     }
+@@ -29,6 +38,62 @@ model {
+             proguardFiles += file('proguard-rules.pro')
+         }
+     }
++
++    android.productFlavors {
++        APP_ABIS.each { abi ->
++            create(getFlavorName(abi)) {
++                ndk.with {
++                    abiFilters += abi
++                    getPrebuiltLibPaths(abi).each { path ->
++                        ldFlags += "-L" + path
++                    }
++                }
++            }
++        }
++    }
++}
++
++tasks.all {
++    task ->
++        if (task.name.startsWith('link')) {
++            task.dependsOn copyNativeLibs, stripNativeLibs
++        }
++}
++
++task copyNativeLibs {
++    ["debug", "release"].each { buildType ->
++        APP_ABIS.each { abi ->
++            def libs = [:]
++            BOOST_SHARED_LIBS.each { name ->
++                libs[name] = "${getBoostLibDir(abi)}/lib${name}.so"
++            }
++            libs.crystax = getLibCrystax(abi)
++
++            libs.each { name, file ->
++                dependsOn tasks.create(name: "copy-native-library-${name}-${abi}-${buildType}", type: Copy) {
++                    from file
++                    into getTargetLibDir(abi, buildType)
++                }
++            }
++        }
++    }
++}
++
++task stripNativeLibs(dependsOn: copyNativeLibs) {
++    ["debug", "release"].each { buildType ->
++        APP_ABIS.each { abi ->
++            def libs = []
++            libs.addAll(BOOST_SHARED_LIBS)
++            libs += "crystax"
++
++            libs.each { name ->
++                dependsOn tasks.create(name: "strip-native-library-${name}-${abi}-${buildType}", type: Exec) {
++                    commandLine getStripExecutable(abi), "--strip-unneeded", "${getTargetLibDir(abi, buildType)}/lib${name}.so"
++                }
++            }
++
++        }
++    }
+ }
+ 
+ dependencies {
+@@ -37,3 +102,152 @@ dependencies {
+     compile 'com.android.support:appcompat-v7:23.1.1'
+     compile 'com.android.support:design:23.1.1'
+ }
++
++def getNdkDir() {
++    if (System.env.ANDROID_NDK_ROOT != null)
++        return System.env.ANDROID_NDK_ROOT
++
++    Properties properties = new Properties()
++    properties.load(project.rootProject.file('local.properties').newDataInputStream())
++    def ndkdir = properties.getProperty('ndk.dir', null)
++    if (ndkdir == null)
++        throw new GradleException("""\
++                NDK location not found.
++                Define location with ndk.dir in the local.properties file
++                or with an ANDROID_NDK_ROOT environment variable.""")
++
++    return ndkdir
++}
++
++def getCrystaxNdkDir() {
++    def ndkDir = getNdkDir()
++    if (!(new File(ndkDir, "sources/crystax").exists()))
++        throw new GradleException("""\
++            '${ndkDir}' is not a CrystaX NDK.
++            Edit ndk.dir in local.properties or set ANDROID_NDK_ROOT
++            environment variable pointing to CrystaX NDK""")
++
++    return ndkDir
++}
++
++def getFlavorName(abi) {
++    switch (abi) {
++        case "armeabi":
++            return "arm";
++        case "armeabi-v7a":
++            return "arm7"
++        case "arm64-v8a":
++            return "arm64"
++        default:
++            return abi.replaceAll('-', '_')
++    }
++}
++
++def getToolchainName(abi) {
++    switch (abi) {
++        case ~/^armeabi.*/:
++            return "arm-linux-androideabi"
++        case ~/^arm64.*/:
++            return "aarch64-linux-android"
++        case "mips":
++            return "mipsel-linux-android"
++        case "mips64":
++            return "mips64el-linux-android"
++        case ["x86", "x86_64"]:
++            return abi
++        default:
++            throw new GradleException("Unsupported ABI: '${abi}'")
++    }
++}
++
++def getToolchainPrefix(abi) {
++    switch (abi) {
++        case ~/^armeabi.*/:
++            return "arm-linux-androideabi"
++        case ~/^arm64.*/:
++            return "aarch64-linux-android"
++        case "mips":
++            return "mipsel-linux-android"
++        case "mips64":
++            return "mips64el-linux-android"
++        case "x86":
++            return "i686-linux-android"
++        case "x86_64":
++            return "x86_64-linux-android"
++        default:
++            throw new GradleException("Unsupported ABI: '${abi}'")
++    }
++}
++
++def getHostOS() {
++    if (OperatingSystem.current().isLinux())
++        return "linux"
++    if (OperatingSystem.current().isMacOsX())
++        return "darwin"
++    if (OperatingSystem.current().isWindows())
++        return "windows"
++    throw new GradleException("Unsupported host OS")
++}
++
++def getHostArch() {
++    def arch = System.getProperty("os.arch")
++    switch (arch) {
++        case ["x86_64", "amd64"]:
++            return "x86_64"
++        case ~/^i[3456]86/:
++        case "x86":
++            return "x86"
++        default:
++            throw new GradleException("Can't detect host's CPU architecture: '${arch}'")
++    }
++}
++
++def getHostTag() {
++    def tag = getHostOS()
++    def arch = getHostArch()
++    if (tag != "windows" || arch != "x86")
++        tag += "-${arch}"
++    return tag
++}
++
++def getStripExecutable(abi) {
++    def ndk = getCrystaxNdkDir()
++    def toolchainName = getToolchainName(abi)
++    def toolchainPrefix = getToolchainPrefix(abi)
++    def hostTag = getHostTag()
++    def strip = "${ndk}/toolchains/${toolchainName}-5/prebuilt/${hostTag}/bin/${toolchainPrefix}-strip"
++    if (OperatingSystem.current().isWindows())
++        strip = strip.replaceAll('/', '\\\\') + '.exe'
++    return strip
++}
++
++def getPrebuiltLibPaths(abi) {
++    def paths = []
++    paths += getBoostLibDir(abi)
++    paths += getLibCrystaxDir(abi)
++    return paths
++}
++
++def getTargetLibDir(abi, buildType) {
++    return "${buildDir}/intermediates/binaries/${buildType}/${getFlavorName(abi)}/lib/${abi}"
++}
++
++def getLibCrystaxDir(abi) {
++    return "${getCrystaxNdkDir()}/sources/crystax/libs/${abi}"
++}
++
++def getLibCrystax(abi) {
++    return "${getLibCrystaxDir(abi)}/libcrystax.so"
++}
++
++def getBoostDir() {
++    return "${getCrystaxNdkDir()}/sources/boost/1.59.0"
++}
++
++def getBoostIncDir() {
++    return "${getBoostDir()}/include"
++}
++
++def getBoostLibDir(abi) {
++    return "${getBoostDir()}/libs/${abi}/gnu-5"
++}
+```
+
+## 文件树状列表
+`TestBoost2/app` 文件夹的源代码文件结构应该看上去如下所示：  
+
+```
+.
+├── app.iml
+├── build.gradle
+├── libs
+├── proguard-rules.pro
+└── src
+    ├── androidTest
+    │   └── java
+    │       └── net
+    │           └── crystax
+    │               └── examples
+    │                   └── testboost2
+    │                       └── ApplicationTest.java
+    ├── main
+    │   ├── AndroidManifest.xml
+    │   ├── java
+    │   │   └── net
+    │   │       └── crystax
+    │   │           └── examples
+    │   │               └── testboost2
+    │   │                   └── MainActivity.java
+    │   ├── jni
+    │   │   ├── gps.cpp
+    │   │   ├── gps.hpp
+    │   │   └── test.cpp
+    │   └── res
+    │       ├── drawable
+    │       ├── layout
+    │       │   ├── activity_main.xml
+    │       │   └── content_main.xml
+    │       ├── menu
+    │       │   └── menu_main.xml
+    │       ├── mipmap-hdpi
+    │       │   └── ic_launcher.png
+    │       ├── mipmap-mdpi
+    │       │   └── ic_launcher.png
+    │       ├── mipmap-xhdpi
+    │       │   └── ic_launcher.png
+    │       ├── mipmap-xxhdpi
+    │       │   └── ic_launcher.png
+    │       ├── mipmap-xxxhdpi
+    │       │   └── ic_launcher.png
+    │       ├── values
+    │       │   ├── colors.xml
+    │       │   ├── dimens.xml
+    │       │   ├── strings.xml
+    │       │   └── styles.xml
+    │       ├── values-v21
+    │       │   └── styles.xml
+    │       └── values-w820dp
+    │           └── dimens.xml
+    └── test
+        └── java
+            └── net
+                └── crystax
+                    └── examples
+                        └── testboost2
+                            └── ExampleUnitTest.java
+```
+
+## 最终成果
+完成！现在像往常一样编译工程 (Build -> Make Project) 并在设备上运行它。这里是运行结果的一个截屏：  
+
+![screenshot11](https://www.crystax.net/blog/7/screenshot11.png)
+
+## 示例项目
+方便起见，我们上传了一份即时可用的项目到[GitHub](https://github.com/crystax/android-samples-android-studio/tree/example-2015-12-11)。 请随意签出查阅。  
