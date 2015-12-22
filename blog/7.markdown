@@ -2,7 +2,7 @@
 
 之前我们介绍过如何在 [Android Studio 中使用 CrystaX NDK](https://www.crystax.net/cn/blog/3)。前些时候 Google 发布了一个 Android Studio 相关支持 NDK 开发的新(实验性)Gradle插件。 让我们来看看如何基于这个新插件使用 **CrystaX NDK**。  
 
-为了保持连贯性， 我们配合新插件的使用来重新梳理之前的文章， 依然是一个简单的UI应用程序，使用 Boost.Serialization。 使用 Boost 并不是为了理解 Gradle 实验性插件的新功能；我们使用 Boost 举例只是为了覆盖更多的使用场景。  
+为了保持连贯性， 我们配合新插件的使用来重新梳理之前的文章， 依然是一个简单的UI应用程序，使用 Boost.Serialization。 使用 Boost 并不是为了配合 Gradle 实验性插件的新功能；我们使用 Boost 举例只是为了覆盖更多的使用场景。  
 
 在新 Gradle 插件中， Google放弃了旧的基于 GNU Make 的构建系统(`ndk-build`)。 现在 Gradle的 DSL 负责描述构建流程的每一步。对于那些不太熟悉旧 GNU Make 机制， 使用 IDE 来全权管理编译流程，不太关注 GNU Make 文件的开发者来说，这是个好消息。  
 
