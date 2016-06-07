@@ -1,0 +1,29 @@
+如您所知，GCC 6来了。它拥有许多新特性，包括针对C++17的实验性支持（新规范，**std::invoke**，**std::shared_mutex**,等等）和许多新警告，帮助开发者编写更加安全可靠的代码。事实上，GCC 6，如果启用所有警告功能，可以完全替代某些静态代码扫描分析工具。  
+  
+没有必要在此列出所有GCC 6的特性。对此感兴趣者可以到其他网站查阅即将发布的GCC 6的相关信息（例如，[这里](http://developerblog.redhat.com/2016/02/23/upcoming-features-in-gcc-6/)和[这里](https://gnu.wildebeest.org/blog/mjw/2016/02/15/looking-forward-to-gcc6-many-new-warnings/)）。但是我想分享一些关于使用GCC 6进行Android开发的信息，特别是，**CrystaX NDK**中GCC的未来发展。  
+  
+如您所知，Google的最新版Android NDK（目前是r10e）支持GCC和Clang工具链。但是，GCC和Clang的版本都略落伍：GCC版本是4.9，Clang版本是3.6。在2015年下半年，Google的NDK开放分支表现非常活跃，看上去好像Google在准备显著改善NDK。特别是，Android开发环境将不再支持GCC，唯一支持的工具链将是Clang。在[CHANGELOG.md](https://android.googlesource.com/platform/ndk/+/master/CHANGELOG.md)中明确表达了这一点。  
+  
+>+ NDK中的GCC目前已被废弃。
+>+ 如果你还未开始使用Clang，现在是时候了，如果你遇到任何关于Clang的bug，请提交给我们！
+>+ NDK不会升级到GCC 5.x，也不再接收非严重的补丁更新。
+>+ 4.9版本的编译缺失和内部编译器错误的维护工作视个别情况而定。
+  
+当然，Google有权利做任何它想做的事情，例如放弃支持GCC。但是，我们认为这件事它做错了，尤其是考虑到GCC这些年的发展变化 - 所以我们绝对不会在CrystaX NDK中放弃支持GCC。事实上，虽然LLVM/Clang已经是一个非常优秀的项目，已经发展到非常好的质量，但是GCC仍然在很多方面领先于Clang。生活告诉我们，对于用户来说，有多个竞争产品可选，总是好过依赖唯一选项。这正是GCC/Clang的写照 - 互相竞争并互相促进，从而用户得利。  
+  
+牢记这一点，我们在最新发布的**CrystaX NDK 10.3.1**中已经集成了最新版的 GCC 5.3 ，使我们的用户在Android开发中能够使用所有最新的GCC的特性；现在是时候集成 GCC 6 了，虽然它尚未正式发布。GCC 6 目前处于[缺陷回归和文档补全阶段](https://gcc.gnu.org/ml/gcc/2016-01/msg00168.html)，我们已经尝试将它集成进**CrystaX NDK**，目前通过了全部自动化测试验证，我们很高兴的宣布GCC 6 用于Android开发已经几近臻于完美。  
+  
+剩余待修复的两个缺陷是 [#1292](https://tracker.crystax.net/issues/1292) 和 [#1293](https://tracker.crystax.net/issues/1293)。以下是详细分析：  
+  
+**编译test-gabi++时产生的内部编译器错误 ( [#1292](https://tracker.crystax.net/issues/1292) )**  
+通过对比GCC 5，这明显是GCC 6的一个缺陷。目前来看，这个缺陷对Android 没有影响，所以我们期待由 GCC上游修复。另外一个类似的缺陷[#68730](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=68730)已经被记录并关闭，所以我们不确定这两者之间是否有联系。无论如何，我们会提交缺陷到GCC的缺陷跟踪系统，尽快处理并解决这个问题，非常有望在GCC 6发布时解决完毕。  
+  
+**gcc-6 的 GOT_PREL 优化失效( [#1293](https://tracker.crystax.net/issues/1293) )**  
+通过对比GCC 5，这是我们自己的缺陷。简单地说，GCC针对在内存地址无关代码中访问全局变量，生成了低效率的代码实现。这个缺陷已经被[提交](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=43129)到 GCC 的缺陷跟踪系统，但长期处于开放状态，未能得到解决。在2011年，Guozhi Wei 在Google的GCC分支上提交了一个补丁，所以该分支上已修复。我们维护**CrystaX NDK**自己的 GCC 分支，力求与FSF的分支保持一致，同时也会从Google的分支上引入一些重要特性。这个补丁很重要，所以我们已经将它移植到**CrystaX NDK 10.3.1**的GCC 5.3中。但由于GCC的优化相关代码实现改动非常大，目前较难把这个补丁合并到GCC 6版本中。尝试进行合入后（解决掉明显的冲突），由于GCC内部结构和优化的改动问题，导致无法编译。  
+  
+长话短说：这明显是我们的问题，所以我们会努力快速修复。但是目前尚无进展，它并不会对您的应用造成太大影响，除非您使用了大量的全局变量（这样本身就不太好）。  
+  
+**结论**  
+经过上述分析，现在开始使用GCC 6恰当其时，不需要等到完整发布阶段。我们确信GCC 6新增的这些智能特性会明显改善您的项目代码质量，以及对C++17的支持 - 它已经非常接近C++真实标准，拥有许多重要特性，使得C++开发更加强大。所以赶紧动起来吧，不要再观望了。  
+  
+我们会尽快发布集成GCC 6的 **CrystaX NDK** 新版本。与此同时，您可以使用我们的日常构建版本[https://dl.crystax.net/builds/](https://dl.crystax.net/builds/)。注意，从构建号#810之后开始支持GCC 6。如遇任何问题，请及时[联系](https://www.crystax.net/cn/contact)，我们非常欢迎！  
