@@ -1,3 +1,5 @@
+## GCC 6的Android进展
+  
 如您所知，GCC 6来了。它拥有许多新特性，包括针对C++17的实验性支持（新规范，**std::invoke**，**std::shared_mutex**,等等）和许多新警告，帮助开发者编写更加安全可靠的代码。事实上，GCC 6，如果启用所有警告功能，可以完全替代某些静态代码扫描分析工具。  
   
 没有必要在此列出所有GCC 6的特性。对此感兴趣者可以到其他网站查阅即将发布的GCC 6的相关信息（例如，[这里](http://developerblog.redhat.com/2016/02/23/upcoming-features-in-gcc-6/)和[这里](https://gnu.wildebeest.org/blog/mjw/2016/02/15/looking-forward-to-gcc6-many-new-warnings/)）。但是我想分享一些关于使用GCC 6进行Android开发的信息，特别是，**CrystaX NDK**中GCC的未来发展。  
