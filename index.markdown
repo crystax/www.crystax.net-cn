@@ -10,6 +10,35 @@
 有趣吧? CrystaX NDK给Android开发者们带来了哪些新特性, 请[查看更多信息](https://www.crystax.net/cn/android/ndk).  
 #新闻  
   
+##[GCC 6的Android进展](https://www.crystax.net/cn/blog/8)  2016.02.27 06:45  
+  
+如您所知，GCC 6来了。它拥有许多新特性， 包括针对C++17的实验性支持（新规范，**std::invoke**，**std::shared_mutex**,等等） 和许多新警告，帮助开发者编写更加安全可靠的代码。事实上，GCC 6， 如果启用所有警告功能，可以完全替代某些静态代码扫描分析工具。  
+  
+没有必要在此列出所有GCC 6的特性。对此感兴趣者可以到其他网站查阅即将发布的GCC 6的相关信息 （例如，[这里](http://developerblog.redhat.com/2016/02/23/upcoming-features-in-gcc-6/) 和 [这里](https://gnu.wildebeest.org/blog/mjw/2016/02/15/looking-forward-to-gcc6-many-new-warnings/) ）。但是我想分享一些关于使用GCC 6进行Android开发的信息，特别是，**CrystaX NDK**中GCC的未来发展。  
+  
+[阅读全文](https://www.crystax.net/cn/blog/8)  
+  
+##[Android Studio 实验性 Gradle 插件与 CrystaX NDK 的配合使用](https://www.crystax.net/cn/blog/7)  2015.12.14 14:20  
+  
+之前我们介绍过如何在 [Android Studio 中使用 CrystaX NDK](https://www.crystax.net/cn/blog/3) 。前些时候 Google 发布了一个 Android Studio 相关支持 NDK 开发的新(实验性)Gradle插件。 让我们来看看 如何基于这个新插件使用 **CrystaX NDK**。  
+  
+为了保持连贯性， 我们配合新插件的使用来重新梳理之前的文章， 依然是一个简单的UI应用程序，使用 Boost.Serialization。 使用 Boost 并不是为了配合 Gradle 实验性插件的新功能；我们使用 Boost 举例只 是为了覆盖更多的使用场景。  
+  
+[阅读全文](https://www.crystax.net/cn/blog/7)  
+  
+##[CrystaX NDK 10.3.0 已发布!](https://www.crystax.net/cn/blog/6)  2015.12.14 14:18  
+我们很高兴的宣布 **CrystaX NDK 10.3.0** 已发布!  
+  
+这次发布的重大更新有：  
+  
++ 更新GCC和LLVM/clang工具链  
++ Objective-C v2支持的重大优化  
++ 初步支持 Android 平台 Python (2.7 和 3.5)  
+  
+另外，我们修复大量缺陷并增加若干优化改进。详见下文。  
+
+[阅读全文](https://www.crystax.net/cn/blog/6)  
+  
 ##[CrystaX NDK 10.2.0 已发布!](https://www.crystax.net/cn/blog/5)  06/24/2015 03:01 PM  
   
 我们很高兴的宣布**CrystaX NDK 10.2.0**已发布!  
