@@ -18,6 +18,12 @@
   
 [阅读全文](https://www.crystax.net/cn/blog/8)  
   
+##[CrystaX NDK 10.3.1补丁版本发布](https://www.crystax.net/cn/android/ndk#download)  2015.12.25 19:13  
+  
+最新版本 **CrystaX NDK 10.3.1** 已经可以下载使用。这是一个补丁版本，我们修复了若干严重缺陷。[这里](https://tracker.crystax.net/projects/ndk/issues?query_id=63)是已修复问题的详情。  
+  
+[阅读全文](https://www.crystax.net/cn/android/ndk#download)  
+  
 ##[Android Studio 实验性 Gradle 插件与 CrystaX NDK 的配合使用](https://www.crystax.net/cn/blog/7)  2015.12.14 14:20  
   
 之前我们介绍过如何在 [Android Studio 中使用 CrystaX NDK](https://www.crystax.net/cn/blog/3) 。前些时候 Google 发布了一个 Android Studio 相关支持 NDK 开发的新(实验性)Gradle插件。 让我们来看看 如何基于这个新插件使用 **CrystaX NDK**。  
