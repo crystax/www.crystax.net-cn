@@ -10,6 +10,12 @@
 有趣吧? CrystaX NDK给Android开发者们带来了哪些新特性, 请[查看更多信息](https://www.crystax.net/cn/android/ndk).  
 #新闻  
   
+##[CrystaX NDK 10.3.2补丁版本发布](https://www.crystax.net/cn/android/ndk#download)  2016.08.03 16:43  
+  
+最新版本 **CrystaX NDK 10.3.2** 已经可以下载使用。这是一个补丁版本，我们修复了`getauxval()`实现中的一个严重缺陷。[这里](https://tracker.crystax.net/projects/ndk/issues?query_id=69)是相关详情。  
+  
+[阅读全文](https://www.crystax.net/cn/android/ndk#download)  
+  
 ##[GCC 6的Android进展](https://www.crystax.net/cn/blog/8)  2016.02.27 06:45  
   
 如您所知，GCC 6来了。它拥有许多新特性， 包括针对C++17的实验性支持（新规范，**std::invoke**，**std::shared_mutex**,等等） 和许多新警告，帮助开发者编写更加安全可靠的代码。事实上，GCC 6， 如果启用所有警告功能，可以完全替代某些静态代码扫描分析工具。  
