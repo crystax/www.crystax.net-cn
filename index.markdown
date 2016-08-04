@@ -12,7 +12,7 @@
   
 ##[CrystaX NDK 10.3.2补丁版本发布](https://www.crystax.net/cn/android/ndk#download)  2016.08.03 16:43  
   
-最新版本 **CrystaX NDK 10.3.2** 已经可以下载使用。这是一个补丁版本，我们修复了`getauxval()`实现中的一个严重缺陷。[这里](https://tracker.crystax.net/projects/ndk/issues?query_id=63)是相关详情。  
+最新版本 **CrystaX NDK 10.3.2** 已经可以下载使用。这是一个补丁版本，我们修复了`getauxval()`实现中的一个严重缺陷。[这里](https://tracker.crystax.net/projects/ndk/issues?query_id=69)是相关详情。  
   
 [阅读全文](https://www.crystax.net/cn/android/ndk#download)  
   
